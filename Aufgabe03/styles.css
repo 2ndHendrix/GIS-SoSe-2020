@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+body {
+    background-image: url(bg.png);
+    font-family: sans-serif;
+}
+
+
+nav a {
+
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    margin-left: 19px;
+    margin-right: 10px;
+}
+
+nav {
+    color: white;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    margin-left: 50%;
+    width: 320px;
+    border-radius: 20px;
+}
+
+#a1, #a2, #a3{
+    color: orange;
+}
+
+
+#wichtig1 a:hover{
+    color: brown;
+}
+#wichtig2 a:hover{
+    color: brown;
+}
+#wichtig3 a:hover{
+    color: brown;
+}
+
+.uberschrift{
+
+    background-color: rgba(156, 17, 7, 0.849);
+    margin-left: 33%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    margin-top: -180px;
+    color: white;
+    text-align: center;
+}
+
+.uberschrift h1 {
+    padding-top: 200px;
+    font-size: 70px;
+}
+
+.uberschrift h2 {
+    font-size: 30px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.uberschrift img{
+    height: 20px;
+    margin-top: 70px;
+}
+
+.uberschrift img:hover{
+    height: 30px;
+}
+
+#clown{
+    width: 800px;
+    height: 50px;
+}
+
+#clown:hover{
+    height: 900px;
+}
+
+#magier,#nix{
+    width: 800px;
+}
+
+
+main div{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    
+}
+
+
+form {
+    margin-left: 33%;
+    margin-right:50%;
+}
+
+h3{
+    color: rgb(158, 30, 30);
+    font-size: 40px;
+}
+form p{
+    font-size: 8px;
+}
+input, textarea{
+    margin-top: 10px;
+    background-color: rgb(199, 199, 199);
+    border: none;
+    color: white;
+}
+
+textarea{
+    height: 40px;
+    width: 300px;
+}
+
+#bild2{
+    width: 800px;
+}
+#boxmodell{
+    width: 800px;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    border: black;
+}
