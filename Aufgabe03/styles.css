@@ -25,6 +25,19 @@ nav {
     border-radius: 20px;
 }
 
+#menü {
+    position: fixed;
+    list-style: none;
+    background-color: black;
+    width: 260px;
+    padding-inline-start: 0px;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 4px;
+    margin-top: 0px;
+}
+
 #a1, #a2, #a3{
     color: orange;
 }
