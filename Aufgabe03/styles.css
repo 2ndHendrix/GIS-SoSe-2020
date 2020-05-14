@@ -37,6 +37,10 @@ nav {
     padding: 4px;
     margin-top: 0px;
 }
+.menüTable {
+    display: inline;
+    padding: 3px;
+}
 
 #a1, #a2, #a3{
     color: orange;
