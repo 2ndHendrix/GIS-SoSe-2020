@@ -42,11 +42,11 @@ nav {
 
 .kreisText {
     height: 1px;
-    background-color: palevioletred;
-    width: 798px;
-    border: 1px solid palevioletred ;
-    border-bottom-right-radius: 399px;
-    border-bottom-left-radius: 399px;
+    background-color: rgb(42, 165, 108);
+    width: 750;
+    border: 1px solid black ;
+    border-bottom-right-radius: 350px;
+    border-bottom-left-radius: 350px;
     padding-left: 30px;
     padding-bottom: 400px;
     margin-bottom: 80px;
@@ -54,8 +54,8 @@ nav {
 
 .siteHeader {
     text-align: left;
-    color: beige;
-    font-size: 130px;
+    color: white;
+    font-size: 120px;
     margin-top: 0px;
     margin-bottom: 20px;
     letter-spacing: -12px;
@@ -66,7 +66,7 @@ nav {
     color: black;
     padding-left: 300px;
     padding-right: 100px;
-    font-size: 16px;
+    font-size: 40px;
     font-weight: 700;
 }
 
