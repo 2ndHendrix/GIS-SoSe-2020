@@ -30,17 +30,17 @@ nav {
 }
 
 
-#wichtig1 a:hover{
+#navid1 a:hover{
     color: brown;
 }
-#wichtig2 a:hover{
+#navid2 a:hover{
     color: brown;
 }
-#wichtig3 a:hover{
+#navid3 a:hover{
     color: brown;
 }
 
-.uberschrift{
+.ueberschrift1{
 
     background-color: rgba(156, 17, 7, 0.849);
     margin-left: 33%;
