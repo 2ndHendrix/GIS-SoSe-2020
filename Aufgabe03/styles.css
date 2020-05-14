@@ -29,9 +29,9 @@ nav {
     position: fixed;
     list-style: none;
     background-color: black;
-    width: 260px;
+    width: 350px;
     padding-inline-start: 0px;
-    border: none;
+    border: 1px solid black;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 4px;
