@@ -31,7 +31,7 @@ nav {
     background-color: black;
     width: 260px;
     padding-inline-start: 0px;
-    border: 1px solid black;
+    border: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 4px;
@@ -78,14 +78,15 @@ nav {
     letter-spacing: -12px;
 }
 
-.textHeader {
+.secHeadText {
     text-align: left;
     color: white;
     padding-left: 300px;
     padding-right: 100px;
-    font-size: 40px;
+    font-size: 60px;
     font-weight: 700;
 }
+
 
 #icons {
     text-align: left;
