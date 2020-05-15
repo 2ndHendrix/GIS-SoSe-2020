@@ -13,13 +13,13 @@
         <nav>
             <ul id ="menü">
                 <li class="menüTable"> 
-                    <a href="portfolio.html"> Portfolio </a>     
+                    <a  href="portfolio.html">PORTFOLIO </a>     
                 </li>
                 <li class="menüTable">
-                    <a href="about_me.html"> About Me</a>
+                    <a href="about_me.html">ABOUT ME</a>
                 </li>
                 <li class="menüTable">
-                    <a id="a3" href="contact.html"> Contact </a> 
+                    <a id="a3" href="contact.html">KONTAKT</a> 
                 </li>
             </ul>
         </nav>
@@ -28,26 +28,51 @@
 
     <main>
         <div class="mainText">
-                <h1 class="siteHeader">Kontakt</h1>
-                    <h4 class="secHeadText">Herzlich Willkommen</h4>
-                        <p class="headerText" >Contact me</p>
+                <h1 class="siteHeader">portfolio</h1>
+                    <p class="headerSubText" >my works</p>
+                        <p class="headerText">Herzlich Willkommen auf meinen Kontakten. <br> Hier könnt Ihr mich Kontaktieren <br>Ich hoffe es gefällt euch</p>
+
+                     
+                        
 
                <div id="icons">
                     <a href="https://www.instagram.com/goethestolemylunch/" target="blank">
-                        <img src="instagram-icon.png" target="blank" height="35" alt="instagram-icon"></a>
+                        <img src="instagram-icon.png"  target="blank" height="35" alt="instagram-icon" class="iconHover"></a>
     
                     <a href="https://open.spotify.com/user/1163823951?si=RkUGn3ioQjmAs6z1w2HhXw" target="blank">
-                        <img src="spotify-icon.png" target="blank" height="35" alt="spotify-icon"></a>
+                        <img src="spotify-icon.png" target="blank" height="35" alt="spotify-icon" class="iconHover"></a>
     
                     <a href="https://soundcloud.com/user-479616050-130397367" target="blank">
-                        <img src="soundcloud-icon.png" target="blank" height="35" alt="soundcloud-icon" ></a>
+                        <img src="soundcloud-icon.png"  target="blank" height="35" alt="soundcloud-icon" class="iconHover" ></a>
                </div>
         </div>
 
+<h4>KONTAKT</h4>
 
+        <form id="formular">
+            <div>
+                <input placeholder="Vorname" onfocus="this.value=''" type="text" class="formInput" name="besuchername">
+            </div>
+            <div>
+                <input placeholder="Nachname" onfocus="this.value=''" type="text" class="formInput" name="besuchername">
+            </div>
+            <div>
+                <input placeholder="E-Mail" onfocus="this.value=''" type="email" class="formInput" name="besuchermail">
+            </div>
+            <div>
+                <textarea placeholder="Nachricht" id="nachricht" name="nachricht" cols="20" rows="5"></textarea>
+            </div>
 
-            
-    </main>
+            <p class="datenschutz">Mit Absenden der Nachricht bestätige ich den <a href="https://www.surveymonkey.de/mp/legal/privacy-policy/" > Datenschutz</a></p>
+            <div>
+                <button class="formButton">Absenden</button>
+            </div>
+
+        </form>
+        </main>
 
 </body>
+<footer class="footer p">
+
+    <p>All pictures, videos, and music copyright by Manuel Hubert</p>
 </html>
