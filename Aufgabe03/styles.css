@@ -256,12 +256,16 @@ textarea{
     width: 300px;
 }
 
+.kollegen{
+    text-align: left;
+}
+
 #boxmodell{
-    width: 800px;
-    height: 100px;
+    width: 400px;
+    height: 150px;
     padding: 10px;
     margin: 10px;
-    border: black;
+    border: solid black;
 }
 
 .a2{
