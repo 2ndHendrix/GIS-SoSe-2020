@@ -1,0 +1,301 @@
+@charset "utf-8";
+
+body {
+    margin-top: -20px;
+    margin-bottom: 0px;
+    background-image: url(bg.png);
+    width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+nav a {
+
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    margin-left: 19px;
+    margin-right: 10px;
+}
+
+nav {
+    color: white;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    margin-left: 50%;
+    width: 320px;
+    border-radius: 20px;
+}
+
+#menü {
+    position: fixed;
+    list-style: none;
+    background-color: black;
+    width: 450px;
+    padding-inline-start: 0px;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 4px;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+.menüTable {
+    display: inline;
+}
+
+.menüTable:hover {
+    background-color: rgb(55, 85, 51);
+    transition: 0.15s;
+}
+
+#a1, #a2, #a3{
+    color: rgb(42, 165, 108);
+}
+
+
+#navid1 a:hover{
+    color: rgb(42, 165, 108);
+}
+#navid2 a:hover{
+    color: rgb(42, 165, 108);
+}
+#navid3 a:hover{
+    color: rgb(42, 165, 108);
+}
+
+.datenschutz{
+font-size: 10px;
+color: grey;
+}
+
+.mainText {
+    height: 1px;
+    background-color: rgb(42, 165, 108);
+    width: 750;
+    border: none;
+    border-bottom-right-radius: 400px;
+    border-bottom-left-radius: 400px;
+    padding-left: 30px;
+    padding-bottom: 250px;
+    padding-bottom: 420px;
+    margin-bottom: 80px;
+}
+
+.siteHeader {
+    text-align: left;
+    color: white;
+    font-size: 180px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    letter-spacing: -12px;
+    padding-left: 100px;
+}
+
+.headerSubText {
+    text-align: left;
+    color: white;
+    padding-left: 300px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top:0px;
+}
+
+.headerText {
+    text-align: left;
+    color: white;
+    padding-left: 300px;
+    padding-right: 100px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#icons {
+    text-align: left;
+    padding-left: 300px;
+}
+.iconHover {
+    opacity: 0.5;
+}
+
+.iconHover:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.iconmusic{
+    text-align: left;
+}
+.music{
+    text-align: left;
+}
+
+.ueberschrift h1 {
+    padding-top: 200px;
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: left;
+    margin-right: 20px;
+    color: rgb(42, 165, 108);
+}
+
+h4 {
+    font-size: 30px;
+    text-align: left;
+    margin-right: 20px;
+    color: rgb(42, 165, 108);
+}
+
+h3
+{
+    text-align: left;
+    color: rgb(42, 165, 108);
+    font-size: 40px;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 30px;
+    margin-block-end: 30px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+footer p{
+    display: block;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+    color: white;
+}
+
+p {
+    display: block;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+}
+
+.h2_stil{
+    font-size: 30px;
+    text-align: left;
+    margin-right: 20px;
+    color: rgb(42, 165, 108);
+    padding-top:20px;
+
+}
+
+.pictures{
+    margin-bottom: 30px;
+
+}
+
+.downloads{
+    margin-top: 30px;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+main div{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;  
+}
+
+
+.portrait-image{
+    right: 0px;
+    width: 300px;
+}
+
+form {
+    margin-left: 33%;
+    margin-right:50%;
+}
+
+
+input, textarea{
+    background-color: rgb(199, 199, 199);
+    border: none;
+    color: white;
+}
+
+textarea{
+    height: 40px;
+    width: 300px;
+}
+
+.kollegen{
+    text-align: left;
+}
+
+#boxmodell{
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+    border: solid black;
+}
+
+.a2{
+    text-align:left;
+}
+
+#formular {
+    text-align: left;
+}
+
+form {
+    margin-left: 0%;
+    margin-right: 50%;
+}
+
+.randy{
+    text-align: left;
+}
+
+footer{
+    display: inline;
+background-color: rgb(42, 165, 108);
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    border: 0px none none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+}
+
