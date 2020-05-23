@@ -272,94 +272,124 @@ footer{
 
 
 
-.header-contain {
-    background-image: url(header-img.jpg);
-    height: 300px;
-    z-index: 3;
-    margin-top: -60px;
-    position: fixed;
-    width: 100%;
-}
+@media (min-width: 601px) and (max-width:  1024px){ 
 
-.logo {
-    background-image: url(logo.png);
-    width: 100px;
-    height: 100px;
-    margin-top: 60px;
-    z-index: 3;
-    position: relative;
-    top: 49px;
-    left: 15px;
-}
+    .header-contain {
+        background-image: url(header-img.jpg);
+        height: 300px;
+        z-index: 3;
+        margin-top: -60px;
+        position: fixed;
+        width: 100%;
+    }
 
+    .logo {
+        background-image: url(logo.png);
+        width: 100px;
+        height: 100px;
+        margin-top: 60px;
+        z-index: 3;
+        position: relative;
+        top: 49px;
+        left: 115px;
+    }
 
+    a:hover {
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 5px;
+        color: black;
+    }
+
+    
 .text-centered span.border {
-background-color: grey;
-color: #fff;
-padding: 18px;
-font-size: 25px;
-letter-spacing: 10px;
-opacity: 85%;
-margin-left: 100px;
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 35px;
+    letter-spacing: 10px;
+    opacity: 85%;
+    margin-left: 84px;
 }
 
 .menü {
-position: fixed;
-margin-left: 24px;
-padding: 10px;
+    position: fixed;
+    margin-left: 263px;
+    padding: 10px;
 }
 
 img[alt="shopping cart"] {
-width: 30px;
-height: 30px;
-right: 30px;
-position: absolute;
-border: none;
-margin-top: 2px;
+    width: 30px;
+    height: 30px;
+    right: 530px;
+    position: absolute;
+    border: none;
+    margin-top: 2px;
 }
 
 .mainbody {
-padding-top: 300px;
-max-width: 600px;
+    padding-top: 250px;
+    max-width: 1024px;
+    width:1023px;
 }
+
+.articles {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 123px;
+}
+
 
 .artikel {
-width: 40%;
+    width: 30%;
 }
 
-main{
-    width: 200px;
-}   
-main div div{
-   margin: 0px;
-   margin-bottom: 20px;
+    main{
+        width: 200px;
+    }   
+    main div div{
+       margin: 0px;
+       margin-bottom: 20px;
+   }
+   main  div{
+       margin: 0px;
+      
+   }
+   h2{
+       text-align: center;
+   }
+   
+   img[src="Logo.png"]{
+       height: 50px;
+       width: 50px;
+      
+   }
+
+   h3 {
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    margin-left: 50px;
+    padding-left: 50px;
 }
-main  div{
-   margin: 0px;
-  
-}
-h2{
-   text-align: center;
+footer {
+    display: inline;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    border: 0px none none;
+    margin-top: 50px;
+    display: block;
+    opacity: 80%;
+    width: 1024px;
 }
 
-img[src="Logo.png"]{
-   height: 50px;
-   width: 50px;
-  
 }
 
-
-
-h3 {
-text-align: left;
-color: black;
-font-size: 40px;
-margin-left: 50px;
-}
-}
-
-
-   @media (max-width:  1024) and (min-width: 600){ 
+   
+   @media (max-width: 600px){ 
 
 
     .header-contain {
@@ -381,7 +411,13 @@ margin-left: 50px;
         top: 49px;
         left: 15px;
     }
-
+    
+    a:hover {
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 5px;
+        color: black;
+    }
     
 .text-centered span.border {
     background-color: grey;
@@ -409,7 +445,7 @@ img[alt="shopping cart"] {
 }
 
 .mainbody {
-    padding-top: 300px;
+    padding-top: 240px;    
     max-width: 600px;
 }
 
