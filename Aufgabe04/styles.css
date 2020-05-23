@@ -113,7 +113,7 @@ a:-webkit-any-link {
         margin-top: 2px;
     }
 
-    img#a1:hover{
+    img#a3:hover{
         background-color: white;
         padding: 2.5px;
         margin-top: 0px;
@@ -272,25 +272,94 @@ footer{
 
 
 
-@media (max-width:  1024px){ 
+.header-contain {
+    background-image: url(header-img.jpg);
+    height: 300px;
+    z-index: 3;
+    margin-top: -60px;
+    position: fixed;
+    width: 100%;
+}
 
-    main{
-        width: 600px;
-    }   
+.logo {
+    background-image: url(logo.png);
+    width: 100px;
+    height: 100px;
+    margin-top: 60px;
+    z-index: 3;
+    position: relative;
+    top: 49px;
+    left: 15px;
+}
 
-    main>div {
-        margin-left: 50px;
-        margin-right: 50px;
-        
-    }
 
-    h2{
-        text-align: center;
-    }
-   
-   }
- ---------------------------  
-   @media (max-width:  600px){ 
+.text-centered span.border {
+background-color: grey;
+color: #fff;
+padding: 18px;
+font-size: 25px;
+letter-spacing: 10px;
+opacity: 85%;
+margin-left: 100px;
+}
+
+.menü {
+position: fixed;
+margin-left: 24px;
+padding: 10px;
+}
+
+img[alt="shopping cart"] {
+width: 30px;
+height: 30px;
+right: 30px;
+position: absolute;
+border: none;
+margin-top: 2px;
+}
+
+.mainbody {
+padding-top: 300px;
+max-width: 600px;
+}
+
+.artikel {
+width: 40%;
+}
+
+main{
+    width: 200px;
+}   
+main div div{
+   margin: 0px;
+   margin-bottom: 20px;
+}
+main  div{
+   margin: 0px;
+  
+}
+h2{
+   text-align: center;
+}
+
+img[src="Logo.png"]{
+   height: 50px;
+   width: 50px;
+  
+}
+
+
+
+h3 {
+text-align: left;
+color: black;
+font-size: 40px;
+margin-left: 50px;
+}
+}
+
+
+   @media (max-width:  1024) and (min-width: 600){ 
 
 
     .header-contain {
