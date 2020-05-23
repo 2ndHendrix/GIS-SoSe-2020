@@ -4,7 +4,7 @@ body {
     margin-top: -20px;
     margin-bottom: 0px;
     background-image: url(bg.png);
-    width: 800px;
+    width: 100%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -22,150 +22,229 @@ nav a {
 }
 
 nav {
-    color: white;
-    background-color: black;
     position: sticky;
     top: 0;
-    margin-left: 50%;
     width: 320px;
     border-radius: 20px;
 }
 
-#menü {
+.menü {
     position: fixed;
-    list-style: none;
-    background-color: black;
-    width: 450px;
-    padding-inline-start: 0px;
-    border: 1px solid black;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 4px;
-    margin-left: 30px;
-    margin-top: 0px;
-}
-.menüTable {
-    display: inline;
-}
-
-.menüTable:hover {
-    background-color: rgb(55, 85, 51);
-    transition: 0.15s;
-}
-
-#a1, #a2, #a3{
-    color: rgb(42, 165, 108);
+    margin-left: 350px;
+    padding: 10px;
 }
 
 
-#navid1 a:hover{
-    color: rgb(42, 165, 108);
+
+.header-contain {
+    background-image: url(header-img.jpg);
+    height: 300px;
+    z-index: 3;
+    margin-top: -60px;
+    position: fixed;
+    width: 100%;
 }
-#navid2 a:hover{
-    color: rgb(42, 165, 108);
+
+.text-centered {
+    color: white;
+    font-size: 120px;
+    font-family: sans-serif;
+    margin-top: -100px;
 }
-#navid3 a:hover{
-    color: rgb(42, 165, 108);
+
+.text-centered span.border{
+        background-color: grey;
+        color: #fff;
+        padding: 18px;
+        font-size: 50px;
+        letter-spacing: 10px;
+        opacity: 85%;
+
 }
+.text-centered span.border2{
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 20px;
+    letter-spacing: 10px;
+    opacity: 85%;
+
+}
+
+.mainbody{
+    padding-top: 300px;
+}
+
+.articles {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.artikel{
+    width:30%;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+
+.logo {
+    background-image: url(logo.png);
+    width: 100px;
+    height: 100px;
+    margin-top: 60px;
+    z-index:3;
+    position: relative;
+    top: 40px;
+    left: 150px;
+    }
+
+    img[alt="shopping cart"] {
+        width: 30px;
+        height: 30px;
+        right: 900px    ;
+        position: absolute;
+        border:none;
+        margin-top: 2px;
+    }
+
+    img#a1:hover{
+        background-color: white;
+        padding: 2.5px;
+        margin-top: 0px;
+    }
+
+
+    .divider {
+        background-color: grey;
+        height: 35px;
+        width: 100%;
+        margin-top: 67px;
+        position: fixed;
+        opacity: 80%;
+    }
+
+
+div>img {
+    height: 200px;
+    width: 200px;
+    border-style: outset;
+    border-color: black;
+    float: left;
+    margin-bottom: 20px;
+    }  
+
+    input, textarea {
+        background-color: rgb(199, 199, 199);
+        border: none;
+        color: white;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+   
+a:hover{
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 5px;
+    color: black;
+}
+
 
 .datenschutz{
 font-size: 10px;
 color: grey;
 }
 
-.mainText {
-    height: 1px;
-    background-color: rgb(42, 165, 108);
-    width: 750;
-    border: none;
-    border-bottom-right-radius: 400px;
-    border-bottom-left-radius: 400px;
-    padding-left: 30px;
-    padding-bottom: 250px;
-    padding-bottom: 420px;
-    margin-bottom: 80px;
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
-.siteHeader {
-    text-align: left;
-    color: white;
-    font-size: 180px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    letter-spacing: -12px;
-    padding-left: 100px;
+li {
+    list-style: none;
+    background-color: lightgray;
+    width: 150px;
+    border-radius: 20px;
+    border-style: solid;
 }
 
-.headerSubText {
-    text-align: left;
-    color: white;
-    padding-left: 300px;
-    font-size: 30px;
-    font-weight: 700;
-    margin-top:0px;
-}
-
-.headerText {
-    text-align: left;
-    color: white;
-    padding-left: 300px;
-    padding-right: 100px;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-#icons {
-    text-align: left;
-    padding-left: 300px;
-}
-.iconHover {
-    opacity: 0.5;
-}
-
-.iconHover:hover{
-    opacity: 1;
-    transition: 0.3s;
-}
-
-.iconmusic{
-    text-align: left;
-}
-.music{
-    text-align: left;
-}
-
-.ueberschrift h1 {
-    padding-top: 200px;
-    font-size: 70px;
-}
 
 h2 {
-    font-size: 30px;
+    font-size: 15px;
     text-align: left;
-    margin-right: 20px;
-    color: rgb(42, 165, 108);
+    margin-right: 15px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-h4 {
-    font-size: 30px;
-    text-align: left;
-    margin-right: 20px;
-    color: rgb(42, 165, 108);
-}
 
 h3
 {
     text-align: left;
-    color: rgb(42, 165, 108);
+    color: black;
     font-size: 40px;
+    margin-left: -50px;
 }
 
 h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-right: 20px;
+    color: white;
     display: block;
     margin-block-start: 30px;
     margin-block-end: 30px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+
+
+p {
+    display: block;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+}
+
+  
+
+main div{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;  
+}
+
+main>div {
+        
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input:hover{
+    background-color: black;
+}
+
+input, textarea{
+    background-color: rgb(199, 199, 199);
+    border: none;
+    color: white;
+    padding: 5px;
 }
 
 footer p{
@@ -178,124 +257,126 @@ footer p{
     color: white;
 }
 
-p {
-    display: block;
-    margin-block-start: 20px;
-    margin-block-end: 20px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    text-align: left;
-}
-
-.h2_stil{
-    font-size: 30px;
-    text-align: left;
-    margin-right: 20px;
-    color: rgb(42, 165, 108);
-    padding-top:20px;
-
-}
-
-.pictures{
-    margin-bottom: 30px;
-
-}
-
-.downloads{
-    margin-top: 30px;
-}
-
-div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-  }
-  
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
-  
-  div.gallery img {
-    width: 100%;
-    height: auto;
-  }
-  
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }
-
-main div{
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;  
-}
-
-
-.portrait-image{
-    right: 0px;
-    width: 300px;
-}
-
-form {
-    margin-left: 33%;
-    margin-right:50%;
-}
-
-
-input, textarea{
-    background-color: rgb(199, 199, 199);
-    border: none;
-    color: white;
-}
-
-textarea{
-    height: 40px;
-    width: 300px;
-}
-
-.kollegen{
-    text-align: left;
-}
-
-#boxmodell{
-    width: 400px;
-    height: 150px;
-    padding: 10px;
-    margin: 10px;
-    border: solid black;
-}
-
-.a2{
-    text-align:left;
-}
-
-#formular {
-    text-align: left;
-}
-
-form {
-    margin-left: 0%;
-    margin-right: 50%;
-}
-
-.randy{
-    text-align: left;
-}
-
 footer{
     display: inline;
-background-color: rgb(42, 165, 108);
+    background-color: grey;
     color: white;
     text-align: center;
     padding: 10px 10px 30px 10px;
     border: 0px none none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     margin-top: 50px;
     width: 100%;
     display: block;
+    opacity: 80%;
 }
 
+
+
+@media (max-width:  1024px){ 
+
+    main{
+        width: 600px;
+    }   
+
+    main>div {
+        margin-left: 50px;
+        margin-right: 50px;
+        
+    }
+
+    h2{
+        text-align: center;
+    }
+   
+   }
+ ---------------------------  
+   @media (max-width:  600px){ 
+
+
+    .header-contain {
+        background-image: url(header-img.jpg);
+        height: 300px;
+        z-index: 3;
+        margin-top: -60px;
+        position: fixed;
+        width: 100%;
+    }
+
+    .logo {
+        background-image: url(logo.png);
+        width: 100px;
+        height: 100px;
+        margin-top: 60px;
+        z-index: 3;
+        position: relative;
+        top: 49px;
+        left: 15px;
+    }
+
+    
+.text-centered span.border {
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    opacity: 85%;
+    margin-left: 100px;
+}
+
+.menü {
+    position: fixed;
+    margin-left: 24px;
+    padding: 10px;
+}
+
+img[alt="shopping cart"] {
+    width: 30px;
+    height: 30px;
+    right: 30px;
+    position: absolute;
+    border: none;
+    margin-top: 2px;
+}
+
+.mainbody {
+    padding-top: 300px;
+    max-width: 600px;
+}
+
+.artikel {
+    width: 40%;
+}
+
+    main{
+        width: 200px;
+    }   
+    main div div{
+       margin: 0px;
+       margin-bottom: 20px;
+   }
+   main  div{
+       margin: 0px;
+      
+   }
+   h2{
+       text-align: center;
+   }
+   
+   img[src="Logo.png"]{
+       height: 50px;
+       width: 50px;
+      
+   }
+
+ 
+
+h3 {
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    margin-left: 50px;
+}
+}
+   
+      
