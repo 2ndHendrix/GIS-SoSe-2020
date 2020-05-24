@@ -34,6 +34,48 @@ nav {
     padding: 10px;
 }
 
+.account {
+    border: 2px solid rgb(255, 255, 255);
+    max-width: 800px;
+    max-height: 800px;
+    display: table;
+    position: relative;
+    background: lightgrey;
+    margin: 0 auto;
+    color: white;
+    padding: 32px 34px 32px 32px;
+    opacity: 70%;
+}
+
+.account>h1 {
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+label{
+    color: white;
+    font-size: 28px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.loginButton {
+    color: black;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+
+.account>img{
+    float: right;
+    border-color: transparent;
+    height: 200px;
+    width: 200px;
+    margin-top: 18px;
+    padding-right: 19px;
+}
 
 
 .header-contain {
@@ -101,13 +143,12 @@ a:-webkit-any-link {
     z-index:3;
     position: relative;
     top: 40px;
-    left: 150px;
-    }
+    left: 95px;    }
 
     img[alt="shopping cart"] {
         width: 30px;
         height: 30px;
-        right: 900px    ;
+        right: 290px    ;
         position: absolute;
         border:none;
         margin-top: 2px;
@@ -130,14 +171,14 @@ a:-webkit-any-link {
     }
 
 
-div>img {
-    height: 200px;
-    width: 200px;
-    border-style: outset;
-    border-color: black;
-    float: left;
-    margin-bottom: 20px;
-    }  
+    div>img {
+        height: 200px;
+        width: 200px;
+        border-style: outset;
+        border-color: black;
+        float: left;
+        margin-bottom: 20px;
+        }  
 
     input, textarea {
         background-color: rgb(199, 199, 199);
@@ -162,26 +203,9 @@ color: grey;
 }
 
 
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
 
-li {
-    list-style: none;
-    background-color: lightgray;
-    width: 150px;
-    border-radius: 20px;
-    border-style: solid;
-}
-
-
-h2 {
+h2
+ {
     font-size: 15px;
     text-align: left;
     margin-right: 15px;
@@ -258,16 +282,16 @@ footer p{
 }
 
 footer{
-    display: inline;
     background-color: grey;
     color: white;
     text-align: center;
     padding: 10px 10px 30px 10px;
-    border: 0px none none;
     margin-top: 50px;
     width: 100%;
     display: block;
     opacity: 80%;
+    min-width: 600px;
+
 }
 
 
@@ -321,7 +345,7 @@ footer{
 img[alt="shopping cart"] {
     width: 30px;
     height: 30px;
-    right: 530px;
+    right: 380px;
     position: absolute;
     border: none;
     margin-top: 2px;
@@ -345,20 +369,6 @@ img[alt="shopping cart"] {
     width: 30%;
 }
 
-    main{
-        width: 200px;
-    }   
-    main div div{
-       margin: 0px;
-       margin-bottom: 20px;
-   }
-   main  div{
-       margin: 0px;
-      
-   }
-   h2{
-       text-align: center;
-   }
    
    img[src="Logo.png"]{
        height: 50px;
@@ -374,12 +384,10 @@ img[alt="shopping cart"] {
     padding-left: 50px;
 }
 footer {
-    display: inline;
     background-color: grey;
     color: white;
     text-align: center;
     padding: 10px 10px 30px 10px;
-    border: 0px none none;
     margin-top: 50px;
     display: block;
     opacity: 80%;
@@ -411,7 +419,7 @@ footer {
         top: 49px;
         left: 15px;
     }
-    
+
     a:hover {
         background-color: white;
         padding: 10px;
@@ -438,7 +446,7 @@ footer {
 img[alt="shopping cart"] {
     width: 30px;
     height: 30px;
-    right: 30px;
+    right: 180px;    
     position: absolute;
     border: none;
     margin-top: 2px;
@@ -447,6 +455,7 @@ img[alt="shopping cart"] {
 .mainbody {
     padding-top: 240px;    
     max-width: 600px;
+    padding-left: 13px;
 }
 
 .artikel {
