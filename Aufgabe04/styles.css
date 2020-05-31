@@ -149,10 +149,9 @@ a:-webkit-any-link {
     img[alt="shopping cart"] {
         width: 30px;
         height: 30px;
-        right: 290px    ;
-        position: absolute;
-        border:none;
+        right: 290px;
         margin-top: 2px;
+        position: fixed;
     }
 
     img#a3:hover{
@@ -358,7 +357,7 @@ img[alt="shopping cart"] {
     width: 30px;
     height: 30px;
     right: 380px;
-    position: absolute;
+    position: fixed;
     border: none;
     margin-top: 2px;
 }
@@ -459,7 +458,7 @@ img[alt="shopping cart"] {
     width: 30px;
     height: 30px;
     right: 180px;    
-    position: absolute;
+    position: fixed;
     border: none;
     margin-top: 2px;
 }
