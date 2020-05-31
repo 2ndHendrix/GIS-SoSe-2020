@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 body {
     margin-top: -20px;
     margin-bottom: 0px;
@@ -32,6 +33,16 @@ nav {
     position: fixed;
     margin-left: 350px;
     padding: 10px;
+}
+
+div#kategorie1 {
+    width: 1024px;
+    margin-left: -40px;
+}
+
+div#kategorie2 {
+    width: 1024px;
+    margin-left: -40px;
 }
 
 .account {
@@ -68,8 +79,12 @@ label{
     margin-top: 50px;
 }
 
+button {
+    margin-top: 46px;
+    margin-left: -432px;
+}
+
 .account>img{
-    float: right;
     border-color: transparent;
     height: 200px;
     width: 200px;
@@ -124,7 +139,8 @@ label{
 }
 
 .artikel{
-    width:30%;
+    display: grid;
+    margin-left: 0px;
 }
 
 a:-webkit-any-link {
@@ -220,7 +236,7 @@ h3
     text-align: left;
     color: black;
     font-size: 40px;
-    margin-left: -50px;
+    margin-left: -30px;
 }
 
 h4 {
@@ -243,19 +259,23 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     text-align: left;
+    margin-left: 230px;
 }
 
 
-    p#kategorie_women {
-        margin-top: -200px;
-        color: transparent;
-    }
+p#kategorie_women {
+    margin-top: -110px;
+    color: transparent;
+    margin-left: 0px;
+}
 
     p#mein_account{
-        margin-top: -200px;
+        margin-top: 10px;
         color: transparent;
     }
-
+    h3#h3Women{
+        left: 30px;
+    }
   
 
 main div{
@@ -307,6 +327,7 @@ footer{
 
 
 
+
 @media (min-width: 601px) and (max-width:  1024px){ 
 
     .header-contain {
@@ -336,6 +357,16 @@ footer{
         color: black;
     }
 
+    div#kategorie1 {
+        width: 601px;
+        margin-left: -40px;
+    }
+
+    div#kategorie2 {
+        width: 602px;
+        margin-left: -40px;
+    }
+
     
 .text-centered span.border {
     background-color: grey;
@@ -344,8 +375,7 @@ footer{
     font-size: 35px;
     letter-spacing: 10px;
     opacity: 85%;
-    margin-left: 84px;
-}
+    margin-left: -76px;}
 
 .menü {
     position: fixed;
@@ -372,8 +402,7 @@ img[alt="shopping cart"] {
     justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 123px;
-}
+    margin-left: 233px;}
 
 
 .artikel {
@@ -391,9 +420,38 @@ img[alt="shopping cart"] {
     text-align: left;
     color: black;
     font-size: 40px;
-    margin-left: 50px;
-    padding-left: 50px;
+    margin-left: -20px;
+    padding-left: 0px;
 }
+
+.account {
+    border: 2px solid rgb(255, 255, 255);
+    max-width: 490px;
+    max-height: 800px;
+    display: table;
+    position: relative;
+    background: lightgrey;
+    margin: 0px auto;
+    color: white;
+    padding: 32px 34px 32px 32px;
+    opacity: 70%;
+    margin-left: 160px;
+}
+
+.account>img {
+    border-color: transparent;
+    height: 200px;
+    width: 200px;
+    margin-top: 18px;
+    padding-right: 19px;
+}
+
+.loginButton {
+    color: black;
+    margin-left: 230px;
+    margin-top: 110px;
+}
+
 footer {
     background-color: grey;
     color: white;
@@ -437,6 +495,13 @@ footer {
         padding-bottom: 5px;
         color: black;
     }
+
+    .articles {
+        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 90px;
+    }
     
 .text-centered span.border {
     background-color: grey;
@@ -445,8 +510,7 @@ footer {
     font-size: 25px;
     letter-spacing: 10px;
     opacity: 85%;
-    margin-left: 100px;
-}
+    margin-left: -200px;}
 
 .menü {
     position: fixed;
@@ -457,7 +521,7 @@ footer {
 img[alt="shopping cart"] {
     width: 30px;
     height: 30px;
-    right: 180px;    
+    right: 450px;
     position: absolute;
     border: none;
     margin-top: 2px;

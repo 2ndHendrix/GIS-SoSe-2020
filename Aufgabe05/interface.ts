@@ -66,7 +66,7 @@ for (let index: number = 0; index < artikelMen.length; index++) {
 
     //BUY
     let kaufen: HTMLButtonElement = document.createElement("button");
-    kaufen.innerHTML = "Buy";
+    kaufen.innerHTML = "In den Warenkorb";
     document.getElementById("div1" + index)?.appendChild(kaufen);
 }
 
@@ -99,6 +99,6 @@ for (let index: number = 0; index < artikelWomen.length; index++) {
 
     //BUY
     let kaufen: HTMLButtonElement = document.createElement("button");
-    kaufen.innerHTML = "Buy";
+    kaufen.innerHTML = "In den Warenkorb";
     document.getElementById("div2" + index)?.appendChild(kaufen);
 }

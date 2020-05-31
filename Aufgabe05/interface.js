@@ -41,7 +41,7 @@ for (let index = 0; index < artikelMen.length; index++) {
     document.getElementById("div1" + index)?.appendChild(price);
     //BUY
     let kaufen = document.createElement("button");
-    kaufen.innerHTML = "Buy";
+    kaufen.innerHTML = "In den Warenkorb";
     document.getElementById("div1" + index)?.appendChild(kaufen);
 }
 //WOMEN
@@ -68,7 +68,7 @@ for (let index = 0; index < artikelWomen.length; index++) {
     document.getElementById("div2" + index)?.appendChild(price);
     //BUY
     let kaufen = document.createElement("button");
-    kaufen.innerHTML = "Buy";
+    kaufen.innerHTML = "In den Warenkorb";
     document.getElementById("div2" + index)?.appendChild(kaufen);
 }
 //# sourceMappingURL=tsInterface.js.map
