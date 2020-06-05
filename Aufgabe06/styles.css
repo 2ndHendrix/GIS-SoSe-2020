@@ -36,8 +36,15 @@ nav {
     padding: 10px;
 }
 
+div#kategorie1 {
+    width: 1024px;
+    margin-left: -40px;
+}
 
-
+div#kategorie2 {
+    width: 1024px;
+    margin-left: -40px;
+}
 
 .account {
     border: 2px solid rgb(255, 255, 255);
@@ -51,8 +58,7 @@ nav {
     padding: 32px 34px 32px 32px;
     opacity: 70%;
     width: 570px;
-    margin-left: 68px;
-    margin-top: 130px;
+    margin-left: -42px;
 }
 
 .account>h1 {
@@ -77,14 +83,8 @@ label{
 }
 
 button {
-    margin-top: 35px;
-    margin-left: 1px;
-    display: flex;
-}
-
-button:hover{
-    background-color: black;
-    color: white;
+    margin-top: 46px;
+    margin-left: -432px;
 }
 
 .account>img{
@@ -131,33 +131,19 @@ button:hover{
 
 }
 
-.mainbody {
-    padding-top: 140px;
+.mainbody{
+    padding-top: 220px;
 }
+
 .articles {
-    width: 100%;
-    position: relative;
-    top: 80px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .artikel{
-    
-        display: flex;
-        flex-wrap: wrap;
-    
-}
-
-.artikel div {
-    margin-bottom: 25px;
-    text-align: center;
-    float: left;
-    width: 40%;
-    padding: 20px;
-    padding-top: 20px;
-}
-
-.artikel div p {
-    margin-top: 0px;
+    display: grid;
+    margin-left: 0px;
 }
 
 a:-webkit-any-link {
@@ -448,6 +434,7 @@ img[alt="shopping cart"] {
     display: table;
     position: relative;
     background: lightgrey;
+    margin: 0px auto;
     color: white;
     padding: 32px 34px 32px 32px;
     opacity: 70%;
@@ -513,9 +500,10 @@ footer {
     }
 
     .articles {
-        width: 100%;
-        position: relative;
-        top: 80px;
+        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 90px;
     }
     
 .text-centered span.border {
