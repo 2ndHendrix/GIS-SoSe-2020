@@ -1,247 +1,125 @@
 "use strict";
-var Aufgabe06;
-(function (Aufgabe06) {
-    let gesamtpreis = 0.0;
-    let divElemAll = document.createElement("div");
-    divElemAll.setAttribute("class", "alleartikel");
-    let divHeader = document.createElement("div");
-    divHeader.setAttribute("class", "kategorie");
-    let hElemDiv = document.createElement("h1");
-    hElemDiv.setAttribute("id", "bier");
-    hElemDiv.innerHTML = "Dosenbier:";
-    divHeader.appendChild(hElemDiv);
-    divElemAll.appendChild(divHeader);
-    // Divs für Biere anlegen
-
-
-    for (let i = 0; i < Aufgabe06.articleMen.length; i++) {
-        let divElem = document.createElement("div");
-        divElem.setAttribute("class", "artikelMen");
-        divElem.id = "bierDivNr" + i;
-        divElemAll.appendChild(divElem);
-        let imgElem = document.createElement("img");
-        imgElem.setAttribute("src", Aufgabe06.articleBier[i].imgsrc);
-        imgElem.setAttribute("alt", Aufgabe06.articleBier[i].label);
-        divElem.appendChild(imgElem);
-        let h1Name = document.createElement("h1");
-        divElem.appendChild(h1Name);
-        h1Name.innerHTML = "Name:";
-        let pName = document.createElement("p");
-        divElem.appendChild(pName);
-        pName.innerHTML = Aufgabe06.articleBier[i].label;
-        let h1Elem = document.createElement("h1");
-        divElem.appendChild(h1Elem);
-        h1Elem.innerHTML = "Beschreibung:";
-        let pElem = document.createElement("p");
-        divElem.appendChild(pElem);
-        pElem.innerHTML = Aufgabe06.articleBier[i].description;
-        let h1Elem2 = document.createElement("h1");
-        divElem.appendChild(h1Elem2);
-        h1Elem2.innerHTML = "Preis:";
-        let pElem2 = document.createElement("p");
-        divElem.appendChild(pElem2);
-        pElem2.setAttribute("class", "preis");
-        pElem2.innerHTML = Aufgabe06.articleBier[i].price.toLocaleString("de-DE", {
-            style: "currency",
-            currency: "EUR",
-            maximumFractionDigits: 2
-        });
-        let buttonElem2 = document.createElement("button");
-        buttonElem2.innerHTML = "In den Einkaufswagen";
-        buttonElem2.addEventListener("click", handleClick);
-        divElem.appendChild(buttonElem2);
+var Aufgabe05;
+(function (Aufgabe05) {
+    window.addEventListener("load", init);
+    let clickCounter = 0;
+    let counterDisplay;
+    let counterPreis = 0;
+    let menDiv;
+    let womenDiv;
+    function init(_event) {
+        loadArtikel();
+        loadCategoryListeners();
+        counterDisplay = document.querySelector(".divider p");
     }
-    // Kategorie Header
-    let divHeader2 = document.createElement("div");
-    divHeader2.setAttribute("class", "kategorie");
-    let hElemDiv2 = document.createElement("h1");
-    hElemDiv2.setAttribute("id", "plüsch");
-    hElemDiv2.innerHTML = "Plüschtiere:";
-    divHeader2.appendChild(hElemDiv2);
-    divElemAll.appendChild(divHeader2);
-    // Divs für Tiere anlegen
-    for (let i = 0; i < Aufgabe06.articleTier.length; i++) {
-        let divElem = document.createElement("div");
-        divElem.setAttribute("class", "artikelTier");
-        divElem.id = "tierDivNr" + i;
-        divElemAll.appendChild(divElem);
-        let imgElem = document.createElement("img");
-        imgElem.setAttribute("src", Aufgabe06.articleTier[i].imgsrc);
-        imgElem.setAttribute("alt", Aufgabe06.articleTier[i].label);
-        divElem.appendChild(imgElem);
-        let h1Name = document.createElement("h1");
-        divElem.appendChild(h1Name);
-        h1Name.innerHTML = "Name:";
-        let pName = document.createElement("p");
-        divElem.appendChild(pName);
-        pName.innerHTML = Aufgabe06.articleTier[i].label;
-        let h1Elem = document.createElement("h1");
-        divElem.appendChild(h1Elem);
-        h1Elem.innerHTML = "Beschreibung:";
-        let pElem = document.createElement("p");
-        divElem.appendChild(pElem);
-        pElem.innerHTML = Aufgabe06.articleTier[i].description;
-        let h1Elem2 = document.createElement("h1");
-        divElem.appendChild(h1Elem2);
-        h1Elem2.innerHTML = "Preis:";
-        let pElem2 = document.createElement("p");
-        divElem.appendChild(pElem2);
-        pElem2.setAttribute("class", "preis");
-        pElem2.innerHTML = Aufgabe06.articleTier[i].price.toLocaleString("de-DE", {
-            style: "currency",
-            currency: "EUR",
-            maximumFractionDigits: 2
-        });
-        let buttonElem = document.createElement("button");
-        buttonElem.innerHTML = "In den Einkaufswagen";
-        buttonElem.addEventListener("click", handleClick);
-        divElem.appendChild(buttonElem);
-    }
-    let main = document.getElementById("main");
-    main.appendChild(divElemAll);
-    // Suchbar listener anlegen
-    let searchBar = document.getElementById("searchBar");
-    searchBar.addEventListener("keyup", handleSearch);
-    // Suche ausführen und Artikel ausblenden
-    function handleSearch(_event) {
-        let searchBar = _event.currentTarget;
-        let divId;
-        let counterBier = 0;
-        // Biere durchschauen
-        for (let i = 0; i < Aufgabe06.articleBier.length; i++) {
-            divId = "bierDivNr" + i;
-            if (document.getElementById(divId) != null) {
-                let divBier = document.getElementById(divId);
-                let childNodes = divBier.childNodes;
-                let title = childNodes[2].textContent;
-                if (title.toLowerCase().includes(searchBar.value.toLowerCase()))
-                    divBier.hidden = false;
-                else {
-                    let beschreibung = childNodes[4].textContent;
-                    if (beschreibung.toLowerCase().includes(searchBar.value.toLowerCase()))
-                        divBier.hidden = false;
-                    else {
-                        divBier.hidden = true;
-                        counterBier++;
-                    }
-                }
+    // Daten
+    function loadArtikel() {
+        let artikel1 = { img: "shirt1.jpg", name: "Black Shirt Nike", description: "Sytlish Nike shirt", preis: 29.99, kategorie: "kategorie_men" };
+        let artikel2 = { img: "shirt2.jpg", name: "Long Sleeve Jumper", description: "Stylish Jumper", preis: 49.99, kategorie: "kategorie_men" };
+        let artikel3 = { img: "shirt3.jpg", name: "Long sleeve Shirt", description: "Sytlish Jumper", preis: 40.99, kategorie: "kategorie_men" };
+        let artikel4 = { img: "shirt4.jpg", name: "Light Blue Shirt", description: "Stylisch blue Shirt", preis: 19.99, kategorie: "kategorie_men" };
+        let artikel5 = { img: "shirt5.jpg", name: "Half sleeve Jumper", description: "Stylish Jumper", preis: 39.99, kategorie: "kategorie_men" };
+        let artikel6 = { img: "shirt6.jpg", name: "Long sleeve Jumper", description: "Stylsih Jumper", preis: 29.99, kategorie: "kategorie_men" };
+        let artikel7 = { img: "shirtWomen1.jpg", name: "Pink Shirt", description: "Stylisch pink shirt", preis: 19.99, kategorie: "kategorie_women" };
+        let artikel8 = { img: "shirtWomen2.jpg", name: "Purple Shirt", description: "Stylisch purple shirt", preis: 19.99, kategorie: "kategorie_women" };
+        let artikel9 = { img: "shirtWomen3.jpg", name: "Light blue Shirt", description: "Stylish blue shirt", preis: 59.99, kategorie: "kategorie_women" };
+        let artikel10 = { img: "shirtWomen4.jpg", name: "Simple black Shirt", description: "Simple black Shirt", preis: 7.99, kategorie: "kategorie_women" };
+        let artikel11 = { img: "shirtWomen5.jpg", name: "Simple grey shirt", description: "Stylsih grey shirt", preis: 7.99, kategorie: "kategorie_women" };
+        let artikel12 = { img: "shirtWomen6.jpg", name: "Red shirt", description: "Stylish Red shirt", preis: 29.99, kategorie: "kategorie_women" };
+        let artikelMen = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6];
+        let artikelWomen = [artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
+        let kategorie = [];
+        kategorie.push(artikelMen);
+        kategorie.push(artikelWomen);
+        for (let category of kategorie) {
+            let id = kategorie.indexOf(category) == 0 ? "#men" : "#women";
+            let categoryDiv = document.querySelector(id);
+            switch (id) {
+                case "#men":
+                    menDiv = categoryDiv;
+                    break;
+                case "#women":
+                    womenDiv = categoryDiv;
+                    break;
+            }
+            //Erzeugen der Elemente
+            for (let index = 0; index < category.length; index++) {
+                //DIV
+                let newDiv = document.createElement("div");
+                newDiv.id = "div1" + index;
+                categoryDiv.appendChild(newDiv);
+                //IMG
+                let imgElement = document.createElement("img");
+                imgElement.src = category[index].img;
+                newDiv.appendChild(imgElement);
+                //NAME
+                let name = document.createElement("p");
+                name.innerHTML = category[index].name;
+                newDiv.appendChild(name);
+                //DESCRIPTION
+                let description = document.createElement("p");
+                description.innerHTML = category[index].description;
+                newDiv.appendChild(description);
+                //PREIS
+                let newPreis = document.createElement("p");
+                newPreis.innerHTML = category[index].preis.toFixed(2) + "€";
+                newDiv.appendChild(newPreis);
+                //BUY
+                let kaufen = document.createElement("button");
+                kaufen.innerHTML = "In den Warenkorb";
+                kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
+                newDiv.appendChild(kaufen);
             }
         }
-        // falls keine Biere mehr da -> Kategorie ausblenden
-        let headerElem = document.getElementById("bier");
-        if (counterBier == Aufgabe06.articleBier.length)
-            headerElem.hidden = true;
-        else
-            headerElem.hidden = false;
-        let counterTier = 0;
-        // Tiere durchschauen
-        for (let i = 0; i < Aufgabe06.articleBier.length; i++) {
-            divId = "tierDivNr" + i;
-            let divTier = document.getElementById(divId);
-            let childNodes = divTier.childNodes;
-            let title = childNodes[2].textContent;
-            if (title.toLowerCase().includes(searchBar.value.toLowerCase()))
-                divTier.hidden = false;
-            else {
-                let beschreibung = childNodes[4].textContent;
-                if (beschreibung.toLowerCase().includes(searchBar.value.toLowerCase()))
-                    divTier.hidden = false;
-                else {
-                    divTier.hidden = true;
-                    counterTier++;
-                }
-            }
-        }
-        // falls keine Tiere mehr da -> Kategorie ausblenden
-        let headerElem2 = document.getElementById("plüsch");
-        if (counterTier == Aufgabe06.articleTier.length)
-            headerElem2.hidden = true;
-        else
-            headerElem2.hidden = false;
     }
-    // Gesamtpreis ausgeben
-    function handleClick(_event) {
-        let current = _event.currentTarget;
-        if (current.previousSibling) {
-            let child = current.previousSibling.firstChild;
-            let preis = child.nodeValue;
-            preis = preis.replace(",", ".");
-            preis = preis.substring(0, preis.length - 1);
-            if (preis) {
-                gesamtpreis = Number((gesamtpreis + parseFloat(preis)).toFixed(2));
-                console.log("Gesamtpreis: " + gesamtpreis + "€");
-            }
-            const divAnzahl = document.getElementById("divAnzahl");
-            divAnzahl.setAttribute("style", "visibility: visible");
-            const anzahl = document.getElementById("Anzahl");
-            anzahl.innerHTML = Number(anzahl.innerHTML) + Number("1") + "";
+    // Funtion kaufen Button
+    function onKaufenClick(_event) {
+        console.log("clicked");
+        clickCounter++;
+        console.log(clickCounter);
+        counterDisplay.innerHTML = clickCounter <= 0 ? "" : clickCounter + "";
+        console.log(this.preis);
+        counterPreis += this.preis;
+        console.log(counterPreis);
+    }
+    // Kategorien laden
+    function loadCategoryListeners() {
+        let navButton;
+        let navMenü = document.querySelector(".menü");
+        let navLength = navMenü.children.length;
+        for (let index = 1; index < navLength; index++) {
+            navButton = document.querySelector(".menü a:nth-child(" + index + ")");
+            navButton.addEventListener("click", onClickCategory.bind(navButton));
+        }
+        console.log(navLength);
+    }
+    // Kategorien anzeigen
+    function onClickCategory(_event) {
+        console.log(this.getAttribute("id"));
+        switch (this.getAttribute("id")) {
+            case "a1":
+                showMen();
+                break;
+            case "a2":
+                showWomen();
+                break;
+            case "start":
+                showStart();
+                break;
         }
     }
-    // Ankerlistener anlegen
-    let anchorListenerBier = document.getElementById("bierAnker");
-    anchorListenerBier.addEventListener("click", handleClickMenuBier);
-    let anchorListenerTier = document.getElementById("plüschAnker");
-    anchorListenerTier.addEventListener("click", handleClickMenuTier);
-    let anchorListenerBoth = document.getElementById("bothAnker");
-    anchorListenerBoth.addEventListener("click", handleClickMenuBoth);
-    // Nur Kategorie Tier
-    function handleClickMenuTier(_event) {
-        let divId;
-        for (let i = 0; i < Aufgabe06.articleBier.length; i++) {
-            divId = "bierDivNr" + i;
-            let divBier = document.getElementById(divId);
-            if (divBier)
-                divBier.hidden = true;
-        }
-        for (let i = 0; i < Aufgabe06.articleTier.length; i++) {
-            divId = "tierDivNr" + i;
-            let divTier = document.getElementById(divId);
-            if (divTier)
-                divTier.hidden = false;
-        }
-        let headerElem = document.getElementById("plüsch");
-        headerElem.hidden = false;
-        let headerElem2 = document.getElementById("bier");
-        headerElem2.hidden = true;
+    function showMen() {
+        menDiv.style.display = "flex";
+        womenDiv.style.display = "none";
     }
-    // Nur Kategorie Bier
-    function handleClickMenuBier(_event) {
-        let divId;
-        for (let i = 0; i < Aufgabe06.articleTier.length; i++) {
-            divId = "tierDivNr" + i;
-            let divTier = document.getElementById(divId);
-            if (divTier)
-                divTier.hidden = true;
-        }
-        for (let i = 0; i < Aufgabe06.articleBier.length; i++) {
-            divId = "bierDivNr" + i;
-            let divBier = document.getElementById(divId);
-            divBier.hidden = false;
-        }
-        let headerElem = document.getElementById("plüsch");
-        headerElem.hidden = true;
-        let headerElem2 = document.getElementById("bier");
-        headerElem2.hidden = false;
+    function showWomen() {
+        menDiv.style.display = "none";
+        womenDiv.style.display = "flex";
     }
-    // Beide anzeigen
-    function handleClickMenuBoth(_event) {
-        let divId;
-        for (let i = 0; i < Aufgabe06.articleBier.length; i++) {
-            divId = "bierDivNr" + i;
-            let divBier = document.getElementById(divId);
-            if (divBier)
-                divBier.hidden = false;
-        }
-        for (let i = 0; i < Aufgabe06.articleTier.length; i++) {
-            divId = "tierDivNr" + i;
-            let divTier = document.getElementById(divId);
-            if (divTier)
-                divTier.hidden = false;
-        }
-        let headerElem = document.getElementById("plüsch");
-        headerElem.hidden = false;
-        let headerElem2 = document.getElementById("bier");
-        headerElem2.hidden = false;
+    function showStart() {
+        menDiv.style.display = "flex";
+        womenDiv.style.display = "flex";
     }
-})(Aufgabe06 || (Aufgabe06 = {}));
-//# sourceMappingURL=scripts.js.map
+})(Aufgabe05 || (Aufgabe05 = {}));
+//# sourceMappingURL=Interface.js.map
+//# sourceMappingURL=interface.js.map

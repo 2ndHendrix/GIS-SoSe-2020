@@ -65,7 +65,7 @@ var Aufgabe05;
         //PREIS
         let newPreis = document.createElement("p");
         newPreis.innerHTML = artikelWomen[index].preis.toFixed(2) + "€";
-        document.getElementById("div2" + index)?.appendChild(newPreis);
+        document.getElementById("div1" + index)?.appendChild(newPreis);
         //BUY
         let kaufen = document.createElement("button");
         kaufen.innerHTML = "In den Warenkorb";

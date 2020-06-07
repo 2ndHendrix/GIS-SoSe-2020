@@ -86,7 +86,7 @@ for (let index = 0; index < artikelWomen.length; index++) {
     //PREIS
     let newPreis: HTMLParagraphElement = document.createElement("p");
     newPreis.innerHTML = artikelWomen[index].preis.toFixed(2) + "€";
-    document.getElementById("div2" + index)?.appendChild(newPreis);
+    document.getElementById("div1" + index)?.appendChild(newPreis);
     //BUY
     let kaufen = document.createElement("button");
     kaufen.innerHTML = "In den Warenkorb";

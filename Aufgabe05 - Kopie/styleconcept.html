@@ -4,14 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="interface.js"></script>
+    <script src="interface.js" defer></script>
+    <script src="interface.ts" ></script>
     <title>Style-Concept</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
-    <header id="header">
+    <header>
         <div class="header-contain">
             <div class="logo"></div>
                
@@ -23,10 +24,8 @@
                         <div class="divider">
                 
                             <img id="a3" href="#warenkorb" src="cart.png"  alt="shopping cart">
-                            <p></p>
 
                             <div class="menü">
-                                <a id="start" href="#startTag">START</a>
                                 <a id="a1" href="#kategorie_men">MEN</a>
                                 <a id="a2" href="#kategorie_women">WOMEN</a> 
                                 <a id="a4" href="#mein_account">MEIN ACCOUNT</a>
@@ -47,7 +46,7 @@
 
 <div class="articles">
     <h3>Men</h3>
-        <div id="men" class="artikel">
+        <div id="flex1" class="artikel">
 
         </div>
 
@@ -56,7 +55,7 @@
 
     <p id="kategorie_women">a</p>
         <h3>Women</h3>
-            <div id="women" class="artikel">
+            <div id="flex2" class="artikel">
                 
             </div>
 </div>
@@ -82,6 +81,14 @@
         </p>
 
 </div>
+<p id="warenkorb">a</p>
+<div class="warenkorb">
+    <h2>WARENKORB</h2>
+    
+</div>
+
+
+
 </main>
 <footer class="footer p">
 
