@@ -1,0 +1,597 @@
+@charset "utf-8";
+
+
+body {
+    margin-top: -20px;
+    margin-bottom: 0px;
+    background-image: url(bg.png);
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    float: center;
+}
+
+
+nav a {
+
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    margin-left: 19px;
+    margin-right: 10px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 320px;
+    border-radius: 20px;
+}
+
+.menü {
+    position: fixed;
+    margin-left: 350px;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+
+
+.account {
+    border: 2px solid rgb(255, 255, 255);
+    max-width: 800px;
+    max-height: 800px;
+    display: table;
+    position: relative;
+    background: lightgrey;
+    margin: 0 auto;
+    color: white;
+    padding: 32px 34px 32px 32px;
+    opacity: 70%;
+    width: 570px;
+    margin-left: 68px;
+    margin-top: 130px;
+}
+
+.account>h1 {
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+label{
+    color: white;
+    font-size: 28px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.loginButton {
+    color: black;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+
+button {
+    margin-top: 35px;
+    margin-left: 1px;
+    display: flex;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+.account>img{
+    border-color: transparent;
+    height: 200px;
+    width: 200px;
+    margin-top: 18px;
+    padding-right: 19px;
+}
+
+
+.header-contain {
+    background-image: url(header-img.jpg);
+    height: 300px;
+    z-index: 3;
+    margin-top: -60px;
+    position: fixed;
+    width: 100%;
+}
+
+.text-centered {
+    color: white;
+    font-size: 120px;
+    font-family: sans-serif;
+    margin-top: -100px;
+}
+
+.text-centered span.border{
+        background-color: grey;
+        color: #fff;
+        padding: 18px;
+        font-size: 50px;
+        letter-spacing: 10px;
+        opacity: 85%;
+
+}
+.text-centered span.border2{
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 20px;
+    letter-spacing: 10px;
+    opacity: 85%;
+
+}
+
+.mainbody {
+    padding-top: 140px;
+}
+.articles {
+    width: 100%;
+    position: relative;
+    top: 80px;
+}
+
+.artikel{
+    
+        display: flex;
+        flex-wrap: wrap;
+    
+}
+
+.artikel div {
+    margin-bottom: 25px;
+    text-align: center;
+    float: left;
+    width: 40%;
+    padding: 20px;
+    padding-top: 20px;
+}
+
+.artikel div p {
+    margin-top: 0px;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+
+.logo {
+    background-image: url(logo.png);
+    width: 100px;
+    height: 100px;
+    margin-top: 60px;
+    z-index:3;
+    position: relative;
+    top: 40px;
+    left: 95px;    }
+
+    img[alt="shopping cart"] {
+        width: 30px;
+        height: 30px;
+        right: 290px    ;
+        position: absolute;
+        border:none;
+        margin-top: 2px;
+    }
+
+    img#a3:hover{
+        background-color: white;
+        padding: 2.5px;
+        margin-top: 0px;
+    }
+
+
+    .divider {
+        background-color: grey;
+        height: 35px;
+        width: 100%;
+        margin-top: 67px;
+        position: fixed;
+        opacity: 80%;
+    }
+
+
+    .divider>p {
+        background-color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        position: absolute;
+        right: 281px;
+        top: -18px;
+    }
+
+
+    div>img {
+        height: 200px;
+        width: 200px;
+        border-style: outset;
+        border-color: black;
+        float: left;
+        margin-bottom: 20px;
+        }  
+
+    input, textarea {
+        background-color: rgb(199, 199, 199);
+        border: none;
+        color: white;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+   
+a:hover{
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+
+.datenschutz{
+font-size: 10px;
+color: grey;
+}
+
+
+
+h2
+ {
+    font-size: 15px;
+    text-align: left;
+    margin-right: 15px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+h3
+{
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    margin-left: -30px;
+}
+
+h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-right: 20px;
+    color: white;
+    display: block;
+    margin-block-start: 30px;
+    margin-block-end: 30px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+p {
+    display: block;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+    margin-left: 230px;
+}
+
+
+p#kategorie_women {
+    margin-top: -110px;
+    color: transparent;
+    margin-left: 0px;
+}
+
+    p#mein_account{
+        margin-top: 10px;
+        color: transparent;
+    }
+    h3#h3Women{
+        left: 30px;
+    }
+  
+
+main div{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;  
+}
+
+main>div {
+        
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input:hover{
+    background-color: black;
+}
+
+input, textarea{
+    background-color: rgb(199, 199, 199);
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+footer p{
+    display: block;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+    color: white;
+}
+
+footer{
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+    opacity: 80%;
+    min-width: 600px;
+
+}
+
+
+
+
+@media (min-width: 601px) and (max-width:  1024px){ 
+
+    .header-contain {
+        background-image: url(header-img.jpg);
+        height: 300px;
+        z-index: 3;
+        margin-top: -60px;
+        position: fixed;
+        width: 100%;
+    }
+
+    .logo {
+        background-image: url(logo.png);
+        width: 100px;
+        height: 100px;
+        margin-top: 60px;
+        z-index: 3;
+        position: relative;
+        top: 49px;
+        left: 115px;
+    }
+
+    a:hover {
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 5px;
+        color: black;
+    }
+
+    div#kategorie1 {
+        width: 601px;
+        margin-left: -40px;
+    }
+
+    div#kategorie2 {
+        width: 602px;
+        margin-left: -40px;
+    }
+
+    
+.text-centered span.border {
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 35px;
+    letter-spacing: 10px;
+    opacity: 85%;
+    margin-left: -76px;}
+
+.menü {
+    position: fixed;
+    margin-left: 263px;
+    padding: 10px;
+}
+
+img[alt="shopping cart"] {
+    width: 30px;
+    height: 30px;
+    right: 380px;
+    position: absolute;
+    border: none;
+    margin-top: 2px;
+}
+
+.mainbody {
+    padding-top: 250px;
+    max-width: 1024px;
+    width:1023px;
+}
+
+.articles {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 233px;}
+
+
+.artikel {
+    width: 30%;
+}
+
+   
+   img[src="Logo.png"]{
+       height: 50px;
+       width: 50px;
+      
+   }
+
+   h3 {
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    margin-left: -20px;
+    padding-left: 0px;
+}
+
+.account {
+    border: 2px solid rgb(255, 255, 255);
+    max-width: 490px;
+    max-height: 800px;
+    display: table;
+    position: relative;
+    background: lightgrey;
+    color: white;
+    padding: 32px 34px 32px 32px;
+    opacity: 70%;
+    margin-left: 160px;
+}
+
+.account>img {
+    border-color: transparent;
+    height: 200px;
+    width: 200px;
+    margin-top: 18px;
+    padding-right: 19px;
+}
+
+.loginButton {
+    color: black;
+    margin-left: 230px;
+    margin-top: 110px;
+}
+
+footer {
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    margin-top: 50px;
+    display: block;
+    opacity: 80%;
+    width: 1024px;
+}
+
+}
+
+   
+   @media (max-width: 600px){ 
+
+
+    .header-contain {
+        background-image: url(header-img.jpg);
+        height: 300px;
+        z-index: 3;
+        margin-top: -60px;
+        position: fixed;
+        width: 100%;
+    }
+
+    .logo {
+        background-image: url(logo.png);
+        width: 100px;
+        height: 100px;
+        margin-top: 60px;
+        z-index: 3;
+        position: relative;
+        top: 49px;
+        left: 15px;
+    }
+
+    a:hover {
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 5px;
+        color: black;
+    }
+
+    .articles {
+        width: 100%;
+        position: relative;
+        top: 80px;
+    }
+    
+.text-centered span.border {
+    background-color: grey;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    opacity: 85%;
+    margin-left: -200px;}
+
+.menü {
+    position: fixed;
+    margin-left: 24px;
+    padding: 10px;
+}
+
+img[alt="shopping cart"] {
+    width: 30px;
+    height: 30px;
+    right: 450px;
+    position: absolute;
+    border: none;
+    margin-top: 2px;
+}
+
+.mainbody {
+    padding-top: 240px;    
+    max-width: 600px;
+    padding-left: 13px;
+}
+
+.artikel {
+    width: 40%;
+}
+
+    main{
+        width: 200px;
+    }   
+    main div div{
+       margin: 0px;
+       margin-bottom: 20px;
+   }
+   main  div{
+       margin: 0px;
+      
+   }
+   h2{
+       text-align: center;
+   }
+   
+   img[src="Logo.png"]{
+       height: 50px;
+       width: 50px;
+      
+   }
+
+
+h3 {
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    margin-left: 50px;
+}
+}
+   
+      
