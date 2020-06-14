@@ -1,4 +1,6 @@
 namespace Aufgabe05 {
+
+
   window.addEventListener("load", init);
   let clickCounter: number = 0;
   let counterDisplay: HTMLParagraphElement;
@@ -16,38 +18,44 @@ namespace Aufgabe05 {
     kategorie: string;
   }
 
+  let categoryJSON: Artikel[][] = [];
+  let category: Artikel[] = [];
+  let categorys: Artikel[][] = [];
+
   function init(_event: Event): void {
-    loadArtikel();
+    communicate("data.json");
+    createArtikel();
     loadCategoryListeners();
     counterDisplay = <HTMLParagraphElement>document.querySelector(".divider p");
 
   }
-// Daten
-  function loadArtikel(): void {
-    let artikel1: Artikel = { img: "shirt1.jpg", name: "Black Shirt Nike", description: "Sytlish Nike shirt", preis: 29.99, kategorie: "kategorie_men" };
-    let artikel2: Artikel = { img: "shirt2.jpg", name: "Long Sleeve Jumper", description: "Stylish Jumper", preis: 49.99, kategorie: "kategorie_men" };
-    let artikel3: Artikel = { img: "shirt3.jpg", name: "Long sleeve Shirt", description: "Sytlish Jumper", preis: 40.99, kategorie: "kategorie_men" };
-    let artikel4: Artikel = { img: "shirt4.jpg", name: "Light Blue Shirt", description: "Stylisch blue Shirt", preis: 19.99, kategorie: "kategorie_men" };
-    let artikel5: Artikel = { img: "shirt5.jpg", name: "Half sleeve Jumper", description: "Stylish Jumper", preis: 39.99, kategorie: "kategorie_men" };
-    let artikel6: Artikel = { img: "shirt6.jpg", name: "Long sleeve Jumper", description: "Stylsih Jumper", preis: 29.99, kategorie: "kategorie_men" };
-    let artikel7: Artikel = { img: "shirtWomen1.jpg", name: "Pink Shirt", description: "Stylisch pink shirt", preis: 19.99, kategorie: "kategorie_women" };
-    let artikel8: Artikel = { img: "shirtWomen2.jpg", name: "Purple Shirt", description: "Stylisch purple shirt", preis: 19.99, kategorie: "kategorie_women" };
-    let artikel9: Artikel = { img: "shirtWomen3.jpg", name: "Light blue Shirt", description: "Stylish blue shirt", preis: 59.99, kategorie: "kategorie_women" };
-    let artikel10: Artikel = { img: "shirtWomen4.jpg", name: "Simple black Shirt", description: "Simple black Shirt", preis: 7.99, kategorie: "kategorie_women" };
-    let artikel11: Artikel = { img: "shirtWomen5.jpg", name: "Simple grey shirt", description: "Stylsih grey shirt", preis: 7.99, kategorie: "kategorie_women" };
-    let artikel12: Artikel = { img: "shirtWomen6.jpg", name: "Red shirt", description: "Stylish Red shirt", preis: 29.99, kategorie: "kategorie_women" };
 
-    let artikelMen: Artikel[] = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6];
-    let artikelWomen: Artikel[] = [artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
+  async function communicate(_url: RequestInfo): Promise<void> {
+    let response: Response = await fetch(_url);
+    categoryJSON = <Artikel[][]>await response.json();
+    loadArtikel(categoryJSON);
+  }
 
-    let kategorie: Artikel[][] = [];
-    kategorie.push(artikelMen);
-    kategorie.push(artikelWomen);
 
-    for (let category of kategorie) {
-      let id: string = kategorie.indexOf(category) == 0 ? "#men" : "#women";
-      let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
+  function loadArtikel(_categorys: Artikel[][]): void {
+    for (let categoryJSON of categorys) {
+      category = [];
+      for (let Artikel of categoryJSON) {
+        category.push(new Artikel(Artikel.name, Artikel.description, Artikel.img, Artikel.preis, Artikel.kategorie));
+      }
+      categorys.push(category);
 
+      let kategorie: Artikel[][] = [];
+      kategorie.push(artikelMen);
+      kategorie.push(artikelWomen);
+
+
+
+
+      for (let category of kategorie) {
+        let id: string = kategorie.indexOf(category) == 0 ? "#men" : "#women";
+        let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
+      }
       switch (id) {
         case "#men":
           menDiv = categoryDiv;
@@ -56,7 +64,11 @@ namespace Aufgabe05 {
           womenDiv = categoryDiv;
           break;
       }
-//Erzeugen der Elemente
+    }
+
+    //Erzeugen der Elemente
+    function createArtikel(): void {
+
       for (let index: number = 0; index < category.length; index++) {
         //DIV
         let newDiv: HTMLDivElement = document.createElement("div");
@@ -87,6 +99,9 @@ namespace Aufgabe05 {
     }
   }
 
+
+
+
   // Funtion kaufen Button
   function onKaufenClick(this: Artikel, _event: MouseEvent): void {
     console.log("clicked");
@@ -97,7 +112,7 @@ namespace Aufgabe05 {
     counterPreis += this.preis;
     console.log(counterPreis);
   }
-// Kategorien laden
+  // Kategorien laden
   function loadCategoryListeners(): void {
     let navButton: HTMLAnchorElement;
     let navMenü: HTMLDivElement = <HTMLDivElement>document.querySelector(".menü");
@@ -108,7 +123,7 @@ namespace Aufgabe05 {
     }
     console.log(navLength);
   }
-// Kategorien anzeigen
+  // Kategorien anzeigen
   function onClickCategory(this: HTMLAnchorElement, _event: MouseEvent): void {
     console.log(this.getAttribute("id"));
     switch (this.getAttribute("id")) {
