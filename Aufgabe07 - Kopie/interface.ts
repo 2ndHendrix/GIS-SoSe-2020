@@ -80,7 +80,6 @@ namespace Aufgabe05 {
 
   function createArticles(): void {
 
-    let categoryJSON: Artikel[][] = [];
     let category: Artikel[] = [];
     let categorys: Artikel[][] = [];
 
@@ -113,6 +112,21 @@ namespace Aufgabe05 {
       kaufen.addEventListener("Click", rechner.bind(categorys[index]));
       newDiv.appendChild(kaufen);
     }
+    
+    for (let category of categorys) {
+      let id: string = categorys.indexOf(category) == 0 ? "#men" : "#women";
+      let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
+  
+      switch (id) {
+        case "#men":
+          menDiv = categoryDiv;
+          break;
+        case "#women":
+          womenDiv = categoryDiv;
+          break;
+      }
+  
+    }
   }
 
 
@@ -128,41 +142,6 @@ namespace Aufgabe05 {
   }
 
 
-  // Daten
-  let artikel1: Artikel = { img: "shirt1.jpg", name: "Black Shirt Nike", description: "Sytlish Nike shirt", preis: 29.99, kategorie: "kategorie_men" };
-  let artikel2: Artikel = { img: "shirt2.jpg", name: "Long Sleeve Jumper", description: "Stylish Jumper", preis: 49.99, kategorie: "kategorie_men" };
-  let artikel3: Artikel = { img: "shirt3.jpg", name: "Long sleeve Shirt", description: "Sytlish Jumper", preis: 40.99, kategorie: "kategorie_men" };
-  let artikel4: Artikel = { img: "shirt4.jpg", name: "Light Blue Shirt", description: "Stylisch blue Shirt", preis: 19.99, kategorie: "kategorie_men" };
-  let artikel5: Artikel = { img: "shirt5.jpg", name: "Half sleeve Jumper", description: "Stylish Jumper", preis: 39.99, kategorie: "kategorie_men" };
-  let artikel6: Artikel = { img: "shirt6.jpg", name: "Long sleeve Jumper", description: "Stylsih Jumper", preis: 29.99, kategorie: "kategorie_men" };
-  let artikel7: Artikel = { img: "shirtWomen1.jpg", name: "Pink Shirt", description: "Stylisch pink shirt", preis: 19.99, kategorie: "kategorie_women" };
-  let artikel8: Artikel = { img: "shirtWomen2.jpg", name: "Purple Shirt", description: "Stylisch purple shirt", preis: 19.99, kategorie: "kategorie_women" };
-  let artikel9: Artikel = { img: "shirtWomen3.jpg", name: "Light blue Shirt", description: "Stylish blue shirt", preis: 59.99, kategorie: "kategorie_women" };
-  let artikel10: Artikel = { img: "shirtWomen4.jpg", name: "Simple black Shirt", description: "Simple black Shirt", preis: 7.99, kategorie: "kategorie_women" };
-  let artikel11: Artikel = { img: "shirtWomen5.jpg", name: "Simple grey shirt", description: "Stylsih grey shirt", preis: 7.99, kategorie: "kategorie_women" };
-  let artikel12: Artikel = { img: "shirtWomen6.jpg", name: "Red shirt", description: "Stylish Red shirt", preis: 29.99, kategorie: "kategorie_women" };
-
-  let artikelMen: Artikel[] = [artikel1, artikel2, artikel3, artikel4, artikel5, artikel6];
-  let artikelWomen: Artikel[] = [artikel7, artikel8, artikel9, artikel10, artikel11, artikel12];
-
-  let kategorie: Artikel[][] = [];
-  kategorie.push(artikelMen);
-  kategorie.push(artikelWomen);
-
-  for (let category of kategorie) {
-    let id: string = kategorie.indexOf(category) == 0 ? "#men" : "#women";
-    let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
-
-    switch (id) {
-      case "#men":
-        menDiv = categoryDiv;
-        break;
-      case "#women":
-        womenDiv = categoryDiv;
-        break;
-    }
-
-  }
 
   function rechner(this: Artikel, event: Event): void {
     warenrechner++;
