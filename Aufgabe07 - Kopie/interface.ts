@@ -1,4 +1,4 @@
-namespace Aufgabe05 {
+namespace Aufgabe07 {
   let warenrechner: number = 0;
   let preisrechner: number = 0;
   let clickCounter: number = 0;
@@ -6,7 +6,7 @@ namespace Aufgabe05 {
   let counterPreis: number = 0;
   let menDiv: HTMLDivElement;
   let womenDiv: HTMLDivElement;
-  let artikel: Artikel[] = [];
+  let category: Artikel[] = [];
   window.addEventListener("load", init);
 
   export interface Artikel {
@@ -21,17 +21,16 @@ namespace Aufgabe05 {
     let url: string = "data.json";
     communicate(url);
     loadCategoryListeners();
-    createArticles();
-  
-
     counterDisplay = <HTMLParagraphElement>document.querySelector(".divider p");
   }
 
   async function communicate(_url: RequestInfo): Promise<void> {
+    console.log("Start");
     let response: Response = await fetch(_url);
     console.log("Response", response);
     category = await response.json;
-    createArtikel();
+    console.log("End");
+    createArticles();
   }
 
   function saveInLocalStorage(_inputArticle: Artikel): void {

@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe05;
-(function (Aufgabe05) {
+var Aufgabe07;
+(function (Aufgabe07) {
     let warenrechner = 0;
     let preisrechner = 0;
     let clickCounter = 0;
@@ -8,20 +8,21 @@ var Aufgabe05;
     let counterPreis = 0;
     let menDiv;
     let womenDiv;
-    let artikel = [];
+    let category = [];
     window.addEventListener("load", init);
     function init() {
         let url = "data.json";
         communicate(url);
         loadCategoryListeners();
-        createArticles();
         counterDisplay = document.querySelector(".divider p");
     }
     async function communicate(_url) {
+        console.log("Start");
         let response = await fetch(_url);
         console.log("Response", response);
         category = await response.json;
-        Aufgabe05.createArtikel();
+        console.log("End");
+        createArticles();
     }
     function saveInLocalStorage(_inputArticle) {
         let itemString = JSON.stringify(_inputArticle);
@@ -127,6 +128,6 @@ var Aufgabe05;
         preisrechner += parseFloat(event.target?.getAttribute("preis"));
         console.log(preisrechner.toFixed(2));
     }
-})(Aufgabe05 || (Aufgabe05 = {}));
+})(Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=Interface.js.map
 //# sourceMappingURL=interface.js.map
