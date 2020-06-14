@@ -3,49 +3,49 @@ var Aufgabe07;
 (function (Aufgabe07) {
     window.addEventListener("load", init);
     let contentDiv;
-    let pGesamtpreis;
-    let gesamtPreis;
+    let preisGesamt;
+    let vollerPreis;
     function init(_event) {
         contentDiv = document.querySelector(".warenkorb");
-        pGesamtpreis = document.querySelector("#gesamt");
-        pGesamtpreis.addEventListener("click", handleRemoveAll);
-        document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
+        preisGesamt = document.querySelector("#gesamt");
+        preisGesamt.addEventListener("click", handleRemoveAll);
+        document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
         console.log(localStorage);
         update();
     }
     function update() {
         contentDiv.innerHTML = "";
-        gesamtPreis = 0;
+        vollerPreis = 0;
         for (let index = 0; index < localStorage.length; index++) {
             let key = localStorage.key(index);
             let artikelsjson = localStorage.getItem(key);
             let item = JSON.parse(artikelsjson);
-            gesamtPreis += item.preis;
-            erstelleInhalt(item);
+            vollerPreis += item.preis;
+            getContent(item);
         }
-        setGesamtpreis();
+        setPreisGesamt();
     }
-    function erstelleInhalt(_inputArticle) {
-        //Div erstellen
+    function getContent(_inputArticle) {
+        //Div laden
         let newDiv = document.createElement("div");
         contentDiv.appendChild(newDiv);
         newDiv.id = _inputArticle.name;
         console.log(newDiv.id);
-        //Bild erstellen
+        //Bild laden
         let bildElement = document.createElement("img");
         newDiv.appendChild(bildElement);
         bildElement.src = _inputArticle.img;
         console.log(bildElement);
-        //Namen geben
+        //Überschrift
         let name = document.createElement("h3");
         newDiv.appendChild(name);
         name.innerHTML = _inputArticle.name;
-        //Preis festlegen
+        //Preis berechnen  
         let price = document.createElement("p");
         newDiv.appendChild(price);
         price.innerHTML = "" + _inputArticle.preis;
         newDiv.setAttribute("preis", price.innerHTML);
-        //Button
+        //Löschen Button
         let kaufen = document.createElement("button");
         newDiv.appendChild(kaufen);
         kaufen.innerHTML = "Löschen";
@@ -55,9 +55,9 @@ var Aufgabe07;
         localStorage.removeItem(this.name);
         update();
     }
-    //Gesamtpreis in Header plazieren
-    function setGesamtpreis() {
-        pGesamtpreis.innerHTML = "" + gesamtPreis;
+    //Vollen Preis anzeigen
+    function setPreisGesamt() {
+        preisGesamt.innerHTML = "" + vollerPreis;
     }
     function handleRemoveAll(_event) {
         localStorage.clear();

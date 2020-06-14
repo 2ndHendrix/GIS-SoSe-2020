@@ -8,17 +8,20 @@ var Aufgabe05;
     let counterPreis = 0;
     let menDiv;
     let womenDiv;
+    let artikel = [];
     window.addEventListener("load", init);
     function init() {
-        loadCategoryListeners();
-        createArticles();
         let url = "data.json";
         communicate(url);
+        loadCategoryListeners();
+        createArticles();
         counterDisplay = document.querySelector(".divider p");
     }
     async function communicate(_url) {
         let response = await fetch(_url);
         console.log("Response", response);
+        category = await response.json;
+        Aufgabe05.createArtikel();
     }
     function saveInLocalStorage(_inputArticle) {
         let itemString = JSON.stringify(_inputArticle);
@@ -91,7 +94,7 @@ var Aufgabe05;
             let kaufen = document.createElement("button");
             kaufen.innerHTML = "In den Warenkorb";
             kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
-            kaufen.addEventListener("Click", rechner.bind(categorys[index]));
+            kaufen.addEventListener("Click", rechner.bind(category[index]));
             newDiv.appendChild(kaufen);
         }
         for (let category of categorys) {

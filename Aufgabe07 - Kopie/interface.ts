@@ -6,6 +6,7 @@ namespace Aufgabe05 {
   let counterPreis: number = 0;
   let menDiv: HTMLDivElement;
   let womenDiv: HTMLDivElement;
+  let artikel: Artikel[] = [];
   window.addEventListener("load", init);
 
   export interface Artikel {
@@ -17,10 +18,11 @@ namespace Aufgabe05 {
   }
 
   function init(): void {
-    loadCategoryListeners();
-    createArticles();
     let url: string = "data.json";
     communicate(url);
+    loadCategoryListeners();
+    createArticles();
+  
 
     counterDisplay = <HTMLParagraphElement>document.querySelector(".divider p");
   }
@@ -28,6 +30,8 @@ namespace Aufgabe05 {
   async function communicate(_url: RequestInfo): Promise<void> {
     let response: Response = await fetch(_url);
     console.log("Response", response);
+    category = await response.json;
+    createArtikel();
   }
 
   function saveInLocalStorage(_inputArticle: Artikel): void {
@@ -109,10 +113,10 @@ namespace Aufgabe05 {
       let kaufen: HTMLButtonElement = document.createElement("button");
       kaufen.innerHTML = "In den Warenkorb";
       kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
-      kaufen.addEventListener("Click", rechner.bind(categorys[index]));
+      kaufen.addEventListener("Click", rechner.bind(category[index]));
       newDiv.appendChild(kaufen);
     }
-    
+
     for (let category of categorys) {
       let id: string = categorys.indexOf(category) == 0 ? "#men" : "#women";
       let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
@@ -141,16 +145,12 @@ namespace Aufgabe05 {
     console.log(counterPreis);
   }
 
-
-
   function rechner(this: Artikel, event: Event): void {
     warenrechner++;
     console.log(warenrechner);
     saveInLocalStorage(this);
     preisrechner += parseFloat((<HTMLButtonElement>event.target)?.getAttribute("preis")!);
     console.log(preisrechner.toFixed(2));
-
-
 
   }
 

@@ -3,14 +3,14 @@ namespace Aufgabe07 {
     window.addEventListener("load", init);
 
     let contentDiv: HTMLDivElement;
-    let pGesamtpreis: HTMLParagraphElement;
-    let gesamtPreis: number;
+    let preisGesamt: HTMLParagraphElement;
+    let vollerPreis: number;
 
     function init(_event: Event): void {
         contentDiv = <HTMLDivElement>document.querySelector(".warenkorb");
-        pGesamtpreis = <HTMLParagraphElement>document.querySelector("#gesamt");
-        pGesamtpreis.addEventListener("click", handleRemoveAll);
-        document.getElementById("warenkorbWert")?.appendChild(pGesamtpreis);
+        preisGesamt = <HTMLParagraphElement>document.querySelector("#gesamt");
+        preisGesamt.addEventListener("click", handleRemoveAll);
+        document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
         console.log(localStorage);
         update();
@@ -18,50 +18,48 @@ namespace Aufgabe07 {
 
     function update(): void {
         contentDiv.innerHTML = "";
-        gesamtPreis = 0;
+        vollerPreis = 0;
         for (let index: number = 0; index < localStorage.length; index++) {
             let key: string = <string>localStorage.key(index);
             let artikelsjson: string = <string>localStorage.getItem(key);
 
             let item: Artikel = <Artikel>JSON.parse(artikelsjson);
 
-            gesamtPreis += item.preis;
-            erstelleInhalt(item);
+            vollerPreis += item.preis;
+            getContent(item);
         }
-        setGesamtpreis();
+        setPreisGesamt();
     }
 
  
-    function erstelleInhalt(_inputArticle: Artikel): void {
-        //Div erstellen
-      
-        
+    function getContent(_inputArticle: Artikel): void {
+       
+        //Div laden
         let newDiv: HTMLDivElement = document.createElement("div");
         contentDiv.appendChild(newDiv);
         newDiv.id = _inputArticle.name;
         console.log(newDiv.id);
-        //Bild erstellen
         
-      
+        //Bild laden
         let bildElement: HTMLImageElement = document.createElement("img");
         newDiv.appendChild(bildElement);
         bildElement.src = _inputArticle.img;
         console.log(bildElement);
-        //Namen geben
-     
         
+        
+        //Überschrift
         let name: HTMLParagraphElement = document.createElement("h3");
         newDiv.appendChild(name);
         name.innerHTML = _inputArticle.name;
-        //Preis festlegen
-    
         
+    
+        //Preis berechnen  
         let price: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(price);
         price.innerHTML = "" + _inputArticle.preis;
         newDiv.setAttribute("preis", price.innerHTML);
-        //Button
-       
+
+        //Löschen Button
         let kaufen: HTMLButtonElement  = document.createElement("button");
         newDiv.appendChild(kaufen);
         kaufen.innerHTML = "Löschen";
@@ -74,9 +72,9 @@ namespace Aufgabe07 {
         update();
     }
 
-    //Gesamtpreis in Header plazieren
-    function setGesamtpreis(): void {
-        pGesamtpreis.innerHTML = "" + gesamtPreis;
+    //Vollen Preis anzeigen
+    function setPreisGesamt(): void {
+        preisGesamt.innerHTML = "" + vollerPreis;
     }
 
 
