@@ -1,87 +1,34 @@
 "use strict";
-var Aufgabe05;
-(function (Aufgabe05) {
-    window.addEventListener("load", init);
-    Aufgabe05.clickCounter = 0;
+var Aufgabe07;
+(function (Aufgabe07) {
+    let warenrechner = 0;
+    let preisrechner = 0;
+    let clickCounter = 0;
     let counterDisplay;
-    Aufgabe05.counterPreis = 0;
+    let counterPreis = 0;
     let menDiv;
     let womenDiv;
-    let categoryJSON = [];
     let category = [];
-    let categorys = [];
-    function init(_event) {
-        communicate("data.json");
-        createArtikel();
+    window.addEventListener("load", init);
+    function init() {
+        let url = "data.json";
+        communicate(url);
         loadCategoryListeners();
         counterDisplay = document.querySelector(".divider p");
     }
     async function communicate(_url) {
+        console.log("Start");
         let response = await fetch(_url);
-        categoryJSON = await response.json();
-        loadArtikel(categoryJSON);
+        console.log("Response", response);
+        category = await response.json;
+        console.log("End");
+        createArticles();
     }
-    function loadArtikel(_categorys) {
-        for (let categoryJSON of _categorys) {
-            category = [];
-            for (let artikel of categoryJSON) {
-                category.push(new Artikel(artikel.name, artikel.description, artikel.img, artikel.preis, artikel.kategorie));
-            }
-            categorys.push(category);
-        }
-        for (let category of categorys) {
-            let id = categorys.indexOf(category) == 0 ? "#men" : "#women";
-            let categoryDiv = document.querySelector(id);
-        }
-        switch (id) {
-            case "#men":
-                menDiv = categoryDiv;
-                break;
-            case "#women":
-                womenDiv = categoryDiv;
-                break;
-        }
-    }
-    //Erzeugen der Elemente
-    function createArtikel() {
-        for (let index = 0; index < category.length; index++) {
-            //DIV
-            let newDiv = document.createElement("div");
-            newDiv.id = "div1" + index;
-            categoryDiv.appendChild(newDiv);
-            //IMG
-            let imgElement = document.createElement("img");
-            imgElement.src = category[index].img;
-            newDiv.appendChild(imgElement);
-            //NAME
-            let name = document.createElement("p");
-            name.innerHTML = category[index].name;
-            newDiv.appendChild(name);
-            //DESCRIPTION
-            let description = document.createElement("p");
-            description.innerHTML = category[index].description;
-            newDiv.appendChild(description);
-            //PREIS
-            let newPreis = document.createElement("p");
-            newPreis.innerHTML = category[index].preis.toFixed(2) + "€";
-            newDiv.appendChild(newPreis);
-            //BUY
-            let kaufen = document.createElement("button");
-            kaufen.innerHTML = "In den Warenkorb";
-            kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
-            newDiv.appendChild(kaufen);
-        }
-    }
-    Aufgabe05.createArtikel = createArtikel;
-    // Funtion kaufen Button
-    function onKaufenClick(_event) {
-        console.log("clicked");
-        Aufgabe05.clickCounter++;
-        console.log(Aufgabe05.clickCounter);
-        counterDisplay.innerHTML = Aufgabe05.clickCounter <= 0 ? "" : Aufgabe05.clickCounter + "";
-        console.log(this.preis);
-        Aufgabe05.counterPreis += this.preis;
-        console.log(Aufgabe05.counterPreis);
+    function saveInLocalStorage(_inputArticle) {
+        let itemString = JSON.stringify(_inputArticle);
+        let key = "" + _inputArticle.name;
+        localStorage.setItem(key, itemString);
+        console.log(localStorage);
     }
     // Kategorien laden
     function loadCategoryListeners() {
@@ -94,7 +41,6 @@ var Aufgabe05;
         }
         console.log(navLength);
     }
-    // Kategorien anzeigen
     function onClickCategory(_event) {
         console.log(this.getAttribute("id"));
         switch (this.getAttribute("id")) {
@@ -121,6 +67,67 @@ var Aufgabe05;
         menDiv.style.display = "flex";
         womenDiv.style.display = "flex";
     }
-})(Aufgabe05 || (Aufgabe05 = {}));
+    function createArticles() {
+        let category = [];
+        let categorys = [];
+        for (let index = 0; index < category.length; index++) {
+            //DIV
+            let newDiv = document.createElement("div");
+            newDiv.id = "div1" + index;
+            document.getElementById("men")?.appendChild(newDiv);
+            //IMG
+            let imgElement = document.createElement("img");
+            imgElement.src = category[index].img;
+            newDiv.appendChild(imgElement);
+            //NAME
+            let name = document.createElement("p");
+            name.innerHTML = category[index].name;
+            newDiv.appendChild(name);
+            //DESCRIPTION
+            let description = document.createElement("p");
+            description.innerHTML = category[index].description;
+            newDiv.appendChild(description);
+            //PREIS
+            let newPreis = document.createElement("p");
+            newPreis.innerHTML = category[index].preis.toFixed(2) + "€";
+            newDiv.appendChild(newPreis);
+            //BUY
+            let kaufen = document.createElement("button");
+            kaufen.innerHTML = "In den Warenkorb";
+            kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
+            kaufen.addEventListener("Click", rechner.bind(category[index]));
+            newDiv.appendChild(kaufen);
+        }
+        for (let category of categorys) {
+            let id = categorys.indexOf(category) == 0 ? "#men" : "#women";
+            let categoryDiv = document.querySelector(id);
+            switch (id) {
+                case "#men":
+                    menDiv = categoryDiv;
+                    break;
+                case "#women":
+                    womenDiv = categoryDiv;
+                    break;
+            }
+        }
+    }
+    // Funtion kaufen Button
+    function onKaufenClick(_event) {
+        console.log("clicked");
+        clickCounter++;
+        console.log(clickCounter);
+        counterDisplay.innerHTML = clickCounter <= 0 ? "" : clickCounter + "";
+        console.log(this.preis);
+        counterPreis += this.preis;
+        console.log(counterPreis);
+    }
+    function rechner(event) {
+        warenrechner++;
+        console.log(warenrechner);
+        saveInLocalStorage(this);
+        preisrechner += parseFloat(event.target?.getAttribute("preis"));
+        console.log(preisrechner.toFixed(2));
+    }
+})(Aufgabe07 || (Aufgabe07 = {}));
 //# sourceMappingURL=Interface.js.map
 //# sourceMappingURL=interface.js.map

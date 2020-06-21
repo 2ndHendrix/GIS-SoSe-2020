@@ -5,7 +5,7 @@ var Aufgabe07;
     async function loadArtikel(_url) {
         let response = await fetch(_url);
         let jsonArray = await response.json();
-        artikel = await JSON.parse(JSON.stringify(jsonArray));
+        Aufgabe07.artikel = await JSON.parse(JSON.stringify(jsonArray));
         createArtikel();
     }
 })(Aufgabe07 || (Aufgabe07 = {}));

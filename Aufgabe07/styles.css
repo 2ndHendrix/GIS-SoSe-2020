@@ -38,7 +38,6 @@ nav {
 }
 
 
-
 .account {
     border: 2px solid rgb(255, 255, 255);
     max-width: 800px;
@@ -93,6 +92,21 @@ button:hover{
     width: 200px;
     margin-top: 18px;
     padding-right: 19px;
+}
+
+.warenkorb{
+    width: 800px;
+}
+
+.warenliste {
+    margin-top: 0;
+    Display: inline-grid;
+    grid-template-columns: auto;
+    width: 100%;
+    padding: 5px 0px 00px 0px;
+    margin-top: 4.5%;
+    margin-bottom: 5%;
+    position: center;
 }
 
 
