@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "GIS_SoSe_2020": {
-      "commandName": "Executable",
-      "executablePath": "fusee",
-      "commandLineArgs": "player $(TargetPath)"
-    }
-  }
-}
