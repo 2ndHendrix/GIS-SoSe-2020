@@ -14,7 +14,7 @@ namespace Aufgabe07 {
         preisGesamt = <HTMLParagraphElement>document.querySelector("#gesamt");
         document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
-        console.log(localStorage);
+        // console.log(localStorage);
         update();
     }
 

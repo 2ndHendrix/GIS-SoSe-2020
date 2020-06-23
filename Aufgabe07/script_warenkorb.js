@@ -12,7 +12,7 @@ var Aufgabe07;
         contentDiv = document.querySelector(".warenkorb");
         preisGesamt = document.querySelector("#gesamt");
         document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
-        console.log(localStorage);
+        // console.log(localStorage);
         update();
     }
     function update() {

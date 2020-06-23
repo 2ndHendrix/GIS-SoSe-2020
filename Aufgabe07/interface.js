@@ -9,7 +9,7 @@ var Aufgabe07;
     let menDiv;
     let womenDiv;
     // let categorys: Artikel[] = [];
-    let categoryJSON = [];
+    Aufgabe07.categoryJSON = [];
     window.addEventListener("load", init);
     // Funtion kaufen Button
     function onKaufenClick(_event) {
@@ -36,11 +36,11 @@ var Aufgabe07;
     }
     async function communicate(_url) {
         let response = await fetch(_url);
-        categoryJSON = await response.json();
-        createArticles(categoryJSON);
+        Aufgabe07.categoryJSON = await response.json();
+        createArticles(Aufgabe07.categoryJSON);
     }
     // In LocalStorage sichern
-    function saveInLocalStorage(_inputArticle) {
+    async function saveInLocalStorage(_inputArticle) {
         let itemString = JSON.stringify(_inputArticle);
         let key = "" + _inputArticle.name;
         localStorage.setItem(key, itemString);

@@ -7,7 +7,8 @@ namespace Aufgabe07 {
   let menDiv: HTMLDivElement;
   let womenDiv: HTMLDivElement;
   // let categorys: Artikel[] = [];
-  let categoryJSON: Artikel[] = [];
+
+  export let categoryJSON: Artikel[] = [];
   window.addEventListener("load", init);
 
 
@@ -53,7 +54,7 @@ namespace Aufgabe07 {
   }
 
   // In LocalStorage sichern
-  function saveInLocalStorage(_inputArticle: Artikel): void {
+  async function saveInLocalStorage(_inputArticle: Artikel): Promise<void> {
     let itemString: string = JSON.stringify(_inputArticle);
     let key: string = "" + _inputArticle.name;
     localStorage.setItem(key, itemString);

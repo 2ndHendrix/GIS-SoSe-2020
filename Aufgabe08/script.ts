@@ -1,17 +1,25 @@
-namespace Aufgabe08 {
-    let formData: FormData;
-    let buttonAction: HTMLButtonElement = <HTMLButtonElement> document.getElementById("actionGo");
-    buttonAction.addEventListener("click", handleClick);
+namespace A08Client {
+    
+    let submitButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+    submitButton.addEventListener("click", communicate);
 
-    async function handleClick(): Promise<void> {
-        formData = new FormData(document.forms[0]);
-        let serverURL: string = "https://2ndHendrix.herokuapp.com/";
+    async function communicate(): Promise<void> {
+
+        let formData: FormData = new FormData(document.forms[0]);
+        let url: string = "https://2ndHendrix.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        serverURL += "?" + query.toString();
+        url = url + "?" + query.toString();
+        
+        let response: Response = await fetch(url);
+        let reply: string = await response.url;
 
-        let response: Response = await fetch(serverURL);
-        let responseText: string = await response.text();
-        console.log(responseText);
+        console.log(reply);
+
+        for (let entry of query) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+        }
     }
-
+    
 }
