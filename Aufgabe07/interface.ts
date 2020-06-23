@@ -6,9 +6,8 @@ namespace Aufgabe07 {
   let counterPreis: number = 0;
   let menDiv: HTMLDivElement;
   let womenDiv: HTMLDivElement;
-  let category: Artikel[] = [];
-  let categorys: Artikel[][] = [];
-  let categoryJSON: Artikel[][] = [];
+  // let categorys: Artikel[] = [];
+  let categoryJSON: Artikel[] = [];
   window.addEventListener("load", init);
 
 
@@ -40,6 +39,7 @@ namespace Aufgabe07 {
     kategorie: string;
   }
 
+  // Initiieren
   function init(): void {
     communicate("data.json");
     loadCategoryListeners();
@@ -48,10 +48,11 @@ namespace Aufgabe07 {
 
   async function communicate(_url: RequestInfo): Promise<void> {
     let response: Response = await fetch(_url);
-    categoryJSON = <Artikel[][]>await response.json();
+    categoryJSON = <Artikel[]>await response.json();
     createArticles(categoryJSON);
   }
 
+  // In LocalStorage sichern
   function saveInLocalStorage(_inputArticle: Artikel): void {
     let itemString: string = JSON.stringify(_inputArticle);
     let key: string = "" + _inputArticle.name;
@@ -100,59 +101,46 @@ namespace Aufgabe07 {
   }
 
 
-  function createArticles(_categorys: Artikel[][]): void {
-    for (let categoryJSON of_categorys) {
-      category = [];
-      for (let artikel of categoryJSON) {
-        category.push(new Artikel(artikel.name, artikel.description,.atikel.img, artikel.preis, artikel.kategorie))
+  function createArticles(_categorys: Artikel[]): void {
+    for (let index: number = 0; index < _categorys.length; index++) {
+      //DIV
+      let newDiv: HTMLDivElement = document.createElement("div");
+      newDiv.id = "div1" + index;
+      //IMG
+      let imgElement: HTMLImageElement = document.createElement("img");
+      imgElement.src = _categorys[index].img;
+      newDiv.appendChild(imgElement);
+      //NAME
+      let name: HTMLParagraphElement = document.createElement("p");
+      name.innerHTML = _categorys[index].name;
+      newDiv.appendChild(name);
+      //DESCRIPTION
+      let description: HTMLParagraphElement = document.createElement("p");
+      description.innerHTML = _categorys[index].description;
+      newDiv.appendChild(description);
+      //PREIS
+      let newPreis: HTMLParagraphElement = document.createElement("p");
+      newPreis.innerHTML = _categorys[index].preis.toFixed(2) + "€";
+      newDiv.appendChild(newPreis);
+      //BUY
+      let kaufen: HTMLButtonElement = document.createElement("button");
+      kaufen.innerHTML = "In den Warenkorb";
+      kaufen.addEventListener("click", onKaufenClick.bind(_categorys[index]));
+      kaufen.addEventListener("Click", rechner.bind(_categorys[index]));
+      newDiv.appendChild(kaufen);
+
+      if (_categorys[index].kategorie == "kategorie_men") {
+        document.getElementById("men")?.appendChild(newDiv);
       }
-    categorys.push(category);
-  }
-
-  for (let index: number = 0; index < category.length; index++) {
-    //DIV
-    let newDiv: HTMLDivElement = document.createElement("div");
-    newDiv.id = "div1" + index;
-    document.getElementById("men")?.appendChild(newDiv);
-    //IMG
-    let imgElement: HTMLImageElement = document.createElement("img");
-    imgElement.src = category[index].img;
-    newDiv.appendChild(imgElement);
-    //NAME
-    let name: HTMLParagraphElement = document.createElement("p");
-    name.innerHTML = category[index].name;
-    newDiv.appendChild(name);
-    //DESCRIPTION
-    let description: HTMLParagraphElement = document.createElement("p");
-    description.innerHTML = category[index].description;
-    newDiv.appendChild(description);
-    //PREIS
-    let newPreis: HTMLParagraphElement = document.createElement("p");
-    newPreis.innerHTML = category[index].preis.toFixed(2) + "€";
-    newDiv.appendChild(newPreis);
-    //BUY
-    let kaufen: HTMLButtonElement = document.createElement("button");
-    kaufen.innerHTML = "In den Warenkorb";
-    kaufen.addEventListener("click", onKaufenClick.bind(category[index]));
-    kaufen.addEventListener("Click", rechner.bind(category[index]));
-    newDiv.appendChild(kaufen);
-  }
-
-  for (let category of categorys) {
-    let id: string = categorys.indexOf(category) == 0 ? "#men" : "#women";
-    let categoryDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(id);
-
-    switch (id) {
-      case "#men":
-        menDiv = categoryDiv;
-        break;
-      case "#women":
-        womenDiv = categoryDiv;
-        break;
+      else {
+        document.getElementById("women")?.appendChild(newDiv);
+      }
     }
-
   }
 }
+
+
+
 
 
 

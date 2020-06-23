@@ -5,11 +5,13 @@ namespace Aufgabe07 {
     let contentDiv: HTMLDivElement;
     let preisGesamt: HTMLParagraphElement;
     let vollerPreis: number;
+    let löschenButton: HTMLButtonElement;
+    löschenButton = <HTMLButtonElement>document.getElementById("löschen");
+    löschenButton.addEventListener("click", handleRemoveAll);
 
     function init(_event: Event): void {
         contentDiv = <HTMLDivElement>document.querySelector(".warenkorb");
         preisGesamt = <HTMLParagraphElement>document.querySelector("#gesamt");
-        preisGesamt.addEventListener("click", handleRemoveAll);
         document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
         console.log(localStorage);
@@ -31,28 +33,28 @@ namespace Aufgabe07 {
         setPreisGesamt();
     }
 
- 
+
     function getContent(_inputArticle: Artikel): void {
-       
+
         //Div laden
         let newDiv: HTMLDivElement = document.createElement("div");
         contentDiv.appendChild(newDiv);
         newDiv.id = _inputArticle.name;
         console.log(newDiv.id);
-        
+
         //Bild laden
         let bildElement: HTMLImageElement = document.createElement("img");
         newDiv.appendChild(bildElement);
         bildElement.src = _inputArticle.img;
         console.log(bildElement);
-        
-        
+
+
         //Überschrift
         let name: HTMLParagraphElement = document.createElement("h3");
         newDiv.appendChild(name);
         name.innerHTML = _inputArticle.name;
-        
-    
+
+
         //Preis berechnen  
         let price: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(price);
@@ -60,9 +62,9 @@ namespace Aufgabe07 {
         newDiv.setAttribute("preis", price.innerHTML);
 
         //Löschen Button
-        let kaufen: HTMLButtonElement  = document.createElement("button");
+        let kaufen: HTMLButtonElement = document.createElement("button");
         newDiv.appendChild(kaufen);
-        kaufen.innerHTML = "Löschen";
+        kaufen.innerHTML = "löschen";
         kaufen.addEventListener("click", handleRemoveArticle.bind(_inputArticle));
     }
 

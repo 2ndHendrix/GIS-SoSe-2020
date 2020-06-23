@@ -1,4 +1,4 @@
-{"Artikel" :[
+[
 
 {"img": "shirt1.jpg", "name" : "Black Shirt Nike", "description" : "Sytlish Nike shirt", "preis": 29.99, "kategorie": "kategorie_men" },
 {"img": "shirt2.jpg", "name": "Long Sleeve Jumper", "description": "Stylish Jumper", "preis": 49.99, "kategorie": "kategorie_men" },
@@ -12,4 +12,4 @@
 {"img": "shirtWomen4.jpg", "name": "Simple black Shirt", "description": "Simple black Shirt", "preis": 7.99, "kategorie": "kategorie_women" },
 {"img": "shirtWomen5.jpg", "name": "Simple grey shirt", "description": "Stylsih grey shirt", "preis": 7.99, "kategorie": "kategorie_women" },
 {"img": "shirtWomen6.jpg", "name": "Red shirt", "description": "Stylish Red shirt", "preis": 29.99, "kategorie": "kategorie_women" }
-]}
+]
