@@ -1,22 +1,14 @@
 namespace Aufgabe08 {
 
-    let senden: HTMLElement = <HTMLElement>document.getElementById("button");
-    senden?.addEventListener("click", handleSenden);
+    let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+    button.addEventListener("click", communiacate);
 
-    async function handleSenden(): Promise<void> {
-
+    async function communiacate(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-
-        // tslint:disable-next-line: no-any
+        let url: string = "https://gis2020vr.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        
-        let url: string = "https://gispraktikum2020.herokuapp.com/";
-
         url = url + "?" + query.toString();
-
-        let antwort: Response = await fetch(url);
-        let antwort2: string = antwort.url;
-        console.log(antwort2);
+        await fetch(url);
 
         for (let entry of query) {
             console.log(entry);
@@ -24,4 +16,5 @@ namespace Aufgabe08 {
             console.log("value: " + entry[1]);
         }
     }
- }
+
+}
