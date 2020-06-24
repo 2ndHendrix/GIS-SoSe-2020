@@ -1,38 +1,36 @@
 namespace Aufgabe09 {
-
     let formData: FormData;
-    let getActionHtmlButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getHTMLAction");
-    getActionHtmlButton.addEventListener("click", getHTML);
+    let buttonActionHtml: HTMLButtonElement = <HTMLButtonElement> document.getElementById("getHTMLAction");
+    buttonActionHtml.addEventListener("click", handleClickHtml);
 
-    let getActionJsonButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getJSONAction");
-    getActionJsonButton.addEventListener("click", getJSON);
+    let buttonActionJson: HTMLButtonElement = <HTMLButtonElement> document.getElementById("getJSONAction");
+    buttonActionJson.addEventListener("click", handleClickJson);
 
-
-    async function getHTML(): Promise<void> {
+    async function handleClickHtml(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        let dataURL: string = "https://gis2020vr.herokuapp.com";
-        dataURL += "/html";
+        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        dataURL += "?" + query.toString();
+        serverURL += "?" + query.toString();
 
-        let server: Response = await fetch(dataURL);
-        let serverText: string = await server.text();
-        let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponse");
-        serverResponse.innerHTML = serverText;
+        let response: Response = await fetch(serverURL);
+        let responseText: string = await response.text();
+        let serverResponse: HTMLElement = <HTMLElement> document.getElementById("serverResponse");
+        serverResponse.innerHTML = responseText;
     }
 
-    async function getJSON(): Promise<void> {
+    async function handleClickJson(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        let dataURL: string = "https://gis2020vr.herokuapp.com";
-        dataURL += "/json";
+        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        dataURL += "?" + query.toString();
+        serverURL += "?" + query.toString();
 
-        let server: Response = await fetch(dataURL);
-        let serverText: string = await server.json();
-        console.log(serverText);
+        let response: Response = await fetch(serverURL);
+        let responseText: string = await response.json();
+        console.log(responseText);
     }
 
 }

@@ -11,29 +11,30 @@
 
 <body>
 
-  <h2>Aufgabe09</h2>
+  <h2>Login</h2>
 
   <form>
     <!--action="https://2ndHendrix.herokuapp.com", method="GET"-->
-    <label for="vName">Vorname eingeben</label>
+    <label for="vName">Benutzername eingeben</label>
     <br>
-    <input type="text" id="vName" name="vName" placeholder="Ihr Vorname">
+    <input type="text" id="vName" name="vName" placeholder="Benutzername">
     <br>
-    <label for="nName">Nachname eingeben</label>
+    <label for="nName">Email eingeben</label>
     <br>
-    <input type="text" id="nName" name="nName" placeholder="Ihr Nachname">
+    <input type="text" id="nName" name="nName" placeholder="Email">
     <br>
-    <label for="text">Nachricht:</label>
-    <input class=" Formular" type="text" id="yourMessage" name="message" placeholder="Ihre Nachricht yo">
+    <label for="text">Passwort eingeben</label>
+    <input class=" Formular" type="text" id="yourMessage" name="message" placeholder="Passwort">
     <br>
-    <button class="Formular" id="performActionHtml" type="button">HTML</button>
-    <button class="Formular" id="performActionJson" type="button">JSON</button>
+    <button class="Formular" id="getHTMLAction" type="button">HTML</button>
+    <button class="Formular" id="getJSONAction" type="button">JSON</button>
     <br>
-    <input type="button" id="button" value="Submit">
+    <input type="button" id="button" value="Login">
     <br>
 
   </form>
-
+  <p id="serverAntwort">Antwort des Servers bei HTML Anfrage</p>
+  <br>
   <p id="serverResponse"></p>
 
 </body>

@@ -2,32 +2,32 @@
 var Aufgabe09;
 (function (Aufgabe09) {
     let formData;
-    let getActionHtmlButton = document.getElementById("getHTMLAction");
-    getActionHtmlButton.addEventListener("click", getHTML);
-    let getActionJsonButton = document.getElementById("getJSONAction");
-    getActionJsonButton.addEventListener("click", getJSON);
-    async function getHTML() {
+    let buttonActionHtml = document.getElementById("getHTMLAction");
+    buttonActionHtml.addEventListener("click", handleClickHtml);
+    let buttonActionJson = document.getElementById("getJSONAction");
+    buttonActionJson.addEventListener("click", handleClickJson);
+    async function handleClickHtml() {
         formData = new FormData(document.forms[0]);
-        let dataURL = "https://gis2020vr.herokuapp.com";
-        dataURL += "/html";
+        let serverURL = "https://gis2020vr.herokuapp.com";
+        serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        dataURL += "?" + query.toString();
-        let server = await fetch(dataURL);
-        let serverText = await server.text();
+        serverURL += "?" + query.toString();
+        let response = await fetch(serverURL);
+        let responseText = await response.text();
         let serverResponse = document.getElementById("serverResponse");
-        serverResponse.innerHTML = serverText;
+        serverResponse.innerHTML = responseText;
     }
-    async function getJSON() {
+    async function handleClickJson() {
         formData = new FormData(document.forms[0]);
-        let dataURL = "https://gis2020vr.herokuapp.com";
-        dataURL += "/json";
+        let serverURL = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        dataURL += "?" + query.toString();
-        let server = await fetch(dataURL);
-        let serverText = await server.json();
-        console.log(serverText);
+        serverURL += "?" + query.toString();
+        let response = await fetch(serverURL);
+        let responseText = await response.json();
+        console.log(responseText);
     }
 })(Aufgabe09 || (Aufgabe09 = {}));
 //# sourceMappingURL=script.js.map
