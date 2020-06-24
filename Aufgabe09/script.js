@@ -1,12 +1,18 @@
 "use strict";
 var Aufgabe09;
 (function (Aufgabe09) {
+    window.addEventListener("load", init);
+    function init() {
+        createButtons();
+    }
+    function createButtons() {
+        let buttonActionHtml = document.getElementById("getHTML");
+        buttonActionHtml.addEventListener("click", getHTML);
+        let buttonActionJson = document.getElementById("getJSON");
+        buttonActionJson.addEventListener("click", getJSON);
+    }
     let formData;
-    let buttonActionHtml = document.getElementById("getHTMLAction");
-    buttonActionHtml.addEventListener("click", handleClickHtml);
-    let buttonActionJson = document.getElementById("getJSONAction");
-    buttonActionJson.addEventListener("click", handleClickJson);
-    async function handleClickHtml() {
+    async function getHTML() {
         formData = new FormData(document.forms[0]);
         let serverURL = "https://gis2020vr.herokuapp.com";
         serverURL += "/html";
@@ -18,14 +24,14 @@ var Aufgabe09;
         let serverResponse = document.getElementById("serverResponse");
         serverResponse.innerHTML = responseText;
     }
-    async function handleClickJson() {
+    async function getJSON() {
         formData = new FormData(document.forms[0]);
-        let serverURL = "https://gis2020vr.herokuapp.com";
-        serverURL += "/json";
+        let url = "https://gis2020vr.herokuapp.com";
+        url += "/json";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        serverURL += "?" + query.toString();
-        let response = await fetch(serverURL);
+        url += "?" + query.toString();
+        let response = await fetch(url);
         let responseText = await response.json();
         console.log(responseText);
     }

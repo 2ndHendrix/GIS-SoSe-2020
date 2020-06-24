@@ -86,24 +86,24 @@ input#button:hover{
     color: ghostwhite;
 }
 
-button#getHTMLAction {
+button#getHTML {
     position: absolute;
     top: 260px;
     left: 100px;
 }
 
-button#getJSONAction {
+button#getJSON {
     position: absolute;
     top: 260px;
     left: 175px;
 }
 
-button#getHTMLAction:hover {
+button#getHTML:hover {
     background-color:  darkblue;
     color: ghostwhite;
 }
 
-button#getJSONAction:hover {
+button#getJSON:hover {
     background-color:  darkblue;
     color: ghostwhite;
 }
