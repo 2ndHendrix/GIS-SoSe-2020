@@ -1,17 +1,15 @@
 "use strict";
 var Aufgabe08;
 (function (Aufgabe08) {
-    let senden = document.getElementById("button");
-    senden?.addEventListener("click", handleSenden);
-    async function handleSenden() {
+    let button = document.getElementById("button");
+    button.addEventListener("click", communicate);
+    async function communicate() {
         let formData = new FormData(document.forms[0]);
+        let url = "https://gis2020vr.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        let url = "https://gispraktikum2020.herokuapp.com/";
         url = url + "?" + query.toString();
-        let antwort = await fetch(url);
-        let antwort2 = antwort.url;
-        console.log(antwort2);
+        await fetch(url);
         for (let entry of query) {
             console.log(entry);
             console.log("name: " + entry[0]);

@@ -5,9 +5,9 @@ namespace Aufgabe07 {
     let contentDiv: HTMLDivElement;
     let preisGesamt: HTMLParagraphElement;
     let vollerPreis: number;
-    let löschenButton: HTMLButtonElement;
-    löschenButton = <HTMLButtonElement>document.getElementById("löschen");
-    löschenButton.addEventListener("click", handleRemoveAll);
+    let warenkorbLoeschen: HTMLParagraphElement;
+    warenkorbLoeschen = <HTMLParagraphElement>document.querySelector("#löschen");
+    warenkorbLoeschen.addEventListener("click", handleRemoveAll);
 
     function init(_event: Event): void {
         contentDiv = <HTMLDivElement>document.querySelector(".warenkorb");
@@ -83,5 +83,5 @@ namespace Aufgabe07 {
     function handleRemoveAll(_event: Event): void {
         localStorage.clear();
         update();
-    }
+     }
 }

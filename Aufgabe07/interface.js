@@ -108,7 +108,7 @@ var Aufgabe07;
             let kaufen = document.createElement("button");
             kaufen.innerHTML = "In den Warenkorb";
             kaufen.addEventListener("click", onKaufenClick.bind(_categorys[index]));
-            kaufen.addEventListener("Click", rechner.bind(_categorys[index]));
+            kaufen.addEventListener("click", rechner.bind(_categorys[index]));
             newDiv.appendChild(kaufen);
             if (_categorys[index].kategorie == "kategorie_men") {
                 document.getElementById("men")?.appendChild(newDiv);

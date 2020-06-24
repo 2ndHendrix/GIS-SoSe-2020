@@ -81,6 +81,14 @@ button {
     display: flex;
 }
 
+button#löschen {
+    position: absolute;
+    top: 244px;
+    left: 740px;
+    padding: 20px;
+    font-size: 20px;
+}
+
 button:hover{
     background-color: black;
     color: white;
@@ -94,9 +102,7 @@ button:hover{
     padding-right: 19px;
 }
 
-.warenkorb{
-    width: 800px;
-}
+
 
 .warenliste {
     margin-top: 0;
@@ -152,6 +158,21 @@ button:hover{
     width: 100%;
     position: relative;
     top: 80px;
+}
+
+.warenkorb {
+    width: 100%;
+    position: relative;
+    top: 80px;
+    display: grid;
+
+}
+
+p#gesamt {
+    top: 270px;
+    position: absolute;
+    font-size: xx-large;
+    left: 350px;
 }
 
 .artikel{
@@ -286,12 +307,21 @@ h4 {
     font-size: 30px;
     text-align: center;
     margin-right: 20px;
-    color: white;
+    color: black;
     display: block;
     margin-block-start: 30px;
     margin-block-end: 30px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin-top: 110px;
+    margin-left: -100px;
+}
+
+h5 {
+    position: relative;
+    top: 60px;
+    left: 10px;
+    font-size: xx-large;
 }
 
 
