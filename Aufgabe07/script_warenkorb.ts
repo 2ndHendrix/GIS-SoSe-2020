@@ -5,17 +5,24 @@ namespace Aufgabe07 {
     let contentDiv: HTMLDivElement;
     let preisGesamt: HTMLParagraphElement;
     let vollerPreis: number;
-    let warenkorbLoeschen: HTMLParagraphElement;
-    warenkorbLoeschen = <HTMLParagraphElement>document.querySelector("#löschen");
-    warenkorbLoeschen.addEventListener("click", handleRemoveAll);
+    let warenkorbLoeschen: HTMLButtonElement;
+
+
 
     function init(_event: Event): void {
+        generateDeleteAll();
         contentDiv = <HTMLDivElement>document.querySelector(".warenkorb");
         preisGesamt = <HTMLParagraphElement>document.querySelector("#gesamt");
         document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
-        // console.log(localStorage);
+        console.log(localStorage);
         update();
+    }
+
+    function generateDeleteAll(): void {
+        warenkorbLoeschen = <HTMLButtonElement>document.getElementById("löschen");
+        console.log(warenkorbLoeschen);
+        warenkorbLoeschen.addEventListener("click", handleRemoveAll);
     }
 
     function update(): void {
@@ -83,5 +90,5 @@ namespace Aufgabe07 {
     function handleRemoveAll(_event: Event): void {
         localStorage.clear();
         update();
-     }
+    }
 }

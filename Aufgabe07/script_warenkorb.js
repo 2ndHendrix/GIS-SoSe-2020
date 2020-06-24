@@ -5,15 +5,19 @@ var Aufgabe07;
     let contentDiv;
     let preisGesamt;
     let vollerPreis;
-    let löschenButton;
-    löschenButton = document.getElementById("löschen");
-    löschenButton.addEventListener("click", handleRemoveAll);
+    let warenkorbLoeschen;
     function init(_event) {
+        generateDeleteAll();
         contentDiv = document.querySelector(".warenkorb");
         preisGesamt = document.querySelector("#gesamt");
         document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
-        // console.log(localStorage);
+        console.log(localStorage);
         update();
+    }
+    function generateDeleteAll() {
+        warenkorbLoeschen = document.getElementById("löschen");
+        console.log(warenkorbLoeschen);
+        warenkorbLoeschen.addEventListener("click", handleRemoveAll);
     }
     function update() {
         contentDiv.innerHTML = "";
