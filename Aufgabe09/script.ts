@@ -8,11 +8,11 @@ namespace Aufgabe09 {
     }
 
     function createButtons(): void {
-        let buttonActionHtml: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getHTML");
-        buttonActionHtml.addEventListener("click", getHTML);
+        let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getHTML");
+        buttonHTML.addEventListener("click", getHTML);
 
-        let buttonActionJson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getJSON");
-        buttonActionJson.addEventListener("click", getJSON);
+        let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getJSON");
+        buttonJSON.addEventListener("click", getJSON);
     }
     let formData: FormData;
 
@@ -33,13 +33,13 @@ namespace Aufgabe09 {
 
     async function getJSON(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        let url: string = "https://gis2020vr.herokuapp.com";
-        url += "/json";
+        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url += "?" + query.toString();
+        serverURL += "?" + query.toString();
 
-        let response: Response = await fetch(url);
+        let response: Response = await fetch(serverURL);
         let responseText: string = await response.json();
         console.log(responseText);
 
