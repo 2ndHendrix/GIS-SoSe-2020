@@ -1,5 +1,6 @@
 namespace Aufgabe08 {
 
+    var url = require('url');
     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
     button.addEventListener("click", communicate);
 

@@ -1,6 +1,7 @@
 "use strict";
 var Aufgabe08;
 (function (Aufgabe08) {
+    var url = require('url');
     let button = document.getElementById("button");
     button.addEventListener("click", communicate);
     async function communicate() {
