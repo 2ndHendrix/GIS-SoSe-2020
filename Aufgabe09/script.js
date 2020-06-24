@@ -1,21 +1,33 @@
 "use strict";
-var Aufgabe08;
-(function (Aufgabe08) {
-    var url = require('url');
-    let button = document.getElementById("button");
-    button.addEventListener("click", communicate);
-    async function communicate() {
-        let formData = new FormData(document.forms[0]);
-        let url = "https://gis2020vr.herokuapp.com";
+var Aufgabe09;
+(function (Aufgabe09) {
+    let formData;
+    let buttonActionHtml = document.getElementById("performActionHtml");
+    buttonActionHtml.addEventListener("click", handleClickHtml);
+    let buttonActionJson = document.getElementById("performActionJson");
+    buttonActionJson.addEventListener("click", handleClickJson);
+    async function handleClickHtml() {
+        formData = new FormData(document.forms[0]);
+        let serverURL = "https://gis2020vr.herokuapp.com";
+        serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        url = url + "?" + query.toString();
-        await fetch(url);
-        for (let entry of query) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
-        }
+        serverURL += "?" + query.toString();
+        let response = await fetch(serverURL);
+        let responseText = await response.text();
+        let serverResponse = document.getElementById("serverResponse");
+        serverResponse.innerHTML = responseText;
     }
-})(Aufgabe08 || (Aufgabe08 = {}));
+    async function handleClickJson() {
+        formData = new FormData(document.forms[0]);
+        let serverURL = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
+        // tslint:disable-next-line: no-any
+        let query = new URLSearchParams(formData);
+        serverURL += "?" + query.toString();
+        let response = await fetch(serverURL);
+        let responseText = await response.json();
+        console.log(responseText);
+    }
+})(Aufgabe09 || (Aufgabe09 = {}));
 //# sourceMappingURL=script.js.map

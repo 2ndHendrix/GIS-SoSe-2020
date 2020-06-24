@@ -6,24 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
-  <title>Aufgabe08</title>
+  <title>Aufgabe09</title>
 </head>
 
 <body>
 
-  <h2>Aufgabe08</h2>
+  <h2>Aufgabe09</h2>
 
-  <form > <!--action="https://2ndHendrix.herokuapp.com", method="GET"-->
+  <form>
+    <!--action="https://2ndHendrix.herokuapp.com", method="GET"-->
     <label for="vName">Vorname eingeben</label>
     <br>
-    <input type="text" id="vName" name="vName">
+    <input type="text" id="vName" name="vName" placeholder="Ihr Vorname">
     <br>
     <label for="nName">Nachname eingeben</label>
     <br>
-    <input type="text" id="nName" name="nName">
+    <input type="text" id="nName" name="nName" placeholder="Ihr Nachname">
     <br>
-    <input type="button" id="button" value="Submit" >
-  </form> 
+    <label for="text">Nachricht:</label>
+    <input class=" Formular" type="text" id="yourMessage" name="message" placeholder="Ihre Nachricht yo">
+    <br>
+    <button class="Formular" id="performActionHtml" type="button">HTML</button>
+    <button class="Formular" id="performActionJson" type="button">JSON</button>
+    <br>
+    <input type="button" id="button" value="Submit">
+    <br>
+
+  </form>
+
+  <p id="serverResponse"></p>
 
 </body>
+
 </html>

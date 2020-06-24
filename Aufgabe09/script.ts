@@ -1,22 +1,38 @@
-namespace Aufgabe08 {
+namespace Aufgabe09 {
 
-    var url = require('url');
-    let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-    button.addEventListener("click", communicate);
+    let formData: FormData;
+    let buttonActionHtml: HTMLButtonElement = <HTMLButtonElement>document.getElementById("performActionHtml");
+    buttonActionHtml.addEventListener("click", handleClickHtml);
 
-    async function communicate(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gis2020vr.herokuapp.com";
+    let buttonActionJson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("performActionJson");
+    buttonActionJson.addEventListener("click", handleClickJson);
+
+
+    async function handleClickHtml(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
-        await fetch(url);
+        serverURL += "?" + query.toString();
 
-        for (let entry of query) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
-        }
+        let response: Response = await fetch(serverURL);
+        let responseText: string = await response.text();
+        let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponse");
+        serverResponse.innerHTML = responseText;
+    }
+
+    async function handleClickJson(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        serverURL += "?" + query.toString();
+
+        let response: Response = await fetch(serverURL);
+        let responseText: string = await response.json();
+        console.log(responseText);
     }
 
 }
