@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form>
+        <h2 id="login">Login</h2>
+        <p> <label for="username" class="uname" data-icon="u">Email</label>
+            <input id="username" name="username" required="required" type="text">
+        </p>
+        <br>
+        <p>
+            <label for="password" class="youpasswd" data-icon="p">Passwort</label>
+            <input id="password" name="password" required="required" type="password">
+        </p>
+        <br>
+        <p class="versandButton">
+            <input type="submit" value="Versand">
+        </p>
+
+        <p class="anfrageButton">
+            <input type="submit" value="Anfrage">
+        </p>
+
+    </form>
+
+    <p id="serverAntwort">Antwort des Servers</p>
+    <br>
+    <p id="serverResponse"></p>
+
+</body>
+
+</html>
