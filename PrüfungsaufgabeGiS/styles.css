@@ -1,0 +1,193 @@
+body{
+    background-image: url(pictures/backgrounds/background-img.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.header-contain {
+    height: 200px;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    background-image: url(pictures/backgrounds/ICnew2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -20px;
+
+}
+
+.main-text {
+    color: azure;
+    font-size: 60px;
+    font-family: cursive;
+    margin-top: -120px;
+}
+
+.main-text span.border {
+    background-color: bisque;
+    color: #fff;
+    padding: 18px;
+    font-size: 50px;
+    letter-spacing: 10px;
+    opacity: 85%;
+    border-radius: 20px;
+}
+
+.divider {
+    background-image: url(pictures/backgrounds/bg-img3.jpeg);
+    width: 1200px;
+    height: 36px;
+    margin-top: 20px;
+    position: fixed;
+    left: 0px;
+    top: 143px;
+    opacity: 75%;
+}
+
+.menü {
+    right: 100px;
+    position: relative;
+    bottom: -8px;
+}
+
+nav {
+    left: 370px;
+    position: sticky;
+    top: 250px;
+    width: 320px;
+    border-radius: 20px;
+}
+
+a{
+    margin-left: 40px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    letter-spacing: 2mm;
+    margin-bottom: 5px;
+    bottom: 5px;
+}
+
+a:hover{
+    background-color: pink;
+    padding: 9px;
+
+}
+
+img#a3 {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    border: none;
+    padding: 0px;
+    left: 30px;
+}
+
+img#a3:hover{
+    background-color: pink;
+    
+}
+
+.Artikel {
+    position: relative;
+    top: 300px;
+    right: 110px;
+}
+
+button {
+    margin-bottom: 30px;
+    background-color: cadetblue;
+    color: white;
+    padding: 5px;
+    border: black 2px;
+}
+
+button:hover {
+    background-color: pink;
+    color: black;
+    padding:5px;
+    border: black 2px;
+}
+
+img {
+    height: 175px;
+    border: 2px grey;
+    border-style: solid;
+    background-color: honeydew;
+    padding: 20px;
+}
+
+p.description {
+    right: 190px;
+    position: relative;
+    top: 210px;
+}
+
+p.preis {
+    position: relative;
+    top: 230px;
+    right: 380px;
+}
+
+p.mengeButton {
+    position: relative;
+    top: 250px;
+    right: 420px;
+}
+
+h3#kategorie_waffel {
+    position: relative;
+    left: -340px;
+}
+
+h3#kategorie_sorte {
+    position: relative;
+    left: -340px;
+}
+
+h3#kategorie_topping {
+    position: relative;
+    left: -340px;
+}
+
+.order {
+    background-image: url("pictures/backgrounds/order-bg.jpg");
+    border: 2px solid rgb(255, 255, 255);
+    max-width: 800px;
+    max-height: 800px;
+    position: relative;
+    margin: 0 auto;
+   padding: 32px 34px 32px 32px;
+    opacity: 70%;
+    width: 570px;
+
+}
+
+p.order{
+    position: relative;
+    right: 30px
+}
+
+
+h2#meine_bestellung {
+    color: black;
+}
+
+footer{
+    background-image: url(pictures/backgrounds/footer-bg-img.jpg);
+    position: relative;
+    top: 600px;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+    opacity: 80%;
+}
+

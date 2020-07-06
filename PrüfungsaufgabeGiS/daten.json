@@ -1,0 +1,15 @@
+[
+
+    {"img": "pictures/cones/ice-cone1.png", "description" : "Klassisch", "preis": 0.30, "kategorie": "kategorie_waffeln" },
+    {"img": "pictures/cones/pappe1.png", "description": "Pappbecher", "preis": 0.80, "kategorie": "kategorie_waffeln" },
+    {"img": "pictures/ice-cream/chocolate.png", "description": "Feinstes Schokoladeneis", "preis": 0.80, "kategorie": "kategorie_sorte" },
+    {"img": "pictures/ice-cream/fruity.png", "description" : "Fruchtiges Sommereis", "preis": 0.85, "kategorie": "kategorie_sorte" },
+    {"img": "pictures/ice-cream/mango.png", "description": "Tropische Mango", "preis": 0.90, "kategorie": "kategorie_sorte" },
+    {"img": "pictures/ice-cream/nougat.png", "description": "Verführerisches Nougat", "preis": 0.80, "kategorie": "kategorie_sorte" },
+    {"img": "pictures/ice-cream/vanilla.png", "description": "Klassische Vanille", "preis": 0.70, "kategorie": "kategorie_sorte" },
+    {"img": "pictures/toppings/kirsche.png", "description": "Kirsche", "preis": 0.30, "kategorie": "kategorie_topping" },
+    {"img": "pictures/toppings/chocolate-chips.png", "description": "Schoko-Streusel", "preis": 0.30, "kategorie": "kategorie_topping" },
+    {"img": "pictures/toppings/chocolate-sauce.png", "description": "Schoko-Soße", "preis": 0.30, "kategorie": "kategorie_topping" },
+    {"img": "pictures/toppings/bunte-streusel.jpg", "description": "Bunte Streusel", "preis": 0.30, "kategorie": "kategorie_topping" }
+    
+]
