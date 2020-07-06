@@ -122,38 +122,38 @@ img {
     padding: 20px;
 }
 
-p.description {
-    right: 190px;
+div#waffel {
+    display: inline-flex;
     position: relative;
-    top: 210px;
+    right: 130px;
 }
 
-p.preis {
+div#sorte {
+    display: inline-flex;
     position: relative;
-    top: 230px;
-    right: 380px;
+    left: 210px;
 }
 
-p.mengeButton {
+div#topping {
+    display: inline-flex;
     position: relative;
-    top: 250px;
-    right: 420px;
+    left: 110px;
+}
+
+h3 {
+    position: relative;
+    left: -340px;
+    letter-spacing: 5px;
+    font-weight: 100;
 }
 
 h3#kategorie_waffel {
     position: relative;
     left: -340px;
+    letter-spacing: 5px;
+    font-weight: 100;
 }
 
-h3#kategorie_sorte {
-    position: relative;
-    left: -340px;
-}
-
-h3#kategorie_topping {
-    position: relative;
-    left: -340px;
-}
 
 .order {
     background-image: url("pictures/backgrounds/order-bg.jpg");
@@ -162,9 +162,11 @@ h3#kategorie_topping {
     max-height: 800px;
     position: relative;
     margin: 0 auto;
-   padding: 32px 34px 32px 32px;
+    padding: 32px 34px 32px 32px;
     opacity: 70%;
     width: 570px;
+    position: relative;
+    top: 320px;
 
 }
 
@@ -181,7 +183,7 @@ h2#meine_bestellung {
 footer{
     background-image: url(pictures/backgrounds/footer-bg-img.jpg);
     position: relative;
-    top: 600px;
+    top: 400px;
     color: white;
     text-align: center;
     padding: 10px 10px 30px 10px;

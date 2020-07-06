@@ -1,7 +1,7 @@
 [
 
-    {"img": "pictures/cones/ice-cone1.png", "description" : "Klassisch", "preis": 0.30, "kategorie": "kategorie_waffeln" },
-    {"img": "pictures/cones/pappe1.png", "description": "Pappbecher", "preis": 0.80, "kategorie": "kategorie_waffeln" },
+    {"img": "pictures/cones/ice-cone1.png", "description" : "Klassisch", "preis": 0.30, "kategorie": "kategorie_waffel" },
+    {"img": "pictures/cones/pappe1.png", "description": "Pappbecher", "preis": 0.80, "kategorie": "kategorie_waffel" },
     {"img": "pictures/ice-cream/chocolate.png", "description": "Feinstes Schokoladeneis", "preis": 0.80, "kategorie": "kategorie_sorte" },
     {"img": "pictures/ice-cream/fruity.png", "description" : "Fruchtiges Sommereis", "preis": 0.85, "kategorie": "kategorie_sorte" },
     {"img": "pictures/ice-cream/mango.png", "description": "Tropische Mango", "preis": 0.90, "kategorie": "kategorie_sorte" },

@@ -1,17 +1,12 @@
 "use strict";
 var PrüfungsaufgabeGiS;
 (function (PrüfungsaufgabeGiS) {
-    let waffelDiv;
-    let sorteDiv;
-    let toppingDiv;
     let clickCounter = 0;
     let counterDisplay;
     let counterPreis = 0;
-    let warenrechner = 0;
-    let preisrechner = 0;
     PrüfungsaufgabeGiS.categoryJSON = [];
     window.addEventListener("load", init);
-    // Funtion kaufen Button
+    // Funktion kaufen Button
     function onKaufenClick(_event) {
         console.log("clicked");
         clickCounter++;
@@ -21,16 +16,8 @@ var PrüfungsaufgabeGiS;
         counterPreis += this.preis;
         console.log(counterPreis);
     }
-    function rechner(event) {
-        warenrechner++;
-        console.log(warenrechner);
-        saveInLocalStorage(this);
-        preisrechner += parseFloat(event.target?.getAttribute("preis"));
-        console.log(preisrechner.toFixed(2));
-    }
     function init() {
         communicate("daten.json");
-        loadCategoryListeners();
     }
     async function communicate(_url) {
         let response = await fetch(_url);
@@ -38,59 +25,14 @@ var PrüfungsaufgabeGiS;
         createArtikel(PrüfungsaufgabeGiS.categoryJSON);
     }
     // In LocalStorage sichern
-    async function saveInLocalStorage(_inputArticle) {
-        let itemString = JSON.stringify(_inputArticle);
-        let key = "" + _inputArticle.description;
-        localStorage.setItem(key, itemString);
-        console.log(localStorage);
-    }
+    /* async function saveInLocalStorage(_inputArticle: Artikel): Promise<void> {
+         let itemString: string = JSON.stringify(_inputArticle);
+         let key: string = "" + _inputArticle.description;
+         localStorage.setItem(key, itemString);
+         console.log(localStorage);
+     }
+     */
     // Kategorien laden
-    function loadCategoryListeners() {
-        let navButton;
-        let navMenü = document.querySelector(".menü");
-        let navLength = navMenü.children.length;
-        for (let index = 1; index < navLength; index++) {
-            navButton = document.querySelector(".menü a:nth-child(" + index + ")");
-            navButton.addEventListener("click", onClickCategory.bind(navButton));
-        }
-        console.log(navLength);
-    }
-    function onClickCategory(_event) {
-        console.log(this.getAttribute("id"));
-        switch (this.getAttribute("id")) {
-            case "a1":
-                showWaffel();
-                break;
-            case "a2":
-                showSorte();
-                break;
-            case "a3":
-                showTopping();
-            case "start":
-                showStart();
-                break;
-        }
-    }
-    function showWaffel() {
-        waffelDiv.style.display = "flex";
-        sorteDiv.style.display = "none";
-        toppingDiv.style.display = "none";
-    }
-    function showSorte() {
-        waffelDiv.style.display = "none";
-        sorteDiv.style.display = "flex";
-        toppingDiv.style.display = "none";
-    }
-    function showTopping() {
-        waffelDiv.style.display = "none";
-        sorteDiv.style.display = "none";
-        toppingDiv.style.display = "flex";
-    }
-    function showStart() {
-        waffelDiv.style.display = "flex";
-        sorteDiv.style.display = "flex";
-        toppingDiv.style.display = "flex";
-    }
     /* function showIce(_categorys: Artikel[]): void{
          for (let index: number = 0; index < _categorys.length; index++) {
          
@@ -98,32 +40,34 @@ var PrüfungsaufgabeGiS;
      }*/
     function createArtikel(_categorys) {
         for (let index = 0; index < _categorys.length; index++) {
-            //DIV
+            //DIV erstellen
             let newDiv = document.createElement("div");
             newDiv.id = "div1" + index;
-            //IMG
+            //IMG aufrufen
             let imgElement = document.createElement("img");
             imgElement.src = _categorys[index].img;
             newDiv.appendChild(imgElement);
-            //DESCRIPTION
-            let description = document.createElement("p");
+            //DESCRIPTION aufrufen
+            let description = document.createElement("h4");
             description.innerHTML = _categorys[index].description;
             newDiv.appendChild(description);
-            //PREIS
+            //PREIS aufrufen
             let newPreis = document.createElement("p");
             newPreis.innerHTML = _categorys[index].preis.toFixed(2) + "€";
             newDiv.appendChild(newPreis);
-            //BUY
+            //Button
             let kaufen = document.createElement("button");
-            kaufen.innerHTML = "In den Warenkorb";
+            kaufen.innerHTML = "Auswählen";
             kaufen.addEventListener("click", onKaufenClick.bind(_categorys[index]));
-            kaufen.addEventListener("click", rechner.bind(_categorys[index]));
             newDiv.appendChild(kaufen);
             if (_categorys[index].kategorie == "kategorie_waffel") {
                 document.getElementById("waffel")?.appendChild(newDiv);
             }
-            else {
-                document.getElementById("kategorie_sorte")?.appendChild(newDiv);
+            else if (_categorys[index].kategorie == "kategorie_sorte") {
+                document.getElementById("sorte")?.appendChild(newDiv);
+            }
+            else if (_categorys[index].kategorie == "kategorie_topping") {
+                document.getElementById("topping")?.appendChild(newDiv);
             }
         }
     }
