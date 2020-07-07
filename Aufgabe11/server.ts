@@ -1,13 +1,8 @@
-import * as Mongo from "mongodb";
-
-let mongoClient: Mongo.MongoClient = new Mongo.MongoClient("C:\Program Files\Test MongoDB\MongoDB\Server\4.2\bin\mongo");
-await mongoClient.connect();
-
-let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
-orders.insert({...});
-
 import * as Http from "http";
 import * as Url from "url";
+import * as Mongo from "mongodb";
+//import { ParsedUrlQuery } from "querystring";
+
 
 export namespace Aufgabe11 {
   console.log("Server starten");
@@ -15,10 +10,23 @@ export namespace Aufgabe11 {
   if (!port)
     port = 8100;
 
+
+  //let databaseUrl: string = "mongodb://localhost:8100";
+  let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/Test?retryWrites=true&w=majority";
+
+  connectToDatabase(databaseUrl);
+
+
   let server: Http.Server = Http.createServer();
   server.addListener("request", handleRequest);
   server.addListener("listening", handleListen);
   server.listen(port);
+
+  async function connectToDatabase(_url: string): Promise<void> {
+    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
+  }
 
   function handleListen(): void {
     console.log("Listening");
@@ -41,7 +49,7 @@ export namespace Aufgabe11 {
         let jsonString: string = JSON.stringify(url.query);
         _response.write(jsonString);
       }
-      else if (path == "//A8") {
+      else if (path == "//Aufgabe11") {
         _response.write(_request.url);
       }
     }

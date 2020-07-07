@@ -21,8 +21,6 @@ namespace PrüfungsaufgabeGiS {
         console.log(counterPreis);
     }
 
-
-
     export interface Artikel {
         img: string;
         description: string;
