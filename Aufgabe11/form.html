@@ -5,32 +5,23 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script src="server.js"></script>
 
 </head>
 
 <body>
 
-    <form>
-        <h2 id="login">Login</h2>
-        <p> <label for="username" class="uname" data-icon="u">Email</label>
-            <input id="username" name="username" required="required" type="text">
-        </p>
-        <br>
-        <p>
-            <label for="password" class="youpasswd" data-icon="p">Passwort</label>
-            <input id="password" name="password" required="required" type="password">
-        </p>
-        <br>
-        <p class="versandButton">
-            <input type="submit" id="send" value="Versand">
-        </p>
-
-        <p class="anfrageButton">
-            <input type="submit" id="get" value="Anfrage">
-        </p>
-
-    </form>
+    <form method="GET" action="https://manusfirstapp.herokuapp.com" id="formular">
+        <label for="Vorname">First name:</label><br>
+        <input type="text" id="fname" name="Vorname" placeholder="z.B.John"><br>
+        <label for="Nachname">Last Name:</label><br>
+        <input type="text" id="lname" name="Nachname" placeholder="z.B.Deer"><br>
+        <label for="Email">E-Mail:</label><br>
+        <input type="email" id="email" name="Email" placeholder="z.B.DeerJohn@provider.de"><br>
+        <label for="Passwort">Passwort:</label><br>
+        <input type="password" id="pass" name="Passwort" placeholder="z.B.Apfelstrudel2323"><br>
+        <button type="button" id="get">Senden</button>
+        <button type="button" id="send">Anfragen</button>
+        </form>
 
     <p id="serverAntwort">Antwort des Servers</p>
     <br>

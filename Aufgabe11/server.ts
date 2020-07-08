@@ -9,7 +9,7 @@ export namespace Aufgabe11 {
   interface orders {
 
     // tslint:disable-next-line: no-any
-    [type: string]: string | string[] | undefined;
+    [type: string]: string[] | undefined;
   }
 
   console.log("Server starten");
@@ -18,7 +18,7 @@ export namespace Aufgabe11 {
   if (!port)
     port = 8100;
 
-  let databaseUrl: string = "mongodb://localhost:27017";
+  let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
 
   //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
 
@@ -63,7 +63,7 @@ export namespace Aufgabe11 {
 
       } else if (url.pathname == "/get") {
 
-        await handleGet(url);
+        await handleGet(_response);
       }
       //response abschließen
       _response.end();
@@ -75,8 +75,8 @@ export namespace Aufgabe11 {
     orders.insertOne(_url.query);
   }
 
-  async function handleGet(_response: Http.ServerResponse): Promise <void>{
-    let orders: Orders[] = await orders.find().toArray();
+  async function handleGet(_response: Http.ServerResponse): Promise <void> {
+    let ordersArray: orders[] = await orders.find().toArray();
     _response.write(JSON.stringify(ordersArray));
   }
 }

@@ -12,7 +12,7 @@ var Aufgabe11;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    let databaseUrl = "mongodb://localhost:27017";
+    let databaseUrl = "mongodb://localhost:27018";
     //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
     connectToDatabase(databaseUrl);
     startServer(port);
@@ -48,7 +48,7 @@ var Aufgabe11;
                 await handleSend(url);
             }
             else if (url.pathname == "/get") {
-                await handleGet(url);
+                await handleGet(_response);
             }
             //response abschließen
             _response.end();
@@ -60,7 +60,7 @@ var Aufgabe11;
         orders.insertOne(_url.query);
     }
     async function handleGet(_response) {
-        let orders = await orders.find().toArray();
+        let ordersArray = await orders.find().toArray();
         _response.write(JSON.stringify(ordersArray));
     }
 })(Aufgabe11 = exports.Aufgabe11 || (exports.Aufgabe11 = {}));
