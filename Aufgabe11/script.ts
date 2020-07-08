@@ -23,18 +23,18 @@ namespace Aufgabe11 {
 
     async function sendButtonfunction(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        let url: string = "https://manusfirstapp.herokuapp.com/send";
+        let url: string = "https://gis2020vr.herokuapp.com/send";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "?" + query.toString();
         await fetch(url);
     }
 
-
+    //  "https://gis2020vr.herokuapp.com"
     // "https://manusfirstapp.herokuapp.com"
 
     async function getButtonfunction(): Promise<void> {
-        let url: string = "https://manusfirstapp.herokuapp.com/get";
+        let url: string = "https://gis2020vr.herokuapp.com/get";
         // tslint:disable-next-line: no-any
         await fetch(url);
         let response: Response = await fetch(url);
