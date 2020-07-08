@@ -5,6 +5,7 @@ namespace Aufgabe11 {
     let getButton: HTMLButtonElement;
     let sendButton: HTMLButtonElement;
 
+    window.addEventListener("load", init);
 
     getButton = <HTMLButtonElement>document.querySelector("#get");
     sendButton = <HTMLButtonElement>document.querySelector("#send");
