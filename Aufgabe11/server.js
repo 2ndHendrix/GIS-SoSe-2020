@@ -12,6 +12,7 @@ var Aufgabe11;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
+    // let databaseUrl: string = "mongodb+srv://Administrator:Administrator@hannahnaha.dtfe1.mongodb.net/Test?retryWrites=true&w=majority";
     let databaseUrl = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
     //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
     startServer(port);
@@ -32,7 +33,7 @@ var Aufgabe11;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        orders = mongoClient.db("test").collection("Students");
+        orders = mongoClient.db("Test").collection("Students");
         console.log("Database connection" + orders != undefined);
     }
     function handleListen() {
@@ -40,14 +41,15 @@ var Aufgabe11;
     }
     async function handleRequest(_request, _response) {
         console.log("whaaazzzzuuup");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/send") {
+            let path = url.pathname;
+            if (path == "/send") {
                 await handleSend(url);
             }
-            else if (url.pathname == "/get") {
+            else if (path == "/get") {
                 await handleGet(_response);
             }
             //response abschließen

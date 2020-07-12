@@ -16,21 +16,22 @@ var Aufgabe11;
     let formData;
     async function sendButtonfunction() {
         formData = new FormData(document.forms[0]);
-        let url = "https://gis2020vr.herokuapp.com/send";
+        let url = "https://manusfirstapp.herokuapp.com/send";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         await fetch(url);
     }
-    //  "https://gis2020vr.herokuapp.com"
+    // "https://gis2020vr.herokuapp.com"
     // "https://manusfirstapp.herokuapp.com"
     async function getButtonfunction() {
-        let url = "https://gis2020vr.herokuapp.com/get";
+        let url = "https://manusfirstapp.herokuapp.com/get";
         // tslint:disable-next-line: no-any
         await fetch(url);
         let response = await fetch(url);
         let response2 = await response.text();
         document.getElementById("serverResponse").innerHTML = response2;
+        console.log(response2);
     }
 })(Aufgabe11 || (Aufgabe11 = {}));
 //# sourceMappingURL=script.js.map
