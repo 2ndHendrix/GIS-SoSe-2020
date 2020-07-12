@@ -12,10 +12,10 @@ var Aufgabe11;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    let databaseUrl = "mongodb://localhost:27018";
+    let databaseUrl = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
     //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
-    connectToDatabase(databaseUrl);
     startServer(port);
+    connectToDatabase(databaseUrl);
     function startServer(_port) {
         //Server variable erstellen
         let server = Http.createServer();
@@ -60,6 +60,7 @@ var Aufgabe11;
         orders.insertOne(_url.query);
     }
     async function handleGet(_response) {
+        console.log("Daten übermittelt");
         let ordersArray = await orders.find().toArray();
         _response.write(JSON.stringify(ordersArray));
     }

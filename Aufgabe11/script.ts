@@ -1,25 +1,23 @@
 namespace Aufgabe11 {
     // let getButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
     // let sendButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
-    let formData: FormData;
-    let getButton: HTMLButtonElement;
-    let sendButton: HTMLButtonElement;
+   
 
     window.addEventListener("load", init);
 
-    getButton = <HTMLButtonElement>document.querySelector("#get");
-    sendButton = <HTMLButtonElement>document.querySelector("#send");
-    //onClickButton wird bei einem Click auf den Button ausgeführt
-
-
-
     function init(): void {
-        getButton.addEventListener("click", sendButtonfunction.bind(getButton));
-        sendButton.addEventListener("click", getButtonfunction.bind(sendButton));
-
+        createButtons();
     }
 
-    init();
+    function createButtons(): void {
+        let getButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
+        getButton.addEventListener("click", getButtonfunction);
+
+        let sendButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
+        sendButton.addEventListener("click", sendButtonfunction);
+    }
+
+    let formData: FormData;
 
     async function sendButtonfunction(): Promise<void> {
         formData = new FormData(document.forms[0]);
@@ -43,6 +41,3 @@ namespace Aufgabe11 {
     }
 
 }
-
-
-//https://gis2020vr.herokuapp.com

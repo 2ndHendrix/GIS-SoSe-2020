@@ -21,9 +21,8 @@ export namespace Aufgabe11 {
   let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
 
   //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
-
-  connectToDatabase(databaseUrl);
   startServer(port);
+  connectToDatabase(databaseUrl);
 
   function startServer(_port: number | string): void {
     //Server variable erstellen
@@ -76,6 +75,7 @@ export namespace Aufgabe11 {
   }
 
   async function handleGet(_response: Http.ServerResponse): Promise <void> {
+    console.log("Daten übermittelt");
     let ordersArray: orders[] = await orders.find().toArray();
     _response.write(JSON.stringify(ordersArray));
   }
