@@ -6,7 +6,7 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe11 {
   // tslint:disable-next-line: class-name
-  interface orders {
+  interface Orders {
 
     // tslint:disable-next-line: no-any
     [type: string]: string[] | undefined;
@@ -18,7 +18,7 @@ export namespace Aufgabe11 {
   if (!port)
     port = 8100;
 
-  let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
+  let databaseUrl: string = "mongodb+srv://Administrator:Administrator@hannahnaha.dtfe1.mongodb.net/Test?retryWrites=true&w=majority";
 
   //"mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
   startServer(port);
@@ -41,7 +41,7 @@ export namespace Aufgabe11 {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
-    orders = mongoClient.db("test").collection("Students");
+    orders = mongoClient.db("Test").collection("Students");
     console.log("Database connection" + orders != undefined);
   }
 
@@ -49,18 +49,19 @@ export namespace Aufgabe11 {
     console.log("Listening");
   }
 
-  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise <void> {
+  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     console.log("whaaazzzzuuup");
-    _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
+    _response.setHeader("Access-Control-Allow-Origin", "*");
 
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-      if (url.pathname == "/send") {
+      let path: string = <string>url.pathname;
+      if (path == "/send") {
 
         await handleSend(url);
 
-      } else if (url.pathname == "/get") {
+      } else if (path == "/get") {
 
         await handleGet(_response);
       }
@@ -74,9 +75,11 @@ export namespace Aufgabe11 {
     orders.insertOne(_url.query);
   }
 
-  async function handleGet(_response: Http.ServerResponse): Promise <void> {
+  async function handleGet(_response: Http.ServerResponse): Promise<void> {
     console.log("Daten übermittelt");
-    let ordersArray: orders[] = await orders.find().toArray();
+    let ordersArray: Orders[] = await orders.find().toArray();
     _response.write(JSON.stringify(ordersArray));
   }
+
+
 }

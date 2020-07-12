@@ -1,32 +1,26 @@
+
 <!DOCTYPE html>
-<html lang="de">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe 11</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
-    <form method="GET" action="https://gis2020vr.herokuapp.com" id="formular">
-        <label for="Vorname">First name:</label><br>
-        <input type="text" id="fname" name="Vorname" placeholder="z.B.John"><br>
-        <label for="Nachname">Last Name:</label><br>
-        <input type="text" id="lname" name="Nachname" placeholder="z.B.Deer"><br>
-        <label for="Email">E-Mail:</label><br>
-        <input type="email" id="email" name="Email" placeholder="z.B.DeerJohn@provider.de"><br>
-        <label for="Passwort">Passwort:</label><br>
-        <input type="password" id="pass" name="Passwort" placeholder="z.B.Apfelstrudel2323"><br>
-        <button type="button" id="get">Senden</button>
-        <button type="button" id="send">Anfragen</button>
+    <body>
+        <h3>Sende hier Deine Informationen</h3>
+        
+        <form methode="GET" action="https://aufgabe8gis.herokuapp.com" id="myForm">
+            <button type="button" id="send">send</button>
+            <button type="button" id="get">get</button><br>
+            <input type="text" name="firstname"> Firstname <br>
+            <input type="text" name="lastname"> Lastname <br>
+            <input type="text" name="matrikelnummer"> matrikelnummer <br>
         </form>
-
-    <p id="serverAntwort">Antwort des Servers</p>
-    <br>
-    <div id="serverResponse"></div>
-
+    
+        <div id="serverResponse"></div>
+        
+        
 </body>
-
-</html>
