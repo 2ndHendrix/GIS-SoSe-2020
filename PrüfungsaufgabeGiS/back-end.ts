@@ -16,7 +16,7 @@ namespace PrüfungsaufgabeGiS {
     }
     let formData: FormData;
 
-    async function getButtonfunction(): Promise<void> {
+    async function getButtonfunction(): Promise<void> { 
         let url: string = "https://manusfirstapp.herokuapp.com/get";
         // tslint:disable-next-line: no-any
         await fetch(url);
