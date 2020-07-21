@@ -1,0 +1,76 @@
+namespace PrüfungsaufgabeGiS {
+
+    window.addEventListener("load", init);
+
+    let ordersDiv: HTMLDivElement;
+    let vollerPreis: number;
+    let preisGesamt: HTMLParagraphElement;
+    let contentDiv: HTMLDivElement;
+
+
+
+    function init(_event: Event): void {
+        ordersDiv = <HTMLDivElement>document.getElementById("order-backend");
+        preisGesamt = <HTMLParagraphElement>document.getElementById("gesamt");
+      
+        createButtons();
+    }
+
+    function createButtons(): void {
+        let getData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
+        getData.addEventListener("click", getButtonfunction);
+     
+    }
+
+    async function getButtonfunction(): Promise<void> {
+        let url: string = "https://manusfirstapp.herokuapp.com/get";
+        // tslint:disable-next-line: no-any
+        await fetch(url);
+        let response: Response = await fetch(url);
+        let response2: string = await response.text();
+        (<HTMLDivElement>document.getElementById("serverResponse")).innerHTML = response2;
+        console.log(response2);
+    }
+
+    function update(): void {
+        ordersDiv.innerHTML = "";
+        vollerPreis = 0;
+        for (let index: number = 0; index < localStorage.length; index++) {
+            let key: string = <string>localStorage.key(index);
+            let artikelsjson: string = <string>localStorage.getItem(key);
+
+            let item: Artikel = <Artikel>JSON.parse(artikelsjson);
+
+            vollerPreis += item.preis;
+            showOrder(item);
+        }
+        setPreisGesamt();
+    }
+
+
+    function showOrder(_orderedArticles: Artikel): void {
+        //Div erzeugen
+        let newDiv: HTMLDivElement = document.createElement("div");
+        ordersDiv.appendChild(newDiv);
+        newDiv.id = _orderedArticles.description;
+
+        //Bild laden
+        let imgElement: HTMLImageElement = document.createElement("img");
+        newDiv.appendChild(imgElement);
+        imgElement.src = _orderedArticles.img;
+        console.log(imgElement);
+
+        // Preis berechnen
+
+        let price: HTMLParagraphElement = document.createElement("p");
+        newDiv.appendChild(price);
+        price.innerHTML = "" + _orderedArticles.preis;
+        newDiv.setAttribute("preis", price.innerHTML);
+    }
+
+    //Vollen Preis anzeigen
+    function setPreisGesamt(): void {
+        preisGesamt.innerHTML = "" + vollerPreis;
+    }
+
+}

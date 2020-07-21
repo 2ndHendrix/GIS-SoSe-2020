@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh-Iceland</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="back-end.js" defer></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-contain">
+            <div class="logo"></div> 
+            <div class="main-text">
+               <span class="border"> Fresh-Iceland </span>
+            </div>
+        <nav>
+            <div class="divider">
+
+                <div class="menü">
+                    <a id="start" href="iceland.html">Start</a>
+
+
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+    </header>
+        <main>
+                <div id="order-backend">
+                    <h3 id="order-backend"> Eingegangene Bestellungen</h3>
+                    <h5 id="gesamt">Wert aller Bestellungen</h5>
+                </div>
+
+
+                <div class="table">
+                    <h5 id="name">Name</h5>
+                    <h5 id="adresse">Adresse</h5>
+                    <h5 id="plz">PLZ</h5>
+                    <h5 id="wert">€</h5>
+                </div>
+
+                    
+
+                    <form methode="GET" action="https://manusfirstapp.herokuapp.com" id="myForm">
+                        <button type="button" id="get">Daten anfragen</button>    
+                        <button type="button" id="getHTML" type="button">HTML</button>
+
+                    </form>    
+
+                        <div id="serverResponse"></div>
+                       <div id="serverResponseHTML"></div>
+
+        
+
+
+            <footer class="footer p">
+                <h4 id="footer p">Happy shopping</h4>
+                    <a href="https://www.e-recht24.de/muster-datenschutzerklaerung.html">Datenschutz</a>
+                        <br>
+                    <a href="#anker">Zum Seitenanfang</a>
+            </footer>
+        </main>
+</body>
+
+</html>

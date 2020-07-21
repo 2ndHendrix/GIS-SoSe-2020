@@ -7,9 +7,6 @@ namespace PrüfungsaufgabeGiS {
     let contentDiv: HTMLDivElement;
     let warenkorbLoeschen: HTMLButtonElement;
 
-    let preisGesamt: HTMLParagraphElement;
-    let vollerPreis: number;
-
     export let categoryJSON: Artikel[] = [];
     window.addEventListener("load", init);
 
@@ -25,12 +22,8 @@ namespace PrüfungsaufgabeGiS {
         communicate("daten.json");
         
         contentDiv = <HTMLDivElement>document.getElementById("vorschau");
-        preisGesamt = <HTMLParagraphElement>document.getElementById("gesamt");
-       // document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
-
-        
-        createButtons();
         updatePreview();
+        createButtons();
 
     }
 
@@ -71,7 +64,7 @@ namespace PrüfungsaufgabeGiS {
         console.log(clickCounter);
         console.log(this.preis);
         counterPreis += this.preis;
-        console.log(counterPreis.toFixed(2));
+        console.log(counterPreis);
     }
 
 
@@ -85,24 +78,13 @@ namespace PrüfungsaufgabeGiS {
 
     function updatePreview(): void {
         contentDiv.innerHTML = "";
-        vollerPreis = 0;
-
         for (let index: number = 0; index < localStorage.length; index++) {
             let key: string = <string>localStorage.key(index);
             let artikelsjson: string = <string>localStorage.getItem(key);
             let item: Artikel = <Artikel>JSON.parse(artikelsjson);
 
             showItems(item);
-
-            vollerPreis += item.preis;
-
         }
-        setPreisGesamt();
-
-    }
-
-    function setPreisGesamt(): void {
-        preisGesamt.innerHTML = "" + vollerPreis.toFixed(2) + "€";
     }
 
     function showItems(_categorys: Artikel): void {
@@ -117,10 +99,6 @@ namespace PrüfungsaufgabeGiS {
         let imgElement: HTMLImageElement = document.createElement("img");
         imgElement.src = _categorys.img;
         newDiv.appendChild(imgElement);
-
-        let description: HTMLParagraphElement = document.createElement("p");
-        description.innerHTML = _categorys.description;
-        newDiv.appendChild(description);
 
     }
 
@@ -192,14 +170,14 @@ namespace PrüfungsaufgabeGiS {
 
                 //Button +
                 let buttonPlus: HTMLButtonElement = document.createElement("button");
-                buttonPlus.innerHTML = "Auswählen";
+                buttonPlus.innerHTML = "+";
                 buttonPlus.addEventListener("click", addIce.bind(_categorys[index]));
                 buttonPlus.addEventListener("click", rechner.bind(_categorys[index]));
                 newDiv.appendChild(buttonPlus);
 
                 //Button -
                 let buttonMinus: HTMLButtonElement = document.createElement("button");
-                buttonMinus.innerHTML = "Löschen";
+                buttonMinus.innerHTML = "-";
                 buttonMinus.addEventListener("click", handleRemoveArticle.bind(_categorys[index]));
                 newDiv.appendChild(buttonMinus);
                 updatePreview();

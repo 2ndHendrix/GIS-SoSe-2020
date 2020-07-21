@@ -5,12 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "@types/mongodb": "^3.5.25",
-    "@types/node": "^14.0.14",
+    "@types/node": "^14.0.23",
     "mongodb": "^3.5.9"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node Aufgabe11/server.js"
+    "start": "node PrüfungsaufgabeGiS/server.js"
   },
   "repository": {
     "type": "git",

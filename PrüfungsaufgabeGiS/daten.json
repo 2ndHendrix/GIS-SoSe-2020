@@ -10,6 +10,6 @@
     {"img": "pictures/toppings/kirsche.png", "description": "Kirsche", "preis": 0.30, "kategorie": "kategorie_topping" },
     {"img": "pictures/toppings/chocolate-chips.png", "description": "Schoko-Streusel", "preis": 0.30, "kategorie": "kategorie_topping" },
     {"img": "pictures/toppings/chocolate-sauce.png", "description": "Schoko-Soße", "preis": 0.30, "kategorie": "kategorie_topping" },
-    {"img": "pictures/toppings/bunte-streusel.jpg", "description": "Bunte Streusel", "preis": 0.30, "kategorie": "kategorie_topping" }
+    {"img": "pictures/toppings/bunte-streusel.png", "description": "Bunte-Streusel", "preis": 0.30, "kategorie": "kategorie_topping" }
     
 ]

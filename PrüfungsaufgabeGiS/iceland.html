@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh-Iceland</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="back-end.js"></script>
     <script src="interface.js"></script>
 
 </head>
@@ -13,7 +14,9 @@
 <body>
     <header id="header">
         <div class="header-contain">
-            <div class="logo"></div> 
+            <div class="logo">
+                <img src="../PrüfungsaufgabeGiS/pictures/fresh iceland logo.png" alt="logo biatch" id="logo">
+            </div> 
             <div class="main-text">
                <span class="border"> Fresh-Iceland </span>
             </div>
@@ -25,6 +28,7 @@
                     <a id="a1" href="#kategorie_waffel">Waffeln</a>
                     <a id="a2" href="#kategorie_sorte">Sorten</a>
                     <a id="a4" href="#kategorie_topping">Toppings</a>
+                    <a id="a5" href="backend.html">Back-End</a>
 
                 </div>
 
@@ -35,8 +39,12 @@
     </header>
         <main>
                 <h3 id ="kategorie_vorschau">Ihre Vorschau</h3>
+                <button id="deleteAll">Alles entfernen</button>
+
                 <div id="vorschau" class="preview"></div>
-                
+                <p id="gesatmText">Ihre Auswahl</p>
+                <p id="gesamt"></p>
+                               
                         <div class="Artikel">
                             
                             <h3 id="kategorie_waffel">Waffeln</h3>
@@ -45,6 +53,7 @@
 
                             <h3 id="kategorie_sorte">Sorte</h3>
                                 <div id="sorte" class="artikel"></div>
+                                
 
                                 
                             <h3 id="kategorie_topping">Topping</h3>    
@@ -54,31 +63,29 @@
                         </div>
 
 
-            <div class="order">
-                <h2 id="meine_bestellung">Meine Bestellung</h2>
-                <p> <label for="username" class="uname" data-icon="u">Name</label>
-                    <input id="username" name="username" required="required" type="text">
-                </p>
-                <br>
-                <p>
-                    <label for="adress" class="adress" data-icon="p"> Adresse </label>
-                    <input id="adress" name="adress" required="required" type="adress">
-                </p>
-                <br>
-                <p>
-                    <label for="plz" class="plz" data-icon="p"> PLZ </label>
-                    <input id="plz" name="plz" required="required" type="plz">
-                <p class="loginButton">
-                    <input type="submit" value="Bestellung abschicken">
-                </p>
+        <div class="order">
 
-            </div>
+            <form methode="GET" action="https://manusfirstapp.herokuapp.com" id="myForm">
+                <input type="text" id="firstname" name="firstname">Vorname<br>
+                <input type="text" id="lastname" name="lastname">Nachname <br>
+                <input type="text" id="adress"name="adress"> Adresse <br>
+                <input type="text" id="plz" name="plz"> PLZ <br>
+
+                <button type="button" id="send">Jetzt bestellen</button>
+
+            </form>
+
+            
+
+
+        </div>
 
             <footer class="footer p">
-                <h4>Happy shopping</h4>
-                    <a href="https://www.e-recht24.de/muster-datenschutzerklaerung.html">Datenschutz</a>
+                    <a id="footera" href="https://www.e-recht24.de/muster-datenschutzerklaerung.html">Datenschutz</a>
                         <br>
-                    <a href="#anker">Zum Seitenanfang</a>
+                        <br>
+                        <br>
+                    <a id="footera" href="#anker">Zum Seitenanfang</a>
             </footer>
         </main>
 </body>
