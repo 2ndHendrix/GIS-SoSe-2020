@@ -1,5 +1,5 @@
 body{
-    background-image: url(pictures/backgrounds/tropical-island.jpg);
+    background-image: url(pictures/backgrounds/checkerboard-cross/checkerboard-cross.png);
     background-repeat: repeat;
     -webkit-background-size: cover;
     background-size: cover;
@@ -316,8 +316,8 @@ div#vorschau {
 
         div#Schokolade>img {
             position: absolute;
-            width: 30%;
-            height: 30%;
+            width: 40%;
+            height: auto;
             border: none;
             padding: 0px;
             left: 90px;

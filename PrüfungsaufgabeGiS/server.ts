@@ -60,6 +60,7 @@ export namespace PrüfungsaufgabeGiS {
         for (let key in url.query) {
           _response.write(key + ": " + url.query[key] + "<br/>");
         }
+        await handleHTML(_response);
       }
       else if (path == "/send") {
 
@@ -83,5 +84,8 @@ export namespace PrüfungsaufgabeGiS {
     _response.write(JSON.stringify(ordersArray));
   }
 
-
+  async function handleHTML(_response: Http.ServerResponse): Promise<void> {
+    let ordersArray: Orders[] = await orders.find().toArray();
+    _response.write(JSON.stringify(ordersArray));
+  }
 }
