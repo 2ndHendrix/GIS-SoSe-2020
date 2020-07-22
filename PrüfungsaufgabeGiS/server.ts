@@ -49,9 +49,7 @@ export namespace PrüfungsaufgabeGiS {
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
-    _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.setHeader("Access-Control-Allow-Origin", "*");
-
+  
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       let path: string = <string>url.pathname;
@@ -88,10 +86,6 @@ export namespace PrüfungsaufgabeGiS {
     let htmlArray: Orders[] = await orders.find().toArray();
     _response.write(JSON.stringify(htmlArray));
 
-    //let response: Response = await fetch(_response: Http.ServerResponse);
-    let rückgabeText: string = await _response.find().toArray();
-    let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverRückgabe");
-    serverResponse.innerHTML = rückgabeText;
   }
 }
 
