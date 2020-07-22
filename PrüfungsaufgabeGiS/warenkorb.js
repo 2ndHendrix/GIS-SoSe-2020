@@ -12,6 +12,20 @@ var PrüfungsaufgabeGiS;
         console.log(localStorage);
         update();
     }
+    let sendData = document.getElementById("send");
+    sendData.addEventListener("click", sendButtonfunction);
+    let formData;
+    async function sendButtonfunction() {
+        formData = new FormData(document.forms[0]);
+        // let url: string = "http://localhost:8100/send";
+        let url = "https://manusfirstapp.herokuapp.com/send";
+        // tslint:disable-next-line: no-any
+        let query = new URLSearchParams(formData);
+        url = url + "?" + query.toString();
+        console.log(url);
+        await fetch(url);
+        console.log("gesendet");
+    }
     function update() {
         contentDiv.innerHTML = "";
         vollerPreis = 0;

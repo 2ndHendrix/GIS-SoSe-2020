@@ -17,21 +17,7 @@ var PrüfungsaufgabeGiS;
         contentDiv = document.getElementById("vorschau");
         preisGesamt = document.getElementById("gesamt");
         // document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
-        createButtons();
         updatePreview();
-    }
-    function createButtons() {
-        let sendData = document.getElementById("send");
-        sendData.addEventListener("click", sendButtonfunction);
-    }
-    let formData;
-    async function sendButtonfunction() {
-        formData = new FormData(document.forms[0]);
-        let url = "https://manusfirstapp.herokuapp.com/send";
-        // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData);
-        url = url + "?" + query.toString();
-        await fetch(url);
     }
     async function communicate(_url) {
         let response = await fetch(_url);

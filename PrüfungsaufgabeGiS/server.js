@@ -13,7 +13,8 @@ var PrüfungsaufgabeGiS;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    let databaseUrl = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
+    // let databaseUrl: string = "mongodb://localhost:27018";
+    let databaseUrl = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/Eisladen?retryWrites=true&w=majority";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -31,13 +32,33 @@ var PrüfungsaufgabeGiS;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        orders = mongoClient.db("Test").collection("Students");
+        orders = mongoClient.db("Eisladen").collection("Bestellungen");
         console.log("Database connection" + orders != undefined);
     }
     function handleListen() {
         console.log("Listening");
     }
+    async function handleRequest(_request, _response) {
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
+        if (_request.url) {
+            let url = Url.parse(_request.url, true);
+            let path = url.pathname;
+            if (path == "/send") {
+                console.log(url.query);
+                console.log("if und so");
+                orders.insertOne(url.query);
+            }
+            else if (path == "/get") {
+                await receiveDatas(_response);
+            }
+            //response abschließen
+            _response.end();
+            console.log("server Response biaaatch");
+        }
+    }
     async function receiveDatas(_response) {
+        console.log("was auch immer");
         //tslint:disable-next-line: no-any
         receivedData = await orders.find().toArray();
         for (let index = 0; index <= receivedData.length; index++) {
@@ -48,24 +69,6 @@ var PrüfungsaufgabeGiS;
                 }
                 _response.write("<br>");
             }
-        }
-        _response.end();
-    }
-    async function handleRequest(_request, _response) {
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-        if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            let path = url.pathname;
-            if (path == "/send") {
-                console.log(url.query);
-                orders.insertOne(url.query);
-            }
-            else if (path == "/get") {
-                await receiveDatas(_response);
-            }
-            //response abschließen
-            _response.end();
         }
     }
 })(PrüfungsaufgabeGiS = exports.PrüfungsaufgabeGiS || (exports.PrüfungsaufgabeGiS = {}));

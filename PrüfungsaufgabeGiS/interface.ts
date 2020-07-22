@@ -12,6 +12,7 @@ namespace PrüfungsaufgabeGiS {
     let preisGesamt: HTMLParagraphElement;
     let vollerPreis: number;
 
+ 
     export let categoryJSON: Artikel[] = [];
 
     export interface Artikel {
@@ -29,27 +30,9 @@ namespace PrüfungsaufgabeGiS {
         preisGesamt = <HTMLParagraphElement>document.getElementById("gesamt");
        // document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
-        createButtons();
         updatePreview();
-
     }
 
-    function createButtons(): void {
-
-        let sendData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
-        sendData.addEventListener("click", sendButtonfunction); 
-    }
-
-    let formData: FormData;
-
-    async function sendButtonfunction(): Promise<void> {
-        formData = new FormData(document.forms[0]);
-        let url: string = "https://manusfirstapp.herokuapp.com/send";
-        // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url + "?" + query.toString();
-        await fetch(url);
-    }
 
 
     async function communicate(_url: RequestInfo): Promise<void> {
@@ -74,7 +57,6 @@ namespace PrüfungsaufgabeGiS {
         console.log(counterPreis.toFixed(2));
     }
 
-
     async function saveInLocalStorage(_inputArticle: Artikel): Promise<void> {
         let itemString: string = JSON.stringify(_inputArticle);
         let key: string = "" + _inputArticle.description;
@@ -98,7 +80,6 @@ namespace PrüfungsaufgabeGiS {
 
         }
         setPreisGesamt();
-
     }
 
     function setPreisGesamt(): void {
@@ -121,7 +102,6 @@ namespace PrüfungsaufgabeGiS {
         let description: HTMLParagraphElement = document.createElement("p");
         description.innerHTML = _categorys.description;
         newDiv.appendChild(description);
-
     }
 
     // delete All

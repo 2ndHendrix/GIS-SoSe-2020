@@ -15,6 +15,25 @@ namespace PrüfungsaufgabeGiS {
         update();
     }
 
+    let sendData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
+    sendData.addEventListener("click", sendButtonfunction); 
+
+
+    let formData: FormData;
+
+    async function sendButtonfunction(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+       // let url: string = "http://localhost:8100/send";
+        let url: string = "https://manusfirstapp.herokuapp.com/send";
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url = url + "?" + query.toString();
+        console.log(url);
+        await fetch(url);
+        console.log("gesendet");
+
+    }
+
 
     function update(): void {
         contentDiv.innerHTML = "";

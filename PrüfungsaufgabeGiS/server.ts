@@ -18,7 +18,10 @@ export namespace PrüfungsaufgabeGiS {
   if (!port)
     port = 8100;
 
-  let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
+
+ // let databaseUrl: string = "mongodb://localhost:27018";
+
+  let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/Eisladen?retryWrites=true&w=majority";
 
   startServer(port);
   connectToDatabase(databaseUrl);
@@ -39,34 +42,12 @@ export namespace PrüfungsaufgabeGiS {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
-    orders = mongoClient.db("Test").collection("Students");
+    orders = mongoClient.db("Eisladen").collection("Bestellungen");
     console.log("Database connection" + orders != undefined);
   }
 
   function handleListen(): void {
     console.log("Listening");
-  }
-
-  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
-
-    //tslint:disable-next-line: no-any
-
-    receivedData = await orders.find().toArray();
-    for (let index: number = 0; index <= receivedData.length; index++) {
-
-      if (receivedData[index]) {
-
-        let current: Orders = <Orders>receivedData[index];
-        for (let key in current) {
-          _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
-        }
-        _response.write("<br>");
-      }
-    }
-    _response.end();
-
-
-
   }
 
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
@@ -79,13 +60,34 @@ export namespace PrüfungsaufgabeGiS {
       if (path == "/send") {
 
         console.log(url.query);
+        console.log("if und so");
         orders.insertOne(url.query);
       } else if (path == "/get") {
 
-       await receiveDatas(_response);
+        await receiveDatas(_response);
       }
       //response abschließen
       _response.end();
+      console.log("server Response biaaatch");
+
+    }
+  }
+
+  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
+    console.log("was auch immer");
+
+    //tslint:disable-next-line: no-any
+    receivedData = await orders.find().toArray();
+    for (let index: number = 0; index <= receivedData.length; index++) {
+
+      if (receivedData[index]) {
+
+        let current: Orders = <Orders>receivedData[index];
+        for (let key in current) {
+          _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+        }
+        _response.write("<br>");
+      }
     }
   }
 

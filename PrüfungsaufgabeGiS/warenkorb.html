@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-backend.css">
 
-    <script src="back-end.js" defer></script>
-    <script src="interface.js" defer></script>
     <script src="warenkorb.js" defer></script>
 
 </head>
@@ -43,8 +41,9 @@
             <p id="gesamt">Wert aller Bestellungen</p>
 
                        <div class="order">
-
-                            <form method="GET" action="https://manusfirstapp.herokuapp.com" id="myForm">
+                           
+                                <form method="GET" action="http//:localhost:8100" id="myForm">
+                        <!--    <form method="GET" action="https://manusfirstapp.herokuapp.com" id="myForm"> -->
                                 <input type="text" id="firstname" name="firstname">Vorname<br>
                                 <input type="text" id="lastname" name="lastname">Nachname <br>
                                 <input type="text" id="adress" name="adress"> Adresse <br>

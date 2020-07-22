@@ -19,7 +19,9 @@ namespace Aufgabe09 {
 
     async function getHTML(): Promise<void> {
         formData = new FormData(document.forms[0]);
-        let serverURL: string = "https://gis2020vr.herokuapp.com";
+        let serverURL: string = "http//:localhost:8100";
+
+    //  let serverURL: string = "https://gis2020vr.herokuapp.com";
         serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);

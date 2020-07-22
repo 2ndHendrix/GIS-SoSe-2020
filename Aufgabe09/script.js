@@ -14,7 +14,8 @@ var Aufgabe09;
     let formData;
     async function getHTML() {
         formData = new FormData(document.forms[0]);
-        let serverURL = "https://gis2020vr.herokuapp.com";
+        let serverURL = "http//:localhost:8100";
+        //  let serverURL: string = "https://gis2020vr.herokuapp.com";
         serverURL += "/html";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);

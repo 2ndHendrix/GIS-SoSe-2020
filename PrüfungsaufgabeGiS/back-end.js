@@ -2,23 +2,24 @@
 var PrüfungsaufgabeGiS;
 (function (PrüfungsaufgabeGiS) {
     window.addEventListener("load", init);
-    let formData;
+    let getData = document.getElementById("get");
+    getData.addEventListener("click", getButtonfunction);
+    // tslint:disable-next-line: no-empty
     function init(_event) {
-        createButtons();
     }
-    function createButtons() {
-        let getData = document.getElementById("get");
-        getData.addEventListener("click", getButtonfunction);
-    }
+    let formData;
     async function getButtonfunction() {
         formData = new FormData(document.forms[0]);
+        // let url: string = "http://localhost:8100/get";
         let url = "https://manusfirstapp.herokuapp.com/get";
         // tslint:disable-next-line: no-any
+        let query = new URLSearchParams(formData);
+        url = url + "?" + query.toString();
         await fetch(url);
         let response = await fetch(url);
         let response2 = await response.text();
         document.getElementById("serverResponse").innerHTML = response2;
-        console.log(response2);
+        console.log("response");
     }
 })(PrüfungsaufgabeGiS || (PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=back-end.js.map
