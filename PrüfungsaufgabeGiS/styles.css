@@ -173,6 +173,7 @@ button#get {
     border: black 2px;
     position: relative;
     width: 140px;
+    top: 250px;
 }
 
 button#get:hover {
@@ -184,6 +185,8 @@ button#get:hover {
     border: black 2px;
     position: relative;
     width: 140px;
+    top: 250px;
+
 }
 
 button#getHTML {
@@ -195,6 +198,7 @@ button#getHTML {
     border: black 2px;
     position: relative;
     width: 140px;
+    top: 250px;
 }
 
 button#getHTML:hover {
@@ -206,6 +210,8 @@ button#getHTML:hover {
     border: black 2px;
     position: relative;
     width: 140px;
+    top: 250px;
+
 }
 
 p#gesamt {
@@ -497,7 +503,7 @@ h3#kategorie_waffel {
     top: 320px;
 }
 
-div#order-backend {
+.order-backend {
     position: relative;
     background-color: white;
     opacity: 75%;

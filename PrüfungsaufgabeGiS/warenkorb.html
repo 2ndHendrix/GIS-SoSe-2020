@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh-Iceland Warenkorb</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-backend.css">
+
+    <script src="back-end.js" defer></script>
+    <script src="interface.js" defer></script>
+    <script src="warenkorb.js" defer></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-contain">
+            <div class="logo">
+                <img src="../PrüfungsaufgabeGiS/pictures/fresh_iceland_logo.png" alt="logo biatch" id="logo">
+            </div> 
+            <div class="main-text">
+               <span class="border"> Fresh-Iceland </span>
+            </div>
+        <nav>
+            <div class="divider">
+                <div class="menü">
+                    <a id="start" href="iceland.html">Start</a>
+                    <a id="start" href="back-end.html">Backend</a>
+
+                </div>
+            </div>
+
+        </nav>
+    </div>
+    </header>
+        <main>
+            <div class="order-backend" id="order-backend">
+                <h3> Eingegangene Bestellungen</h3>
+            </div>
+
+            <p id="gesamt">Wert aller Bestellungen</p>
+
+                       <div class="order">
+
+                            <form method="GET" action="https://manusfirstapp.herokuapp.com" id="myForm">
+                                <input type="text" id="firstname" name="firstname">Vorname<br>
+                                <input type="text" id="lastname" name="lastname">Nachname <br>
+                                <input type="text" id="adress" name="adress"> Adresse <br>
+                                <input type="text" id="plz" name="plz"> PLZ <br>
+                                <button type="button" id="send">Jetzt bestellen</button>
+                            </form>
+                        </div>
+
+            <footer class="footer p">
+                <h4 id="footer p">Happy shopping</h4>
+                
+            </footer>
+        </main>
+</body>
+
+</html>

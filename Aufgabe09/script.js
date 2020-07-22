@@ -6,10 +6,10 @@ var Aufgabe09;
         createButtons();
     }
     function createButtons() {
-        let buttonActionHtml = document.getElementById("getHTML");
-        buttonActionHtml.addEventListener("click", getHTML);
-        let buttonActionJson = document.getElementById("getJSON");
-        buttonActionJson.addEventListener("click", getJSON);
+        let buttonHTML = document.getElementById("getHTML");
+        buttonHTML.addEventListener("click", getHTML);
+        let buttonJSON = document.getElementById("getJSON");
+        buttonJSON.addEventListener("click", getJSON);
     }
     let formData;
     async function getHTML() {
@@ -26,12 +26,12 @@ var Aufgabe09;
     }
     async function getJSON() {
         formData = new FormData(document.forms[0]);
-        let url = "https://gis2020vr.herokuapp.com";
-        url += "/json";
+        let serverURL = "https://gis2020vr.herokuapp.com";
+        serverURL += "/json";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        url += "?" + query.toString();
-        let response = await fetch(url);
+        serverURL += "?" + query.toString();
+        let response = await fetch(serverURL);
         let responseText = await response.json();
         console.log(responseText);
     }

@@ -39,6 +39,8 @@ var PrüfungsaufgabeGiS;
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             let path = url.pathname;
@@ -69,6 +71,10 @@ var PrüfungsaufgabeGiS;
     async function handleHTML(_response) {
         let htmlArray = await orders.find().toArray();
         _response.write(JSON.stringify(htmlArray));
+        //let response: Response = await fetch(_response: Http.ServerResponse);
+        let rückgabeText = await _response.find().toArray();
+        let serverResponse = document.getElementById("serverRückgabe");
+        serverResponse.innerHTML = rückgabeText;
     }
 })(PrüfungsaufgabeGiS = exports.PrüfungsaufgabeGiS || (exports.PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=server.js.map

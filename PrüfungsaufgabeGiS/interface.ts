@@ -1,17 +1,18 @@
 
 namespace PrüfungsaufgabeGiS {
+
+    window.addEventListener("load", init);
+
     let warenrechner: number = 0;
     let preisrechner: number = 0;
     let clickCounter: number = 0;
     let counterPreis: number = 0;
     let contentDiv: HTMLDivElement;
     let warenkorbLoeschen: HTMLButtonElement;
-
     let preisGesamt: HTMLParagraphElement;
     let vollerPreis: number;
 
     export let categoryJSON: Artikel[] = [];
-    window.addEventListener("load", init);
 
     export interface Artikel {
         img: string;
@@ -28,7 +29,6 @@ namespace PrüfungsaufgabeGiS {
         preisGesamt = <HTMLParagraphElement>document.getElementById("gesamt");
        // document.getElementById("warenkorbWert")?.appendChild(preisGesamt);
 
-        
         createButtons();
         updatePreview();
 

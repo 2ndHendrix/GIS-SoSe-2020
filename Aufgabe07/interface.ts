@@ -59,6 +59,7 @@ namespace Aufgabe07 {
     let key: string = "" + _inputArticle.name;
     localStorage.setItem(key, itemString);
     console.log(localStorage);
+
   }
 
   // Kategorien laden

@@ -1,0 +1,228 @@
+.header-contain {
+    height: 200px;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    background-image: url(pictures/backgrounds/ICnew2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -10px;
+}
+
+div#Klassisch>img {
+    width: 15%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+}
+
+div#Pappbecher>img {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    bottom: 50px;
+    left:50px;
+    z-index: -6;
+}
+
+div#Schokolade>img {
+    position: absolute;
+    width: 7%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    left: 50px;
+    top: 120px;
+}
+
+div#Früchte>img {
+    position: absolute;
+    width: 6%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    left: 57px;
+    top: 100px;
+    z-index: -1;
+}
+
+div#Mango>img {
+    position: absolute;
+    width: 6%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    left: 36px;
+    top: 111px;
+    z-index: -2;
+}
+
+div#Nougat>img {
+    position: absolute;
+    width: 6%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    left: 55px;
+    top: 110px;
+    z-index: -3;
+}
+
+div#Vanille>img{
+    position: absolute;
+    width: 7%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    left: 60px;
+    top: 110px;
+    z-index: -4;
+}
+
+div#Kirsche>img {
+    height: 20%;
+    border: none;
+    padding: 0px;
+    bottom: 210px;
+    left: 42px;
+    position: absolute;
+}
+div#Schoko-Streusel>img{
+    position: absolute;
+    width: 30%;
+    height:30%;
+    border: none;
+    padding: 0px;
+    left: 100px;
+    top:30px;
+}
+
+
+
+
+
+
+div#Kirsche>p {
+    position: relative;
+    left: 10px;
+    margin-left: -10px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+}
+div#Klassisch>p {
+    position: relative;
+    left: 10px;
+    margin-left: -6px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Pappbecher>p {
+    position: relative;
+    left: 10px;
+    margin-left: 0px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Schokolade>p {
+    position: relative;
+    left: 10px;
+    margin-left: -2px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Früchte>p {
+    position: relative;
+    left: 10px;
+    margin-left: -10px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Mango>p {
+    position: relative;
+    left: 10px;
+    margin-left: -10px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Vanille>p {
+    position: relative;
+    left: 10px;
+    margin-left: -10px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Schoko-Streusel>p {
+    position: relative;
+    left: 10px;
+    margin-left: -7px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Schoko-Soße>p {
+    position: relative;
+    left: 10px;
+    margin-left: -7px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Bunte-Streusel>p {
+    position: relative;
+    left: 10px;
+    margin-left: -8px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+
+}
+div#Nougat>p {
+    position: relative;
+    left: 10px;
+    margin-left: -10px;
+    width: 50px;
+    font-size: x-small;
+    display: none;    
+}
+
+div#Schoko-Soße>img{
+    position: absolute;
+    width: 30%;
+    height:30%;
+    border: none;
+    padding: 0px;
+    left: 100px;
+    top:30px;
+    display: none;    
+
+}
+
+div#Bunte-Streusel>img{
+    position: absolute;
+    width: 30%;
+    height:30%;
+    border: none;
+    padding: 0px;
+    left: 100px;
+    top:30px;
+}

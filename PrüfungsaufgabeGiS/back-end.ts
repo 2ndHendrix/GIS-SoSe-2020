@@ -2,8 +2,11 @@ namespace PrüfungsaufgabeGiS {
 
     window.addEventListener("load", init);
 
+    let formData: FormData;
+
     function init(_event: Event): void {
-                createButtons();
+        createButtons();
+
     }
 
     function createButtons(): void {
@@ -14,7 +17,6 @@ namespace PrüfungsaufgabeGiS {
         buttonHTML.addEventListener("click", getHTML);
 
     }
-    let formData: FormData;
 
     async function getHTML(): Promise<void> {
         formData = new FormData(document.forms[0]);
@@ -29,7 +31,7 @@ namespace PrüfungsaufgabeGiS {
         serverResponse.innerHTML = responseText;
     }
 
-    async function getButtonfunction(): Promise<void> { 
+    async function getButtonfunction(): Promise<void> {
         formData = new FormData(document.forms[0]);
         let url: string = "https://manusfirstapp.herokuapp.com/get";
         // tslint:disable-next-line: no-any
@@ -40,6 +42,5 @@ namespace PrüfungsaufgabeGiS {
         console.log(response2);
     }
 
- 
 
 }

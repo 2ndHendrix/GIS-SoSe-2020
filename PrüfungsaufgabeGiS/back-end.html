@@ -4,9 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh-Iceland</title>
+    <title>Fresh-Iceland Back-End</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-backend.css">
+
     <script src="back-end.js" defer></script>
+    <script src="interface.js"></script>
+    <script src="warenkorb.js" defer></script>
+
 
 </head>
 
@@ -24,8 +29,7 @@
 
                 <div class="menü">
                     <a id="start" href="iceland.html">Start</a>
-
-
+                    <a id="start" href="warenkorb.html">Warenkorb</a>
                 </div>
 
             </div>
@@ -34,23 +38,9 @@
     </div>
     </header>
         <main>
-                <div id="order-backend">
-                    <h3 id="order-backend"> Eingegangene Bestellungen</h3>
-                    <h5 id="gesamt">Wert aller Bestellungen</h5>
-                </div>
-
-
-                <div class="table">
-                    <h5 id="name">Name</h5>
-                    <h5 id="adresse">Adresse</h5>
-                    <h5 id="plz">PLZ</h5>
-                    <h5 id="wert">€</h5>
-                </div>
-
                     <form method="GET" action="https://manusfirstapp.herokuapp.com" id="myForm">
                         <button class="Formular" type="button" id="get">Daten anfragen</button>    
                         <button class="Formular" type="button" id="getHTML">HTML</button>
-
                     </form>    
 
                        <div id="serverResponse"></div>

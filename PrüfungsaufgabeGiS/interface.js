@@ -1,6 +1,7 @@
 "use strict";
 var PrüfungsaufgabeGiS;
 (function (PrüfungsaufgabeGiS) {
+    window.addEventListener("load", init);
     let warenrechner = 0;
     let preisrechner = 0;
     let clickCounter = 0;
@@ -10,7 +11,6 @@ var PrüfungsaufgabeGiS;
     let preisGesamt;
     let vollerPreis;
     PrüfungsaufgabeGiS.categoryJSON = [];
-    window.addEventListener("load", init);
     function init(_event) {
         generateDeleteAll();
         communicate("daten.json");
