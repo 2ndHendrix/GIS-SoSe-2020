@@ -12,6 +12,7 @@ export namespace PrüfungsaufgabeGiS {
   }
 
   console.log("Server starten");
+  let receivedData: Orders[];
   let orders: Mongo.Collection;
   let port: number = Number(process.env.PORT);
   if (!port)
@@ -46,46 +47,47 @@ export namespace PrüfungsaufgabeGiS {
     console.log("Listening");
   }
 
+  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
+
+    //tslint:disable-next-line: no-any
+
+    receivedData = await orders.find().toArray();
+    for (let index: number = 0; index <= receivedData.length; index++) {
+
+      if (receivedData[index]) {
+
+        let current: Orders = <Orders>receivedData[index];
+        for (let key in current) {
+          _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+        }
+        _response.write("<br>");
+      }
+    }
+    _response.end();
+
+
+
+  }
+
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
-  
+
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       let path: string = <string>url.pathname;
-      if (path == "/html") {
-        for (let key in url.query) {
-          _response.write(key + ": " + url.query[key] + "<br/>");
-        }
-        await handleHTML(_response);
+      if (path == "/send") {
+
+        console.log(url.query);
+        orders.insertOne(url.query);
+      } else if (path == "/get") {
+
+       await receiveDatas(_response);
       }
-      else
-        if (path == "/send") {
-
-          await handleSend(url);
-
-        } else if (path == "/get") {
-
-          await handleGet(_response);
-        }
       //response abschließen
       _response.end();
     }
   }
-  async function handleSend(_url: Url.UrlWithParsedQuery): Promise<void> {
-    console.log(_url.query);
-    orders.insertOne(_url.query);
-  }
 
-  async function handleGet(_response: Http.ServerResponse): Promise<void> {
-    let ordersArray: Orders[] = await orders.find().toArray();
-    _response.write(JSON.stringify(ordersArray));
-  }
-
-  async function handleHTML(_response: Http.ServerResponse): Promise<void> {
-    let htmlArray: Orders[] = await orders.find().toArray();
-    _response.write(JSON.stringify(htmlArray));
-
-  }
 }
 

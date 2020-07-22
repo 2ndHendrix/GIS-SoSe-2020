@@ -9,19 +9,6 @@ var PrüfungsaufgabeGiS;
     function createButtons() {
         let getData = document.getElementById("get");
         getData.addEventListener("click", getButtonfunction);
-        let buttonHTML = document.getElementById("getHTML");
-        buttonHTML.addEventListener("click", getHTML);
-    }
-    async function getHTML() {
-        formData = new FormData(document.forms[0]);
-        let serverURL = "https://manusfirstapp.herokuapp.com/html";
-        // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData);
-        serverURL += "?" + query.toString();
-        let responseHTML = await fetch(serverURL);
-        let responseText = await responseHTML.text();
-        let serverResponse = document.getElementById("serverResponseHTML");
-        serverResponse.innerHTML = responseText;
     }
     async function getButtonfunction() {
         formData = new FormData(document.forms[0]);

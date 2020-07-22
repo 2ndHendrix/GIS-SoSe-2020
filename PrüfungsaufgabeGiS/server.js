@@ -8,6 +8,7 @@ const Mongo = require("mongodb");
 var PrüfungsaufgabeGiS;
 (function (PrüfungsaufgabeGiS) {
     console.log("Server starten");
+    let receivedData;
     let orders;
     let port = Number(process.env.PORT);
     if (!port)
@@ -36,39 +37,36 @@ var PrüfungsaufgabeGiS;
     function handleListen() {
         console.log("Listening");
     }
+    async function receiveDatas(_response) {
+        //tslint:disable-next-line: no-any
+        receivedData = await orders.find().toArray();
+        for (let index = 0; index <= receivedData.length; index++) {
+            if (receivedData[index]) {
+                let current = receivedData[index];
+                for (let key in current) {
+                    _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+                }
+                _response.write("<br>");
+            }
+        }
+        _response.end();
+    }
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             let path = url.pathname;
-            if (path == "/html") {
-                for (let key in url.query) {
-                    _response.write(key + ": " + url.query[key] + "<br/>");
-                }
-                await handleHTML(_response);
-            }
-            else if (path == "/send") {
-                await handleSend(url);
+            if (path == "/send") {
+                console.log(url.query);
+                orders.insertOne(url.query);
             }
             else if (path == "/get") {
-                await handleGet(_response);
+                await receiveDatas(_response);
             }
             //response abschließen
             _response.end();
         }
-    }
-    async function handleSend(_url) {
-        console.log(_url.query);
-        orders.insertOne(_url.query);
-    }
-    async function handleGet(_response) {
-        let ordersArray = await orders.find().toArray();
-        _response.write(JSON.stringify(ordersArray));
-    }
-    async function handleHTML(_response) {
-        let htmlArray = await orders.find().toArray();
-        _response.write(JSON.stringify(htmlArray));
     }
 })(PrüfungsaufgabeGiS = exports.PrüfungsaufgabeGiS || (exports.PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=server.js.map
