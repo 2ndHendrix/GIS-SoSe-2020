@@ -16,7 +16,21 @@ namespace PrüfungsaufgabeGiS {
     }
     let formData: FormData;
 
+    async function getHTML(): Promise<void> {
+        formData = new FormData(document.forms[0]);
+        let serverURL: string = "https://manusfirstapp.herokuapp.com/html";
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        serverURL += "?" + query.toString();
+
+        let responseHTML: Response = await fetch(serverURL);
+        let responseText: string = await responseHTML.text();
+        let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponseHTML");
+        serverResponse.innerHTML = responseText;
+    }
+
     async function getButtonfunction(): Promise<void> { 
+        formData = new FormData(document.forms[0]);
         let url: string = "https://manusfirstapp.herokuapp.com/get";
         // tslint:disable-next-line: no-any
         await fetch(url);
@@ -26,17 +40,6 @@ namespace PrüfungsaufgabeGiS {
         console.log(response2);
     }
 
-    async function getHTML(): Promise<void> {
-        let serverURL: string = "https://manusfirstapp.herokuapp.com";
-        serverURL += "/html";
-        // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        serverURL += "?" + query.toString();
-
-        let response: Response = await fetch(serverURL);
-        let responseText: string = await response.text();
-        let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponseHTML");
-        serverResponse.innerHTML = responseText;
-    }
+ 
 
 }

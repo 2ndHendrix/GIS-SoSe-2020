@@ -13,8 +13,6 @@ var PrüfungsaufgabeGiS;
     if (!port)
         port = 8100;
     let databaseUrl = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/test?retryWrites=true&w=majority";
-    let server = Http.createServer();
-    server.addListener("request", handleRequest);
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -69,8 +67,8 @@ var PrüfungsaufgabeGiS;
         _response.write(JSON.stringify(ordersArray));
     }
     async function handleHTML(_response) {
-        let ordersArray = await orders.find().toArray();
-        _response.write(JSON.stringify(ordersArray));
+        let htmlArray = await orders.find().toArray();
+        _response.write(JSON.stringify(htmlArray));
     }
 })(PrüfungsaufgabeGiS = exports.PrüfungsaufgabeGiS || (exports.PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=server.js.map

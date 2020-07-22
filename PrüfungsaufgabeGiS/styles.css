@@ -60,8 +60,12 @@ body{
 
 a:hover {
     background-color: pink;
+    background-image: url(../PrüfungsaufgabeGiS/pictures/ice-cream-icon2.png);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 3px;
     padding: 8.5px;
-    padding-left: 17px;
+    padding-left: 25px;
 }
 
 nav {
@@ -112,25 +116,31 @@ img#logo {
 button#deleteAll {
     position: fixed;
     font-family: cursive;
-    top: 240px;
+    top: 680px;
     right: 1170px;
     background-color: cadetblue;
     color: white;
     padding: 10px;
     border: black 2px;
     z-index: 100;
+    width: 300px;
+
 }
 
 button#deleteAll:hover {
     font-family: cursive;
     position: fixed;
-    top: 240px;
+    top: 680px;
     right: 1170px;
     background-color: pink;
     color: white;
     padding: 10px;
     border: black 2px;
     z-index:100;
+    width: 300px;
+
+    box-shadow: 2px 2px 1px 0px grey;
+
 
 }
 button#send {
@@ -200,7 +210,7 @@ button#getHTML:hover {
 
 p#gesamt {
     position: fixed;
-    top: 274px;
+    top: 234px;
     right: 1169px;
     background-color: pink;
     padding: 15px;
@@ -210,7 +220,7 @@ p#gesamt {
 }
 p#gesatmText {
     position: fixed;
-    top: 274px;
+    top: 234px;
     right: 1275px;
     background-color: pink;
     padding: 15px;
@@ -250,22 +260,25 @@ input#plz {
     padding: 16px;
     border: black 2px;
     position: relative;
-    bottom: 90px;
+    bottom: 100px;
     right: 15px;
-    margin-left: 10px;
+    margin-left: 8px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .artikel button:hover {
     font-family: cursive;
+    margin-bottom: 30px;
     background-color: pink;
     color: black;
-    padding:5px;
-    border: black 2px;
-    margin-bottom: 30px;
     padding: 16px;
+    border: black 2px;
     position: relative;
-    bottom: 90px;
+    bottom: 100px;
     right: 15px;
+    margin-left: 8px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 2px 2px 1px 0px grey;
 }
 
 
@@ -283,7 +296,7 @@ div#vorschau {
     height: 400px;
     position: fixed;
     left: 50px;
-    top: 330px;
+    top: 290px;
 }
 
         h3#kategorie_vorschau {
@@ -439,13 +452,16 @@ h4 {
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
-    top: -27px;
+    top: -22px;
     font-size: 22px;
     font-family: cursive;
-    background-color: lightblue;
+    background-color: cadetblue;
     padding-bottom: 30px;
-    max-width: 91%;
+    max-width: 87%;
     border-radius: 10px;
+    left: 4px;
+    box-shadow: 2px 2px 1px 0px grey;
+
 }
 
 .artikel p {
@@ -455,9 +471,11 @@ h4 {
     bottom: 75px;
     font-size: 30px;
     font-family: cursive;
-    background-color: lightblue;
-    border-radius: 20px;
-    max-width: 91%;
+    background-color: cadetblue;
+    max-width: 87%;
+    left: 4px;
+    box-shadow: 2px 2px 1px 0px grey;
+
 }
 
 h3#kategorie_waffel {
@@ -613,14 +631,14 @@ h4#footer p {
 div#Kirsche>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -10px;
     width: 50px;
     font-size: x-small;     
 }
 div#Klassisch>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -6px;
     width: 50px;
     font-size: x-small;
 }
@@ -634,56 +652,56 @@ div#Pappbecher>p {
 div#Schokolade>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -2px;
     width: 50px;
     font-size: x-small;
 }
 div#Früchte>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -10px;
     width: 50px;
     font-size: x-small;
 }
 div#Mango>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -10px;
     width: 50px;
     font-size: x-small;
 }
 div#Vanille>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -10px;
     width: 50px;
     font-size: x-small;
 }
 div#Schoko-Streusel>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -7px;
     width: 50px;
     font-size: x-small;
 }
 div#Schoko-Soße>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -7px;
     width: 50px;
     font-size: x-small;
 }
 div#Bunte-Streusel>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -8px;
     width: 50px;
     font-size: x-small;
 }
 div#Nougat>p {
     position: relative;
     left: 10px;
-    margin-left: 0px;
+    margin-left: -10px;
     width: 50px;
     font-size: x-small;
 }

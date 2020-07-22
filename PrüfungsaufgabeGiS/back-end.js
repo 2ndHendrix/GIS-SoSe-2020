@@ -27,8 +27,8 @@ var PrüfungsaufgabeGiS;
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         serverURL += "?" + query.toString();
-        let response = await fetch(serverURL);
-        let responseText = await response.text();
+        let responseHTML = await fetch(serverURL);
+        let responseText = await responseHTML.text();
         let serverResponse = document.getElementById("serverResponseHTML");
         serverResponse.innerHTML = responseText;
     }
