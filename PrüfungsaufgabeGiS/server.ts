@@ -1,7 +1,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
-//import { ParsedUrlQuery } from "querystring";
+//import { Http2ServerResponse } from "http2";
 
 export namespace PrüfungsaufgabeGiS {
   // tslint:disable-next-line: class-name
@@ -19,7 +19,7 @@ export namespace PrüfungsaufgabeGiS {
     port = 8100;
 
 
- // let databaseUrl: string = "mongodb://localhost:27018";
+  // let databaseUrl: string = "mongodb://localhost:27018";
 
   let databaseUrl: string = "mongodb+srv://2ndHendrix:Hendrix1994@gis-sose-2020.tbx6g.mongodb.net/Eisladen?retryWrites=true&w=majority";
 
@@ -57,25 +57,37 @@ export namespace PrüfungsaufgabeGiS {
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       let path: string = <string>url.pathname;
+
+      if (path == "/delete") {
+        await deleteData(_response);
+
+      }
       if (path == "/send") {
-
         console.log(url.query);
-        console.log("if und so");
         orders.insertOne(url.query);
-      } else if (path == "/get") {
-
+      }
+      else if (path == "/get") {
         await receiveDatas(_response);
       }
       //response abschließen
       _response.end();
-      console.log("server Response biaaatch");
-
     }
   }
 
-  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
-    console.log("was auch immer");
+  async function deleteData(_response: Http.ServerResponse): Promise<void> {
+    let jsonString: String = "";
+    // tslint:disable-next-line: typedef
+    orders.find().toArray(function (error: Mongo.MongoError, results: String[]) {
+      if (error) { throw error; }
 
+      for (let i: number = 0; i < results.length; i++) {
+        jsonString += JSON.stringify(orders.deleteOne(results[results.length - 1]));
+      }
+      _response.write(jsonString);
+    });
+  }
+
+  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
     //tslint:disable-next-line: no-any
     receivedData = await orders.find().toArray();
     for (let index: number = 0; index <= receivedData.length; index++) {

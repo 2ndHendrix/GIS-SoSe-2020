@@ -4,10 +4,7 @@ var PrüfungsaufgabeGiS;
     window.addEventListener("load", init);
     let getData = document.getElementById("get");
     getData.addEventListener("click", getButtonfunction);
-    /*    let deleteButton: HTMLButtonElement = <HTMLButtonElement>.document.getElementById("deleteButton");
-        deleteButton.addEventListener("click", buttonDeleteFunction);
-    
-        */
+    document.getElementById("buttonDelete")?.addEventListener("click", communicateDelete);
     // tslint:disable-next-line: no-empty
     function init(_event) {
     }
@@ -25,8 +22,9 @@ var PrüfungsaufgabeGiS;
         document.getElementById("serverResponse").innerHTML = response2;
         console.log("response");
     }
-    /* async function buttonDeleteFunction(): Promise<void> {
-
-     } */
+    async function communicateDelete() {
+        let url = "https://manusfirstapp.herokuapp.com/delete";
+        await fetch(url);
+    }
 })(PrüfungsaufgabeGiS || (PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=back-end.js.map

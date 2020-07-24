@@ -4,7 +4,7 @@ exports.PrüfungsaufgabeGiS = void 0;
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-//import { ParsedUrlQuery } from "querystring";
+//import { Http2ServerResponse } from "http2";
 var PrüfungsaufgabeGiS;
 (function (PrüfungsaufgabeGiS) {
     console.log("Server starten");
@@ -44,9 +44,11 @@ var PrüfungsaufgabeGiS;
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             let path = url.pathname;
+            if (path == "/delete") {
+                await deleteData(_response);
+            }
             if (path == "/send") {
                 console.log(url.query);
-                console.log("if und so");
                 orders.insertOne(url.query);
             }
             else if (path == "/get") {
@@ -54,11 +56,22 @@ var PrüfungsaufgabeGiS;
             }
             //response abschließen
             _response.end();
-            console.log("server Response biaaatch");
         }
     }
+    async function deleteData(_response) {
+        let jsonString = "";
+        // tslint:disable-next-line: typedef
+        orders.find().toArray(function (error, results) {
+            if (error) {
+                throw error;
+            }
+            for (let i = 0; i < results.length; i++) {
+                jsonString += JSON.stringify(orders.deleteOne(results[results.length - 1]));
+            }
+            _response.write(jsonString);
+        });
+    }
     async function receiveDatas(_response) {
-        console.log("was auch immer");
         //tslint:disable-next-line: no-any
         receivedData = await orders.find().toArray();
         for (let index = 0; index <= receivedData.length; index++) {
