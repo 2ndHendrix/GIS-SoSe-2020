@@ -67,12 +67,12 @@ namespace PrüfungsaufgabeGiS {
         //Preis berechnen  
         let price: HTMLParagraphElement = document.createElement("p");
         newDiv.appendChild(price);
-        price.innerHTML = "" + _inputArticle.preis.toFixed(2) + "€";
+        price.innerHTML = "" + _inputArticle;
         newDiv.setAttribute("preis", price.innerHTML);
     }
 
     //Vollen Preis anzeigen
     function setPreisGesamt(): void {
-        preisGesamt.innerHTML = "" + vollerPreis;
+        preisGesamt.innerHTML = "" + vollerPreis.toFixed(2) + "€";
     }
 }

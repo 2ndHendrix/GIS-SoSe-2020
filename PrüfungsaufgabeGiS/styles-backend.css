@@ -226,3 +226,28 @@ div#Bunte-Streusel>img{
     left: 100px;
     top:30px;
 }
+
+
+.divider {
+    background-image: url(pictures/backgrounds/bg-img3.jpeg);
+    width: 1600px;
+    height: 36px;
+    margin-top: 20px;
+    position: fixed;
+    left: 0px;
+    top: 150px;
+    opacity: 75%;
+}
+
+footer {
+    background-image: url(pictures/backgrounds/footer-bg-img.jpg);
+    position: relative;
+    top: 395px;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+    width: 100%;
+    display: block;
+    z-index: -10;
+    height: 200px;
+}

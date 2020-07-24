@@ -12,7 +12,7 @@ body{
 }
 
 .header-contain {
-    height: 200px;
+    height: 216px;
     z-index: 3;
     position: fixed;
     width: 100%;
@@ -31,8 +31,8 @@ body{
 
 .main-text span.border {
     position: relative;
-    top: 150px;
-    background-color: bisque;
+    top: 170px;
+    background-color: pink;
     color: #fff;
     padding: 18px;
     font-size: 50px;
@@ -43,7 +43,7 @@ body{
 
 .divider {
     background-image: url(pictures/backgrounds/bg-img3.jpeg);
-    width: 1500px;
+    width: 1600px;
     height: 36px;
     margin-top: 20px;
     position: fixed;
@@ -86,6 +86,14 @@ a{
     bottom: 5px;
 }
 
+img#cart {
+    width: 30px;
+    height: auto;
+    position: relative;
+    bottom:15px;
+    left:3px;
+}
+
 img#a3 {
     height: 20px;
     width: 20px;
@@ -103,7 +111,7 @@ img#a3:hover{
 img#logo {
     position: absolute;
     left: 0px;
-    top: -16px;
+    top: -2px;
     z-index: 99;
 }
 
@@ -117,29 +125,27 @@ button#deleteAll {
     position: fixed;
     font-family: cursive;
     top: 680px;
-    right: 1170px;
-    background-color: cadetblue;
+    right: 1321px;
     color: white;
     padding: 10px;
     border: black 2px;
-    z-index: 100;
-    width: 300px;
-
+    z-index: 80;
+    width: 145px;
+    background-color: cadetblue;
 }
 
 button#deleteAll:hover {
-    font-family: cursive;
     position: fixed;
+    font-family: cursive;
     top: 680px;
-    right: 1170px;
-    background-color: pink;
+    right: 1321px;
     color: white;
     padding: 10px;
     border: black 2px;
-    z-index:100;
-    width: 300px;
-
-    box-shadow: 2px 2px 1px 0px grey;
+    z-index: 80;
+    width: 143px;
+    background-color: pink;
+    box-shadow: 0px 2px 1px 0px grey;
 
 
 }
@@ -173,7 +179,8 @@ button#get {
     border: black 2px;
     position: relative;
     width: 140px;
-    top: 250px;
+    top: 190px;
+    left: -700px;
 }
 
 button#get:hover {
@@ -184,12 +191,12 @@ button#get:hover {
     padding: 16px;
     border: black 2px;
     position: relative;
-    width: 140px;
-    top: 250px;
+    top: 190px;
+    left: -700px;
 
 }
 
-button#getHTML {
+button#deleteButton {
     font-family: cursive;
     margin-bottom: 30px;
     background-color: cadetblue;
@@ -198,10 +205,11 @@ button#getHTML {
     border: black 2px;
     position: relative;
     width: 140px;
-    top: 250px;
+    top: 190px;
+    left: -700px;
 }
 
-button#getHTML:hover {
+button#deleteButton:hover {
     font-family: cursive;
     margin-bottom: 30px;
     background-color: pink;
@@ -210,14 +218,57 @@ button#getHTML:hover {
     border: black 2px;
     position: relative;
     width: 140px;
-    top: 250px;
+    top: 190px;
+    left: -700px;
+}
+
+h3#checkout{
+    font-size: 20px;
+    position: relative;
+    left: -30px;
+    top: 200px;
+}
+
+h3#bestellungen {
+    font-size: 20px;
+    position: relative;
+    left: -30px;
+    top: -90px;
+}
+
+p#toWarenkorbp {
+    position: fixed;
+    top: 664px;
+    right: 1180px;
+    width: 143px;
+    height: 38px;
+    z-index: 99;
+    background-color: cadetblue;
 
 }
+
+p#toWarenkorbp:hover {
+    position: fixed;
+    top: 664px;
+    right: 1180px;
+    width: 143px;
+    height: 38px;
+    z-index: 99;
+    background-color: pink;
+    box-shadow: 0px 2px 1px 0px grey;
+
+}
+
+
+a#toWarenkorb {
+    position: relative;
+}
+
 
 p#gesamt {
     position: fixed;
     top: 234px;
-    right: 1169px;
+    right: 1180px;
     background-color: pink;
     padding: 15px;
     padding-right: 21px;
@@ -298,12 +349,13 @@ img {
 div#vorschau {
     border: aliceblue;
     background-color: aliceblue;
-    width: 300px;
+    width: 290px;
     height: 400px;
     position: fixed;
     left: 50px;
     top: 290px;
 }
+
 
         h3#kategorie_vorschau {
             position: fixed;
@@ -492,7 +544,7 @@ h3#kategorie_waffel {
 }
 
 .order {
-    background-image: url(pictures/backgrounds/bg-img3.jpeg);
+    background-image: url(pictures/backgrounds/tropical-island.jpg);
     background-size: cover;
     max-width: 800px;
     max-height: 800px;
@@ -500,16 +552,14 @@ h3#kategorie_waffel {
     padding: 32px 34px 32px 32px;
     width: 570px;
     position: relative;
-    top: 320px;
+    top: 210px;
 }
 
 .order-backend {
-    position: relative;
-    background-color: white;
-    opacity: 75%;
+    position: fixed;
     width: 800px;
     height: 350px;
-    left: 20%;
+    left: 7%;
     top: 250px;
 }
 
@@ -597,20 +647,12 @@ input#dataGet {
 
 div#serverResponse {
     position: relative;
-    top: 95px;
+    top: 225px;
     height: 50%;
     margin: 16px;
-    font-size: small;
+    font-size: x-large;
+    border: black 5px;
 }
-
-div#serverResponseHTML {
-    position: relative;
-    top: 95px;
-    height: 50%;
-    margin: 16px;
-    font-size: small;
-}
-
 
 footer {
     background-image: url(pictures/backgrounds/footer-bg-img.jpg);
@@ -623,6 +665,26 @@ footer {
     display: block;
     z-index: -10;
     height: 200px;
+}
+
+h5#footer {
+    position: relative;
+    top: 120px;
+    left: 5%;
+    margin-right: 70px;
+    display: inline;
+    font-size: 35px;
+    color: black;
+}
+
+p#footer {
+    position: relative;
+    top: 120px;
+    left: 5%;
+    margin-right: 70px;
+    display: inline;
+    font-size: 15px;
+    color: black;
 }
 
 a#footera{

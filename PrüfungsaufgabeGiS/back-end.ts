@@ -5,6 +5,11 @@ namespace PrüfungsaufgabeGiS {
     let getData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
     getData.addEventListener("click", getButtonfunction);
 
+/*    let deleteButton: HTMLButtonElement = <HTMLButtonElement>.document.getElementById("deleteButton");
+    deleteButton.addEventListener("click", buttonDeleteFunction);
+
+    */
+
     // tslint:disable-next-line: no-empty
     function init(_event: Event): void {
 
@@ -27,4 +32,7 @@ namespace PrüfungsaufgabeGiS {
         console.log("response");
         }
 
+       /* async function buttonDeleteFunction(): Promise<void> {
+
+        } */
 }

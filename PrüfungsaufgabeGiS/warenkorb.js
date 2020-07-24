@@ -52,12 +52,12 @@ var PrüfungsaufgabeGiS;
         //Preis berechnen  
         let price = document.createElement("p");
         newDiv.appendChild(price);
-        price.innerHTML = "" + _inputArticle.preis.toFixed(2) + "€";
+        price.innerHTML = "" + _inputArticle;
         newDiv.setAttribute("preis", price.innerHTML);
     }
     //Vollen Preis anzeigen
     function setPreisGesamt() {
-        preisGesamt.innerHTML = "" + vollerPreis;
+        preisGesamt.innerHTML = "" + vollerPreis.toFixed(2) + "€";
     }
 })(PrüfungsaufgabeGiS || (PrüfungsaufgabeGiS = {}));
 //# sourceMappingURL=warenkorb.js.map
