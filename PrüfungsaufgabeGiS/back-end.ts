@@ -5,7 +5,7 @@ namespace PrüfungsaufgabeGiS {
     let getData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
     getData.addEventListener("click", getButtonfunction);
 
-    document.getElementById("buttonDelete")?.addEventListener("click", communicateDelete);
+    document.getElementById("delete")?.addEventListener("click", communicateDelete);
 
     // tslint:disable-next-line: no-empty
     function init(_event: Event): void {
@@ -29,8 +29,22 @@ namespace PrüfungsaufgabeGiS {
         console.log("response");
     }
 
-    async function communicateDelete(): Promise<void> {
-        let url: string = "https://manusfirstapp.herokuapp.com/delete";
-        await fetch(url);
-    }
+    async function communicateDelete(_click: MouseEvent): Promise <void> { 
+        // let url: string = "http://localhost:8100";
+        let url: string = "https://compaktdisk.herokuapp.com";
+        let formData: FormData = new FormData(document.forms[0]);
+        
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+               
+        url += "/delete";
+        url += "?" + query.toString();
+        //console.log(url);
+        
+        let response: Response = await fetch(url);
+        console.log(response);
+       // response.innerHTML = "Database cleared";
+        }
+
+    
 }

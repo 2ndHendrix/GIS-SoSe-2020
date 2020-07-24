@@ -45,9 +45,9 @@ var PrüfungsaufgabeGiS;
             let url = Url.parse(_request.url, true);
             let path = url.pathname;
             if (path == "/delete") {
-                await deleteData(_response);
+                orders.drop();
             }
-            if (path == "/send") {
+            else if (path == "/send") {
                 console.log(url.query);
                 orders.insertOne(url.query);
             }
@@ -57,19 +57,6 @@ var PrüfungsaufgabeGiS;
             //response abschließen
             _response.end();
         }
-    }
-    async function deleteData(_response) {
-        let jsonString = "";
-        // tslint:disable-next-line: typedef
-        orders.find().toArray(function (error, results) {
-            if (error) {
-                throw error;
-            }
-            for (let i = 0; i < results.length; i++) {
-                jsonString += JSON.stringify(orders.deleteOne(results[results.length - 1]));
-            }
-            _response.write(jsonString);
-        });
     }
     async function receiveDatas(_response) {
         //tslint:disable-next-line: no-any

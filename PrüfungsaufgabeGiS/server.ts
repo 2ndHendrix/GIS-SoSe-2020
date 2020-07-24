@@ -57,12 +57,12 @@ export namespace PrüfungsaufgabeGiS {
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       let path: string = <string>url.pathname;
-
+ 
       if (path == "/delete") {
-        await deleteData(_response);
-
-      }
-      if (path == "/send") {
+        orders.drop();
+        
+        }
+      else if (path == "/send") {
         console.log(url.query);
         orders.insertOne(url.query);
       }
@@ -72,19 +72,6 @@ export namespace PrüfungsaufgabeGiS {
       //response abschließen
       _response.end();
     }
-  }
-
-  async function deleteData(_response: Http.ServerResponse): Promise<void> {
-    let jsonString: String = "";
-    // tslint:disable-next-line: typedef
-    orders.find().toArray(function (error: Mongo.MongoError, results: String[]) {
-      if (error) { throw error; }
-
-      for (let i: number = 0; i < results.length; i++) {
-        jsonString += JSON.stringify(orders.deleteOne(results[results.length - 1]));
-      }
-      _response.write(jsonString);
-    });
   }
 
   async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
@@ -102,6 +89,6 @@ export namespace PrüfungsaufgabeGiS {
       }
     }
   }
-
 }
+
 

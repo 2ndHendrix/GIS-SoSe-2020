@@ -196,7 +196,7 @@ button#get:hover {
 
 }
 
-button#deleteButton {
+button#delete {
     font-family: cursive;
     margin-bottom: 30px;
     background-color: cadetblue;
@@ -209,7 +209,7 @@ button#deleteButton {
     left: -700px;
 }
 
-button#deleteButton:hover {
+button#delete:hover {
     font-family: cursive;
     margin-bottom: 30px;
     background-color: pink;

@@ -23,7 +23,7 @@ namespace PrüfungsaufgabeGiS {
 
     async function sendButtonfunction(): Promise<void> {
         formData = new FormData(document.forms[0]);
-       // let url: string = "http://localhost:8100/send";
+         // let url: string = "http://localhost:8100/send";
         let url: string = "https://manusfirstapp.herokuapp.com/send";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
